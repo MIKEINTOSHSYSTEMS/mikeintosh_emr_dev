@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Top menu item -->
+    <menuitem name="Documentation" id="menu_main_document_management"  parent="yan_hims_start.main_menu_documentation" />
+
+    <menuitem name="Documents" id="menu_document_document" parent="menu_main_document_management" sequence="20" action="action_ir_attachment"/>
+    <menuitem name="Directory" id="menu_document_directory" parent="menu_main_document_management" sequence="20" action="action_document_directory"/>
+    <menuitem name="Tags" id="menu_yan_document_tag" parent="menu_main_document_management" action="action_yan_document_tag"/>
+
+</odoo>

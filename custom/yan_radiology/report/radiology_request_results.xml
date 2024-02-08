@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="report_yan_radiology_result">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="req_doc">
+                <t t-foreach="req_doc.patient_test_ids" t-as="doc">
+                    <t t-call="yan_radiology.report_yan_radiology_test_document" t-lang="doc.sudo().patient_id.partner_id.lang"/>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_yan_radiology_results" model="ir.actions.report">
+        <field name="name">Radiology Results</field>
+        <field name="model">yan.radiology.request</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">yan_radiology.report_yan_radiology_result</field>
+        <field name="report_file">yan_radiology.report_yan_radiology_result</field>
+        <field name="print_report_name">(object._yan_get_report_base_filename())</field>
+        <field name="binding_model_id" ref="model_yan_radiology_request"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

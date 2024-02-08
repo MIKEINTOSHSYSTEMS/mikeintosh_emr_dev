@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="yan_radiology_category" model="ir.module.category">
+            <field name="name">Radiology System</field>
+            <field name="description">Manage Radiology Documents.</field>
+            <field name="sequence">11</field>
+            <field name="parent_id" ref="yan_hims_start.module_category_hms"/>
+        </record>
+
+        <!-- RADIOLOGY -->
+        <record id="group_hms_radiology_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="yan_radiology_category"/>
+            <field name="implied_ids" eval="[(4, ref('yan_hims_start.group_hms_user'))]"/>
+        </record>
+
+        <record id="group_hms_radiology_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="yan_radiology_category"/>
+            <field name="implied_ids" eval="[(4, ref('group_hms_radiology_user'))]"/>
+        </record>
+
+        <record id="base.user_admin" model="res.users">
+            <field name="groups_id" eval="[(4, ref('yan_radiology.group_hms_radiology_manager'))]"/>
+        </record>
+
+        <record id="yan_hims_start.group_hms_manager" model="res.groups">
+            <field name="implied_ids" eval="[(4, ref('yan_radiology.group_hms_radiology_manager'))]"/>
+        </record>
+
+    </data>
+    <data noupdate="0">
+
+        <!-- Radiology Req Rules-->
+        <!-- See Radiology Req -->
+        <record id="all_hms_radiology_request_rule" model="ir.rule">
+            <field name="name">All Radiology Requests</field>
+            <field name="model_id" ref="model_yan_radiology_request"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('group_hms_radiology_user'))]"/>
+        </record>
+        <!-- Radiology Result Rules-->
+        <record id="all_patient_radiology_test_rule" model="ir.rule">
+            <field name="name">All Radiology Result</field>
+            <field name="model_id" ref="model_patient_radiology_test"/>
+            <field name="domain_force">[(1,'=',1)]</field>
+            <field name="groups" eval="[(4, ref('group_hms_radiology_user'))]"/>
+        </record>
+
+        <record id="radiology_req_cal_comp_rule" model="ir.rule">
+            <field name="name">Radiology Request multi-company</field>
+            <field name="model_id" ref="model_yan_radiology_request"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+        <record id="radiology_test_comp_rule" model="ir.rule">
+            <field name="name">Patient Radiology Test multi-company</field>
+            <field name="model_id" ref="model_patient_radiology_test"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+        <record id="radiology_comp_rule" model="ir.rule">
+            <field name="name">Radiology Test multi-company</field>
+            <field name="model_id" ref="model_yan_radiology_test"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+        <record id="yan_radiology_comp_rule" model="ir.rule">
+            <field name="name">Radiology multi-company</field>
+            <field name="model_id" ref="model_yan_radiology"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <!-- Portal -->
+        <record id="hms_radiology_request_portal_rule_1" model="ir.rule">
+            <field name="name">Portal Patient's Own Radiology Req</field>
+            <field name="model_id" ref="yan_radiology.model_yan_radiology_request"/>
+            <field name="domain_force">[('patient_id.partner_id','=',user.commercial_partner_id.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_create" eval="False"/>
+        </record>
+
+        <record id="hms_radiology_test_portal_rule_1" model="ir.rule">
+            <field name="name">Portal Patient's Own Radiology test</field>
+            <field name="model_id" ref="yan_radiology.model_patient_radiology_test"/>
+            <field name="domain_force">['|',('radiology_request_id.patient_id.partner_id','=',user.commercial_partner_id.id),('patient_id.partner_id','=',user.commercial_partner_id.id)]</field>
+            <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+            <field name="perm_unlink" eval="False"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_create" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

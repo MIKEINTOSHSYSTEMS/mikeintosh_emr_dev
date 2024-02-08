@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+<!--    &lt;!&ndash; Surgery &ndash;&gt; -->
+<!--    <menuitem id="main_menu_surgery" name="Surgery" sequence="26" groups="yan_hims_surgery.group_yan_hms_surgery_user" web_icon="yan_hms_surgery,static/description/icon.png"/>-->
+<!-- -->
+<!--    <menuitem id="menu_surgery" name="Surgery" action="action_hms_surgery" parent="main_menu_surgery"/>-->
+
+<!--    <menuitem id="menu_package" name="Package" action="yan_hms_package_action" parent="main_menu_surgery"/>-->
+
+<!--    &lt;!&ndash; Configuration &ndash;&gt;-->
+<!--    <menuitem id="menu_surgery_cofig" name="Configuration" parent="main_menu_surgery" sequence="50" groups="yan_hims_surgery.group_yan_hms_surgery_manager"/>-->
+
+<!--    <menuitem id="conf_pre_operative_check_list" name="Pre-Operative Checklist" parent="menu_surgery_cofig" action="action_check_list_conf_view"/>-->
+
+<!--    <menuitem id="yan_health_surgery_template" name="Surgery Template" action="yan_hims_surgery.action_hms_surgery_template" parent="menu_surgery_cofig" sequence="27" />-->
+
+<!--    <menuitem id="menu_yan_hms_anesthesia" name="Anesthesia" action="yan_hims_surgery.action_yan_hms_anesthesia" parent="menu_surgery_cofig" sequence="35" />-->
+
+</odoo>

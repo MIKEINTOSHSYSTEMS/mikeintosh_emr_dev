@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_yan_product_kit_line_tree" model="ir.ui.view">
+        <field name="name">yan.product.kit.line.tree</field>
+        <field name="model">yan.product.kit.line</field>
+        <field name="arch" type="xml">
+            <tree string="Kit Components" editable="bottom">
+                <field name="sequence" widget="handle"/>
+                <field name="product_id"/>
+                <field name="uom_id"/>
+                <field name="product_qty"/>
+                <field name="standard_price" optional="hide"/>
+                <field name="total_standard_price" sum="Total" optional="hide"/>
+                <field name="unit_price"/>
+                <field name="total_price" sum="Total"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_yan_product_kit_line_form" model="ir.ui.view">
+        <field name="name">yan.product.kit.line.form</field>
+        <field name="model">yan.product.kit.line</field>
+        <field name="arch" type="xml">
+            <form string="Product Kit">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="product_id"/>
+                            <field name="product_qty"/>
+                            <field name="uom_id"/>
+                            <field name="unit_price"/>
+                            <field name="total_price" sum="Total"/>
+                        </group>
+                        <group>
+                            <field name="product_template_id"/>
+                            <field name="yan_kit_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_yan_product_kit_tree" model="ir.ui.view">
+        <field name="name">yan.product.kit.tree</field>
+        <field name="model">yan.product.kit</field>
+        <field name="arch" type="xml">
+            <tree string="Product Kits">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_yan_product_kit_form" model="ir.ui.view">
+        <field name="name">yan.product.kit.form</field>
+        <field name="model">yan.product.kit</field>
+        <field name="arch" type="xml">
+            <form string="Product Kit">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" string="Name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="Product Kit Name"/>
+                        </h1>
+                    </div>
+                    <field name="yan_kit_line_ids"/>
+                    <separator string="Description"/>
+                    <field name="description" placeholder="Description..."/>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_yan_product_kit" model="ir.actions.act_window">
+        <field name="name">Product Kits</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">yan.product.kit</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Record Found
+            </p>
+            <p>
+                Click to add Product Kit.
+            </p>
+        </field>
+    </record>
+
+    <record id="product_template_form_view_kit_inherit" model="ir.ui.view">
+        <field name="name">product.template.kit.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view"/>
+        <field name="arch" type="xml">
+            <div name="options" position="inside">
+                <span class="d-inline-block">
+                    <field name="is_kit_product"/>
+                    <label for="is_kit_product"/>
+                </span>
+            </div>
+            <xpath expr="//notebook" position="inside">
+                <page name="yan_kit_components" string="Kit Components" attrs="{'invisible': [('is_kit_product','=',False)]}">
+                    <field name="yan_kit_line_ids"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="name">product.template.kit.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='variants']" position="attributes">
+                <attribute name="attrs">{'invisible': [('is_kit_product','=',True)]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="product_template_search_view" model="ir.ui.view">
+        <field name="name">product.template.search</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <filter name="filter_to_sell" position="after">
+                <filter string="Is Kit Product" name="filter_is_kit_product" domain="[('is_kit_product','=',True)]"/>
+            </filter>
+        </field>
+    </record>
+
+</odoo>

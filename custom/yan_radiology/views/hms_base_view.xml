@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Patient -->
+    <record id="hms_patient_view_radiology_test" model="ir.ui.view">
+        <field name="name">Patient Radiology Test</field>
+        <field name="model">hms.patient</field>
+        <field name="inherit_id" ref="yan_hims_start.view_patient_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="action_radiology_requests" class="oe_stat_button" icon="fa-th-list" type="object" title="Radiology Requests" groups="yan_radiology.group_hms_radiology_user">
+                    <field string="Radiology Requests" name="radiology_request_count" widget="statinfo"/>
+                </button>
+                <button name="action_view_test_results" class="oe_stat_button" icon="fa-flask" type="object" title="Radiology Test Results" groups="yan_radiology.group_hms_radiology_user">
+                    <field string="Radiology Test Results" name="radiology_test_count" widget="statinfo"/>
+                </button>
+            </div>
+        </field>
+    </record>
+
+    <record id="view_physician_form" model="ir.ui.view">
+        <field name="name">physician.form</field>
+        <field name="model">hms.physician</field>
+        <field name="inherit_id" ref="yan_hims_start.view_physician_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="action_radiology_request" type="object" groups="yan_radiology.group_hms_radiology_user" class="oe_stat_button" icon="fa-th-list">
+                    <field string="Radiology Request" name="radiology_request_count" widget="statinfo"/>
+                </button>
+
+                <button name="action_radiology_result" type="object" groups="yan_radiology.group_hms_radiology_user" class="oe_stat_button" icon="fa-flask">
+                    <field string="Radiology Result" name="radiology_result_count" widget="statinfo"/>
+                </button>
+            </div>
+        </field>
+    </record>
+
+    <record id="view_move_form" model="ir.ui.view">
+        <field name="name">account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="yan_hims_start.view_move_form"/>
+        <field name="arch" type="xml">
+            <field name="hospital_invoice_type" position="before">
+                <field name="radiology_request_id"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

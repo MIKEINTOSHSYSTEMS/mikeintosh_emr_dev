@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Radiology Root Menu -->
+    <menuitem id="menu_radiology" name="Radiology" sequence="35" web_icon="yan_radiology,static/src/img/icon.png" groups="yan_radiology.group_hms_radiology_user"/>
+    <menuitem id='menu_radiology_request' parent='menu_radiology' action='hms_action_radiology_request' sequence="10"/>
+    <menuitem id='menu_radiology_test_result' action='action_radiology_result' parent='menu_radiology' sequence="20"/>
+
+    <!-- Configuration -->
+    <menuitem id="menu_hms_radiology_cofig" name="Configuration" parent="menu_radiology" groups="yan_hims_start.group_hms_manager,yan_radiology.group_hms_radiology_manager" sequence="100"/>
+    <menuitem id='menu_radiology_test' parent='menu_hms_radiology_cofig' action='action_radiology_test' sequence="10"/>
+    <menuitem id='menu_yan_radiology_group' parent='menu_hms_radiology_cofig' action='action_radiology_group' sequence="40"/>
+
+</odoo>

@@ -1,0 +1,1441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="yan_hms_lab_service_0" model="product.product">
+            <field name="name">lab-Hema-CBS</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">600.0</field>
+            <field name="standard_price">600.0</field>
+        </record>
+
+        <record id="yan_lab_test_hematology_CBS" model="yan.lab.test">
+            <field name="name">CBC with diff count </field>
+            <field name="code">lab-Hema-CBS</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_hematology"/>
+            <field name="product_id" ref="yan_hms_lab_service_0"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_hematology_CBS_01" model="lab.test.critearea">
+            <field name="name">CBC</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="test_id" ref="yan_lab_test_hematology_CBS"/>
+        </record>
+
+        <!--        -->
+        <record id="yan_hms_lab_service_1" model="product.product">
+            <field name="name">lab-Hema-Peripheral</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">200.0</field>
+            <field name="standard_price">200.0</field>
+        </record>
+
+        <record id="yan_lab_test_hematology_peripheral" model="yan.lab.test">
+            <field name="name">Peripheral Morphology</field>
+            <field name="code">lab-Hema-Peripheral</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_hematology"/>
+            <field name="product_id" ref="yan_hms_lab_service_1"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+<!--         -->
+        <record id="yan_hms_lab_service_2" model="product.product">
+            <field name="name">lab-Hema-Blood-RH</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">200.0</field>
+            <field name="standard_price">200.0</field>
+        </record>
+
+        <record id="yan_lab_test_hematology_Blood_RH" model="yan.lab.test">
+            <field name="name">Blood group and Rh factor</field>
+            <field name="code">lab-Hema-Blood-RH</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_hematology"/>
+            <field name="product_id" ref="yan_hms_lab_service_2"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Blood_RH_01" model="lab.test.critearea">
+            <field name="name">Blood Group</field>
+            <field name="normal_range_male">A, B, AB, O</field>
+            <field name="normal_range_female">A, B, AB, O</field>
+            <field name="test_id" ref="yan_lab_test_hematology_Blood_RH"/>
+        </record>
+
+        <record id="lab_test_criteria_Blood_RH_02" model="lab.test.critearea">
+            <field name="name">Rh factor</field>
+            <field name="normal_range_male">Positive, Negative</field>
+            <field name="normal_range_female">Positive, Negative</field>
+            <field name="test_id" ref="yan_lab_test_hematology_Blood_RH"/>
+        </record>
+<!--            -->
+        <record id="yan_hms_lab_service_3" model="product.product">
+            <field name="name">lab-Hema-Coagulation</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">800.0</field>
+            <field name="standard_price">800.0</field>
+        </record>
+
+        <record id="yan_lab_test_hematology_Coagulation" model="yan.lab.test">
+            <field name="name">Coagulation profile</field>
+            <field name="code">lab-Hema-Coagulation</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_hematology"/>
+            <field name="product_id" ref="yan_hms_lab_service_3"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Coagulation_01" model="lab.test.critearea">
+            <field name="name">PT</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_00"/>
+            <field name="test_id" ref="yan_lab_test_hematology_Coagulation"/>
+        </record>
+
+        <record id="lab_test_criteria_Coagulation_02" model="lab.test.critearea">
+            <field name="name">APTT</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_21"/>
+            <field name="test_id" ref="yan_lab_test_hematology_Coagulation"/>
+        </record>
+
+        <record id="lab_test_criteria_Coagulation_02" model="lab.test.critearea">
+            <field name="name">INR</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_25"/>
+            <field name="test_id" ref="yan_lab_test_hematology_Coagulation"/>
+        </record>
+<!--   Hematology_Coombs   -->
+         <record id="yan_hms_lab_service_4" model="product.product">
+            <field name="name">lab-Hema-Coombs</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">350.0</field>
+            <field name="standard_price">350.0</field>
+        </record>
+
+        <record id="yan_lab_test_hematology_Coombs" model="yan.lab.test">
+            <field name="name">Coombs Test</field>
+            <field name="code">lab-Hema-Coombs</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_hematology"/>
+            <field name="product_id" ref="yan_hms_lab_service_4"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Coombs_01" model="lab.test.critearea">
+            <field name="name">Direct</field>
+            <field name="normal_range_male">Positive, Negative</field>
+            <field name="normal_range_female">Positive, Negative</field>
+            <field name="test_id" ref="yan_lab_test_hematology_Coombs"/>
+        </record>
+
+        <record id="lab_test_criteria_Coombs_02" model="lab.test.critearea">
+            <field name="name">Indirect</field>
+            <field name="normal_range_male">Positive, Negative</field>
+            <field name="normal_range_female">Positive, Negative</field>
+            <field name="test_id" ref="yan_lab_test_hematology_Coombs"/>
+        </record>
+<!-- Category  Clinical Chemistry -->
+        <record id="yan_hms_lab_service_5" model="product.product">
+            <field name="name">lab-Chem-Lipid</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">350.0</field>
+            <field name="standard_price">350.0</field>
+        </record>
+
+        <record id="yan_lab_test_Chem_Lipid" model="yan.lab.test">
+            <field name="name">Lipid Panel</field>
+            <field name="code">lab-Chem-Lipid</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_chemistry"/>
+            <field name="product_id" ref="yan_hms_lab_service_5"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Lipid_01" model="lab.test.critearea">
+            <field name="name">Total Cholesterol</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_13"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Lipid"/>
+        </record>
+
+        <record id="lab_test_criteria_Lipid_02" model="lab.test.critearea">
+            <field name="name">HDL and LDL Cholesterol</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_13"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Lipid"/>
+        </record>
+
+        <record id="lab_test_criteria_Lipid_03" model="lab.test.critearea">
+            <field name="name">Triglycerides</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_13"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Lipid"/>
+        </record>
+
+        <record id="lab_test_criteria_Lipid_04" model="lab.test.critearea">
+            <field name="name">Risk ratio</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_13"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Lipid"/>
+        </record>
+<!--        -->
+        <record id="yan_hms_lab_service_6" model="product.product">
+            <field name="name">lab-Chem-Hepatic</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">950.0</field>
+            <field name="standard_price">950.0</field>
+        </record>
+
+        <record id="yan_lab_test_Chem_Hepatic" model="yan.lab.test">
+            <field name="name">Hepatic Function Panel</field>
+            <field name="code">lab-Chem-Hepatic</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_chemistry"/>
+            <field name="product_id" ref="yan_hms_lab_service_6"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_hepatic_01" model="lab.test.critearea">
+            <field name="name">ALT</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_22"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Hepatic"/>
+        </record>
+
+        <record id="lab_test_criteria_hepatic_02" model="lab.test.critearea">
+            <field name="name">AST</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_22"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Hepatic"/>
+        </record>
+
+        <record id="lab_test_criteria_hepatic_03" model="lab.test.critearea">
+            <field name="name">Alkaline phosphate</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_22"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Hepatic"/>
+        </record>
+
+        <record id="lab_test_criteria_hepatic_04" model="lab.test.critearea">
+            <field name="name">Albumin</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_01"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Hepatic"/>
+        </record>
+
+         <record id="lab_test_criteria_hepatic_05" model="lab.test.critearea">
+            <field name="name">Bilirubin Total</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_13"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Hepatic"/>
+        </record>
+
+         <record id="lab_test_criteria_hepatic_06" model="lab.test.critearea">
+            <field name="name">Bilirubin Direct</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_13"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Hepatic"/>
+        </record>
+<!--        -->
+        <record id="yan_hms_lab_service_7" model="product.product">
+            <field name="name">lab-Chem-Renal</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">450.0</field>
+            <field name="standard_price">450.0</field>
+        </record>
+
+        <record id="yan_lab_test_Chem_Renal" model="yan.lab.test">
+            <field name="name">Renal Function Panel</field>
+            <field name="code">lab-Chem-Renal</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_chemistry"/>
+            <field name="product_id" ref="yan_hms_lab_service_7"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Renal_01" model="lab.test.critearea">
+            <field name="name">Urea</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_13"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Renal"/>
+        </record>
+
+        <record id="lab_test_criteria_Renal_02" model="lab.test.critearea">
+            <field name="name">Creatinine</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_13"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Renal"/>
+        </record>
+
+        <record id="lab_test_criteria_Renal_03" model="lab.test.critearea">
+            <field name="name">Albumin</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_01"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Renal"/>
+        </record>
+
+        <record id="lab_test_criteria_Renal_04" model="lab.test.critearea">
+            <field name="name">Total Protein</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="test_id" ref="yan_lab_test_Chem_Renal"/>
+        </record>
+<!--       -->
+        <record id="yan_hms_lab_service_8" model="product.product">
+            <field name="name">lab-Chem-Diabetic</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">550.0</field>
+            <field name="standard_price">550.0</field>
+        </record>
+
+        <record id="yan_lab_test_Chem_Diabetic" model="yan.lab.test">
+            <field name="name">Diabetic Panel</field>
+            <field name="code">lab-Chem-Diabetic</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_chemistry"/>
+            <field name="product_id" ref="yan_hms_lab_service_8"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Diabetic_01" model="lab.test.critearea">
+            <field name="name">FBS</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_13"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Diabetic"/>
+        </record>
+
+        <record id="lab_test_criteria_Diabetic_02" model="lab.test.critearea">
+            <field name="name">RBS</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_13"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Diabetic"/>
+        </record>
+
+        <record id="lab_test_criteria_Diabetic_03" model="lab.test.critearea">
+            <field name="name">Hgb A1C</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_00"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Diabetic"/>
+        </record>
+<!--        -->
+        <record id="yan_hms_lab_service_9" model="product.product">
+            <field name="name">lab-Chem-Serum</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">1050.0</field>
+            <field name="standard_price">1050.0</field>
+        </record>
+
+        <record id="yan_lab_test_Chem_Serum" model="yan.lab.test">
+            <field name="name">Serum Electrolytes</field>
+            <field name="code">lab-Chem-Serum</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_chemistry"/>
+            <field name="product_id" ref="yan_hms_lab_service_9"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Serum_01" model="lab.test.critearea">
+            <field name="name">Ca+</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_13"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Serum"/>
+        </record>
+
+        <record id="lab_test_criteria_Serum_02" model="lab.test.critearea">
+            <field name="name">Cl-</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_06"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Serum"/>
+        </record>
+
+        <record id="lab_test_criteria_Serum_03" model="lab.test.critearea">
+            <field name="name">Na+</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_06"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Serum"/>
+        </record>
+
+        <record id="lab_test_criteria_Serum_04" model="lab.test.critearea">
+            <field name="name">K+</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_06"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Serum"/>
+        </record>
+
+        <record id="lab_test_criteria_Serum_05" model="lab.test.critearea">
+            <field name="name">CO2</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_06"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Serum"/>
+        </record>
+
+         <record id="lab_test_criteria_Serum_06" model="lab.test.critearea">
+            <field name="name">Mg</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_13"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Serum"/>
+        </record>
+
+         <record id="lab_test_criteria_Serum_07" model="lab.test.critearea">
+            <field name="name">Po4</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_13"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Serum"/>
+        </record>
+<!--        -->
+        <record id="yan_hms_lab_service_10" model="product.product">
+            <field name="name">lab-Chem-Iron</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">1150.0</field>
+            <field name="standard_price">1150.0</field>
+        </record>
+
+        <record id="yan_lab_test_Chem_Iron" model="yan.lab.test">
+            <field name="name">Total iron-binding capacity (TIBC) and Total Iron</field>
+            <field name="code">lab-Chem-Iron</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_chemistry"/>
+            <field name="product_id" ref="yan_hms_lab_service_10"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Iron_01" model="lab.test.critearea">
+            <field name="name">Total iron-binding capacity (TIBC)</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_23"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Iron"/>
+        </record>
+
+        <record id="lab_test_criteria_Iron_02" model="lab.test.critearea">
+            <field name="name">Total Iron</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_23"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Iron"/>
+        </record>
+<!--        -->
+        <record id="yan_hms_lab_service_11" model="product.product">
+            <field name="name">lab-Chem-Cholinesterase</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">450.0</field>
+            <field name="standard_price">450.0</field>
+        </record>
+
+        <record id="yan_lab_test_Chem_Cholinesterase" model="yan.lab.test">
+            <field name="name">Cholinesterase</field>
+            <field name="code">lab-Chem-Cholinesterase</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_chemistry"/>
+            <field name="product_id" ref="yan_hms_lab_service_11"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Cholinesterase_01" model="lab.test.critearea">
+            <field name="name">Cholinesterase</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_24"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Cholinesterase"/>
+        </record>
+<!--        -->
+        <record id="yan_hms_lab_service_12" model="product.product">
+            <field name="name">lab-Chem-Micro-Albumin</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">150.0</field>
+            <field name="standard_price">150.0</field>
+        </record>
+
+        <record id="yan_lab_test_Chem_Micro_Albumin" model="yan.lab.test">
+            <field name="name">Micro Albumin</field>
+            <field name="code">lab-Chem-Micro-Albumin</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_chemistry"/>
+            <field name="product_id" ref="yan_hms_lab_service_12"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Micro_Albumin_01" model="lab.test.critearea">
+            <field name="name">Micro-Albumin</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_25"/>
+            <field name="test_id" ref="yan_lab_test_Chem_Micro_Albumin"/>
+        </record>
+<!--  Serology   HBs Ag and HBs Ab   -->
+         <record id="yan_hms_lab_service_13" model="product.product">
+            <field name="name">lab-Sero-HBs</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">180.0</field>
+            <field name="standard_price">180.0</field>
+        </record>
+
+        <record id="yan_lab_test_Sero_HBs" model="yan.lab.test">
+            <field name="name">HBs Ag and HBs Ab</field>
+            <field name="code">lab-Sero-HBs</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_serology"/>
+            <field name="product_id" ref="yan_hms_lab_service_13"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Sero_HBs_01" model="lab.test.critearea">
+            <field name="name">HBs Ag</field>
+            <field name="normal_range_male">Positive, Negative</field>
+            <field name="normal_range_female">Positive, Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Sero_HBs"/>
+        </record>
+
+        <record id="lab_test_criteria_Sero_HBs_02" model="lab.test.critearea">
+            <field name="name">HBs Ab</field>
+            <field name="normal_range_male">Positive, Negative</field>
+            <field name="normal_range_female">Positive, Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Sero_HBs"/>
+        </record>
+
+<!--        HBe Ag and HBe Ab -->
+        <record id="yan_hms_lab_service_14" model="product.product">
+            <field name="name">lab-Sero-HBe</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">280.0</field>
+            <field name="standard_price">280.0</field>
+        </record>
+
+        <record id="yan_lab_test_Sero_HBe" model="yan.lab.test">
+            <field name="name">HBe Ag and HBe Ab</field>
+            <field name="code">lab-Sero-HBe</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_serology"/>
+            <field name="product_id" ref="yan_hms_lab_service_14"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Sero_HBe_01" model="lab.test.critearea">
+            <field name="name">HBe Ag</field>
+            <field name="normal_range_male">Positive, Negative</field>
+            <field name="normal_range_female">Positive, Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Sero_HBe"/>
+        </record>
+
+        <record id="lab_test_criteria_Sero_HBe_02" model="lab.test.critearea">
+            <field name="name">HBe Ab</field>
+            <field name="normal_range_male">Positive, Negative</field>
+            <field name="normal_range_female">Positive, Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Sero_HBe"/>
+        </record>
+<!--       HCV Ab -->
+         <record id="yan_hms_lab_service_15" model="product.product">
+            <field name="name">lab-Sero-HCV</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">580.0</field>
+            <field name="standard_price">580.0</field>
+        </record>
+
+        <record id="yan_lab_test_Sero_HCV" model="yan.lab.test">
+            <field name="name">HCV Ab</field>
+            <field name="code">lab-Sero-HCV</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_serology"/>
+            <field name="product_id" ref="yan_hms_lab_service_15"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Sero_HCV_01" model="lab.test.critearea">
+            <field name="name">HCV Ab</field>
+            <field name="normal_range_male">Positive, Negative</field>
+            <field name="normal_range_female">Positive, Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Sero_HCV"/>
+        </record>
+<!--       HIV Ab -->
+         <record id="yan_hms_lab_service_16" model="product.product">
+            <field name="name">lab-Sero-HIV</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">580.0</field>
+            <field name="standard_price">580.0</field>
+        </record>
+
+        <record id="yan_lab_test_Sero_HIV" model="yan.lab.test">
+            <field name="name">HIV Ab</field>
+            <field name="code">lab-Sero-HIV</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_serology"/>
+            <field name="product_id" ref="yan_hms_lab_service_16"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Sero_HIV_01" model="lab.test.critearea">
+            <field name="name">lab-Sero-HPylori</field>
+            <field name="normal_range_male">Positive, Negative</field>
+            <field name="normal_range_female">Positive, Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Sero_HIV"/>
+        </record>
+        <!--       HIV Ab -->
+         <record id="yan_hms_lab_service_17" model="product.product">
+            <field name="name">lab-Sero-HPylori</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">580.0</field>
+            <field name="standard_price">580.0</field>
+        </record>
+
+        <record id="yan_lab_test_Sero_HPylori" model="yan.lab.test">
+            <field name="name">H.Pylori</field>
+            <field name="code">lab-Sero-HPylori</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_serology"/>
+            <field name="product_id" ref="yan_hms_lab_service_17"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Sero_HPylori_01" model="lab.test.critearea">
+            <field name="name">H.Pylori Ag</field>
+            <field name="normal_range_male">Positive, Negative</field>
+            <field name="normal_range_female">Positive, Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Sero_HPylori"/>
+        </record>
+
+        <record id="lab_test_criteria_Sero_HPylori_02" model="lab.test.critearea">
+            <field name="name">H.Pylori Ab</field>
+            <field name="normal_range_male">Positive, Negative</field>
+            <field name="normal_range_female">Positive, Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Sero_HPylori"/>
+        </record>
+<!--      ANA -->
+         <record id="yan_hms_lab_service_18" model="product.product">
+            <field name="name">lab-Sero-ANA</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">580.0</field>
+            <field name="standard_price">580.0</field>
+        </record>
+
+        <record id="yan_lab_test_Sero_ANA" model="yan.lab.test">
+            <field name="name">ANA</field>
+            <field name="code">lab-Sero-ANA</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_serology"/>
+            <field name="product_id" ref="yan_hms_lab_service_18"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Sero_ANA_01" model="lab.test.critearea">
+            <field name="name">ANA</field>
+            <field name="normal_range_male">Positive, Negative</field>
+            <field name="normal_range_female">Positive, Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Sero_ANA"/>
+        </record>
+        <!--      VDRL -->
+         <record id="yan_hms_lab_service_19" model="product.product">
+            <field name="name">lab-Sero-VDRL</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">680.0</field>
+            <field name="standard_price">680.0</field>
+        </record>
+
+        <record id="yan_lab_test_Sero_VDRL" model="yan.lab.test">
+            <field name="name">VDRL</field>
+            <field name="code">lab-Sero-VDRL</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_serology"/>
+            <field name="product_id" ref="yan_hms_lab_service_19"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Sero_VDRL_01" model="lab.test.critearea">
+            <field name="name">RPR</field>
+            <field name="normal_range_male">Positive, Negative</field>
+            <field name="normal_range_female">Positive, Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Sero_VDRL"/>
+        </record>
+
+        <record id="lab_test_criteria_Sero_VDRL_02" model="lab.test.critearea">
+            <field name="name">TPHA</field>
+            <field name="normal_range_male">Positive, Negative</field>
+            <field name="normal_range_female">Positive, Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Sero_VDRL"/>
+        </record>
+<!--      Widal -->
+         <record id="yan_hms_lab_service_20" model="product.product">
+            <field name="name">lab-Sero-Widal</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">680.0</field>
+            <field name="standard_price">680.0</field>
+        </record>
+
+        <record id="yan_lab_test_Sero_Widal" model="yan.lab.test">
+            <field name="name">Widal</field>
+            <field name="code">lab-Sero-Widal</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_serology"/>
+            <field name="product_id" ref="yan_hms_lab_service_20"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Sero_Widal_01" model="lab.test.critearea">
+            <field name="name">Widal</field>
+            <field name="normal_range_male">Reactive/ Non-reactive</field>
+            <field name="normal_range_female">Reactive/ Non-reactive</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Sero_Widal"/>
+        </record>
+        <!--      Weil Felix -->
+         <record id="yan_hms_lab_service_21" model="product.product">
+            <field name="name">lab-Sero-Weil-Felix</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">780.0</field>
+            <field name="standard_price">780.0</field>
+        </record>
+
+        <record id="yan_lab_test_Sero_Weil_Felix" model="yan.lab.test">
+            <field name="name">Weil Felix</field>
+            <field name="code">lab-Sero-Weil-Felix</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_serology"/>
+            <field name="product_id" ref="yan_hms_lab_service_21"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Sero_Weil_Felix_01" model="lab.test.critearea">
+            <field name="name">Weil Felix</field>
+            <field name="normal_range_male">Reactive/Non-reactive</field>
+            <field name="normal_range_female">Reactive/Non-reactive</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Sero_Weil_Felix"/>
+        </record>
+<!--      Relapsing Fever -->
+         <record id="yan_hms_lab_service_22" model="product.product">
+            <field name="name">lab-Sero-Fever</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">380.0</field>
+            <field name="standard_price">380.0</field>
+        </record>
+
+        <record id="yan_lab_test_Sero_Fever" model="yan.lab.test">
+            <field name="name">Relapsing Fever</field>
+            <field name="code">lab-Sero-Fever</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_serology"/>
+            <field name="product_id" ref="yan_hms_lab_service_22"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Sero_Fever_01" model="lab.test.critearea">
+            <field name="name">Relapsing Fever</field>
+            <field name="normal_range_male">Positive, Negative</field>
+            <field name="normal_range_female">Positive, Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Sero_Fever"/>
+        </record>
+        <!--      ASO -->
+         <record id="yan_hms_lab_service_23" model="product.product">
+            <field name="name">lab-Sero-ASO</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">280.0</field>
+            <field name="standard_price">280.0</field>
+        </record>
+
+        <record id="yan_lab_test_Sero_ASO" model="yan.lab.test">
+            <field name="name">ASO</field>
+            <field name="code">lab-Sero-ASO</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_serology"/>
+            <field name="product_id" ref="yan_hms_lab_service_22"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Sero_ASO_01" model="lab.test.critearea">
+            <field name="name">ASO</field>
+            <field name="normal_range_male">Positive, Negative</field>
+            <field name="normal_range_female">Positive, Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Sero_ASO"/>
+        </record>
+<!--      Parasitology Category -->
+<!--        Direct Stool microscopy-->
+         <record id="yan_hms_lab_service_25" model="product.product">
+            <field name="name">lab-Parasite-microscopy</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">630.0</field>
+            <field name="standard_price">630.0</field>
+        </record>
+
+        <record id="yan_lab_test_Parasite_microscopy" model="yan.lab.test">
+            <field name="name">Direct Stool microscopy</field>
+            <field name="code">lab-Parasite-microscopy</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_parasitology"/>
+            <field name="product_id" ref="yan_hms_lab_service_25"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_feces"/>
+        </record>
+
+        <record id="lab_test_criteria_Parasite_microscopy_01" model="lab.test.critearea">
+            <field name="name">Stool microscopy</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_25"/>
+            <field name="test_id" ref="yan_lab_test_Parasite_microscopy"/>
+        </record>
+
+        <!--       Blood film-->
+         <record id="yan_hms_lab_service_25" model="product.product">
+            <field name="name">lab-Parasite-Blood-film</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">630.0</field>
+            <field name="standard_price">630.0</field>
+        </record>
+
+        <record id="yan_lab_test_Parasite_Blood_film" model="yan.lab.test">
+            <field name="name">Blood film</field>
+            <field name="code">lab-Parasite-Blood-film</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_parasitology"/>
+            <field name="product_id" ref="yan_hms_lab_service_25"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_feces"/>
+        </record>
+
+        <record id="lab_test_criteria_Parasite_Blood_film_01" model="lab.test.critearea">
+            <field name="name">Blood film</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_25"/>
+            <field name="test_id" ref="yan_lab_test_Parasite_Blood_film"/>
+        </record>
+        <!--       Wet smear-->
+         <record id="yan_hms_lab_service_26" model="product.product">
+            <field name="name">lab-Parasite-Wet-smear</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">330.0</field>
+            <field name="standard_price">330.0</field>
+        </record>
+
+        <record id="yan_lab_test_Parasite_Wet_smear" model="yan.lab.test">
+            <field name="name">Wet smear</field>
+            <field name="code">lab-Parasite-Wet-smear</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_parasitology"/>
+            <field name="product_id" ref="yan_hms_lab_service_26"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_feces"/>
+        </record>
+
+        <record id="lab_test_criteria_Parasite_Blood_film_01" model="lab.test.critearea">
+            <field name="name">Wet smear</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_25"/>
+            <field name="test_id" ref="yan_lab_test_Parasite_Wet_smear"/>
+        </record>
+
+        <!--      Occult blood-->
+         <record id="yan_hms_lab_service_27" model="product.product">
+            <field name="name">lab-Parasite-Occult-blood</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">330.0</field>
+            <field name="standard_price">330.0</field>
+        </record>
+
+        <record id="yan_lab_test_Parasite_Occult_blood" model="yan.lab.test">
+            <field name="name">Occult blood</field>
+            <field name="code">lab-Parasite-Occult-blood</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_parasitology"/>
+            <field name="product_id" ref="yan_hms_lab_service_27"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_blood"/>
+        </record>
+
+        <record id="lab_test_criteria_Parasite_Occult_blood_01" model="lab.test.critearea">
+            <field name="name">Occult blood</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_27"/>
+            <field name="test_id" ref="yan_lab_test_Parasite_Occult_blood"/>
+        </record>
+
+<!--      Urinalysis Category -->
+<!--        Urine dipstick and microscopy-->
+         <record id="yan_hms_lab_service_30" model="product.product">
+            <field name="name">lab-Parasite-urine-microscopy</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">630.0</field>
+            <field name="standard_price">630.0</field>
+        </record>
+
+        <record id="yan_lab_test_urine_microscopy" model="yan.lab.test">
+            <field name="name">Urine dipstick and microscopy</field>
+            <field name="code">lab-Parasite-urine-microscopy</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_urinalysis"/>
+            <field name="product_id" ref="yan_hms_lab_service_30"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_urine"/>
+        </record>
+
+        <record id="lab_test_criteria_urine_microscopy_01" model="lab.test.critearea">
+            <field name="name">Urine microscopy</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_25"/>
+            <field name="test_id" ref="yan_lab_test_urine_microscopy"/>
+        </record>
+
+        <!--       Urine HCG -->
+         <record id="yan_hms_lab_service_31" model="product.product">
+            <field name="name">lab-Parasite-Urine-HCG</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">230.0</field>
+            <field name="standard_price">230.0</field>
+        </record>
+
+        <record id="yan_lab_test_Urine_HCG" model="yan.lab.test">
+            <field name="name">Urine HCG</field>
+            <field name="code">lab-Parasite-Urine-HCG</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_urinalysis"/>
+            <field name="product_id" ref="yan_hms_lab_service_31"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_urine"/>
+        </record>
+
+        <record id="lab_test_criteria_Urine_HCG_01" model="lab.test.critearea">
+            <field name="name">Urine HCG</field>
+            <field name="normal_range_male">Positive/Negative</field>
+            <field name="normal_range_female">Positive/Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Urine_HCG"/>
+        </record>
+
+<!--      Microbiology and molecular diagnostics Category -->
+<!--        AFB Stain-->
+         <record id="yan_hms_lab_service_40" model="product.product">
+            <field name="name">lab-Microbiology-AFB-Stain</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">620.0</field>
+            <field name="standard_price">620.0</field>
+        </record>
+
+        <record id="yan_lab_test_Microbiology_AFB_Stain" model="yan.lab.test">
+            <field name="name">AFB Stain</field>
+            <field name="code">lab-Microbiology_AFB_Stain</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_microbiology"/>
+            <field name="product_id" ref="yan_hms_lab_service_40"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_tissue"/>
+        </record>
+
+        <record id="lab_test_criteria_Microbiology_AFB_Stain_01" model="lab.test.critearea">
+            <field name="name">AFB Stain</field>
+            <field name="normal_range_male">Positive/Negative</field>
+            <field name="normal_range_female">Positive/Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Microbiology_AFB_Stain"/>
+        </record>
+
+        <!--        Gram Stain-->
+         <record id="yan_hms_lab_service_41" model="product.product">
+            <field name="name">lab-Microbiology-Gram-Stain</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">720.0</field>
+            <field name="standard_price">720.0</field>
+        </record>
+
+        <record id="yan_lab_test_microbiology_gram_stain" model="yan.lab.test">
+            <field name="name">Gram Stain</field>
+            <field name="code">lab-microbiology_gram_stain</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_microbiology"/>
+            <field name="product_id" ref="yan_hms_lab_service_41"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_tissue"/>
+        </record>
+
+        <record id="lab_test_criteria_Microbiology_Gram_Stain_01" model="lab.test.critearea">
+            <field name="name">Gram Stain</field>
+            <field name="normal_range_male">Positive/Negative</field>
+            <field name="normal_range_female">Positive/Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_microbiology_gram_stain"/>
+        </record>
+
+        <!--      KOH  -->
+         <record id="yan_hms_lab_service_42" model="product.product">
+            <field name="name">lab-Microbiology-KOH</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">620.0</field>
+            <field name="standard_price">620.0</field>
+        </record>
+
+        <record id="yan_lab_test_Microbiology_KOH" model="yan.lab.test">
+            <field name="name">KOH</field>
+            <field name="code">lab-Microbiology_KOH</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_microbiology"/>
+            <field name="product_id" ref="yan_hms_lab_service_42"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_tissue"/>
+        </record>
+
+        <record id="lab_test_criteria_Microbiology_KOH_01" model="lab.test.critearea">
+            <field name="name">KOH</field>
+            <field name="normal_range_male">Positive/Negative</field>
+            <field name="normal_range_female">Positive/Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Microbiology_KOH"/>
+        </record>
+
+        <!--      Urine Culture & Sensitivity  -->
+         <record id="yan_hms_lab_service_43" model="product.product">
+            <field name="name">lab-Microbiology-Urine-Culture</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">320.0</field>
+            <field name="standard_price">320.0</field>
+        </record>
+
+        <record id="yan_lab_test_microbiology_urine_culture" model="yan.lab.test">
+            <field name="name">Urine Culture &amp; Sensitivity</field>
+            <field name="code">lab-Microbiology_Urine Culture</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_microbiology"/>
+            <field name="product_id" ref="yan_hms_lab_service_43"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_tissue"/>
+        </record>
+
+        <record id="lab_test_criteria_microbiology_urine_culture_01" model="lab.test.critearea">
+            <field name="name">Urine Culture</field>
+            <field name="normal_range_male">Positive/Negative</field>
+            <field name="normal_range_female">Positive/Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_microbiology_urine_culture"/>
+        </record>
+<!--     Sputum Culture & Sensitivity  -->
+         <record id="yan_hms_lab_service_44" model="product.product">
+            <field name="name">lab-Microbiology-Sputum-Culture</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">820.0</field>
+            <field name="standard_price">820.0</field>
+        </record>
+
+        <record id="yan_lab_test_microbiology_sputum_culture" model="yan.lab.test">
+            <field name="name">Sputum Culture &amp; Sensitivity</field>
+            <field name="code">lab-Microbiology-Sputum-Culture</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_microbiology"/>
+            <field name="product_id" ref="yan_hms_lab_service_44"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_tissue"/>
+        </record>
+
+        <record id="lab_test_criteria_Microbiology_Sputum_Culture_01" model="lab.test.critearea">
+            <field name="name">Sputum Culture</field>
+            <field name="normal_range_male">Positive/Negative</field>
+            <field name="normal_range_female">Positive/Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_microbiology_sputum_culture"/>
+        </record>
+
+        <!--      Stool Culture  -->
+         <record id="yan_hms_lab_service_45" model="product.product">
+            <field name="name">lab-Microbiology-Stool-Culture</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">420.0</field>
+            <field name="standard_price">420.0</field>
+        </record>
+
+        <record id="yan_lab_test_Microbiology_Stool_Culture" model="yan.lab.test">
+            <field name="name">Stool Culture</field>
+            <field name="code">lab-Microbiology_Stool_Culture</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_microbiology"/>
+            <field name="product_id" ref="yan_hms_lab_service_45"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_tissue"/>
+        </record>
+
+        <record id="lab_test_criteria_Microbiology_Stool_Culture_01" model="lab.test.critearea">
+            <field name="name">Stool Culture</field>
+            <field name="normal_range_male">Positive/Negative</field>
+            <field name="normal_range_female">Positive/Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Microbiology_Stool_Culture"/>
+        </record>
+
+         <!--      Genital Culture   -->
+         <record id="yan_hms_lab_service_46" model="product.product">
+            <field name="name">lab-Microbiology-Genital-Culture </field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">920.0</field>
+            <field name="standard_price">920.0</field>
+        </record>
+
+        <record id="yan_lab_test_microbiology_genital_culture" model="yan.lab.test">
+            <field name="name">Genital Culture</field>
+            <field name="code">lab-Microbiology_Genital_Culture</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_microbiology"/>
+            <field name="product_id" ref="yan_hms_lab_service_46"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_tissue"/>
+        </record>
+
+        <record id="lab_test_criteria_Microbiology_Genital_Culture_01" model="lab.test.critearea">
+            <field name="name">Genital Culture</field>
+            <field name="normal_range_male">Positive/Negative</field>
+            <field name="normal_range_female">Positive/Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_microbiology_genital_culture"/>
+        </record>
+
+<!--      Wound & Miscellaneous Culture  -->
+         <record id="yan_hms_lab_service_47" model="product.product">
+            <field name="name">lab-Microbiology-Wound-Culture</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">820.0</field>
+            <field name="standard_price">820.0</field>
+        </record>
+
+        <record id="yan_lab_test_Microbiology_Wound_Culture" model="yan.lab.test">
+            <field name="name">Wound Culture</field>
+            <field name="code">lab-Microbiology_Wound_Culture</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_microbiology"/>
+            <field name="product_id" ref="yan_hms_lab_service_47"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_tissue"/>
+        </record>
+
+        <record id="lab_test_criteria_Microbiology_Wound_Culture_01" model="lab.test.critearea">
+            <field name="name">Wound Culture</field>
+            <field name="normal_range_male">Positive/Negative</field>
+            <field name="normal_range_female">Positive/Negative</field>
+            <field name="lab_uom_id" ref="yan_lab_uom_26"/>
+            <field name="test_id" ref="yan_lab_test_Microbiology_Wound_Culture"/>
+        </record>
+
+        <!--      Pathology Category -->
+<!--     Tissue biopsy        -->
+         <record id="yan_hms_lab_service_50" model="product.product">
+            <field name="name">lab-Pathology-Tissue-biopsy</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">1340.0</field>
+            <field name="standard_price">1340.0</field>
+        </record>
+
+        <record id="yan_lab_test_Pathology_Tissue_biopsy" model="yan.lab.test">
+            <field name="name">Tissue biopsy</field>
+            <field name="code">lab-Pathology-Tissue-biopsy</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_pathology"/>
+            <field name="product_id" ref="yan_hms_lab_service_50"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_tissue"/>
+        </record>
+
+        <record id="lab_test_criteria_Pathology_Tissue_biopsy_01" model="lab.test.critearea">
+            <field name="name">Tissue biopsy</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_25"/>
+            <field name="test_id" ref="yan_lab_test_Pathology_Tissue_biopsy"/>
+        </record>
+
+        <!--     Body fluid analysis        -->
+         <record id="yan_hms_lab_service_51" model="product.product">
+            <field name="name">lab-Pathology-fluid-analysis</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">1040.0</field>
+            <field name="standard_price">1040.0</field>
+        </record>
+
+        <record id="yan_lab_test_Pathology_fluid_analysis" model="yan.lab.test">
+            <field name="name">Body fluid analysis</field>
+            <field name="code">lab-Pathology-fluid-analysis</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_pathology"/>
+            <field name="product_id" ref="yan_hms_lab_service_51"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_tissue"/>
+        </record>
+
+        <record id="lab_test_criteria_Pathology_fluid_analysis_01" model="lab.test.critearea">
+            <field name="name">Body fluid analysis</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_25"/>
+            <field name="test_id" ref="yan_lab_test_Pathology_fluid_analysis"/>
+        </record>
+
+<!--      Immunology and Special tests Category -->
+<!--     Rheumatology markers        -->
+         <record id="yan_hms_lab_service_60" model="product.product">
+            <field name="name">lab-Immunology-Rheumatology</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">560.0</field>
+            <field name="standard_price">560.0</field>
+        </record>
+
+        <record id="yan_lab_test_Immunology_Rheumatology" model="yan.lab.test">
+            <field name="name">Rheumatology markers</field>
+            <field name="code">lab-Immunology-Rheumatology</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_pathology"/>
+            <field name="product_id" ref="yan_hms_lab_service_60"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_tissue"/>
+        </record>
+<!--     RF, Anti-CCP Ab, C-Reactive Protein (CRP)               -->
+        <record id="lab_test_criteria_Immunology_Rheumatology_01" model="lab.test.critearea">
+            <field name="name">RF</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_24"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Rheumatology"/>
+        </record>
+
+        <record id="lab_test_criteria_Immunology_Rheumatology_02" model="lab.test.critearea">
+            <field name="name">Anti-CCP Ab</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_24"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Rheumatology"/>
+        </record>
+
+        <record id="lab_test_criteria_Immunology_Rheumatology_03" model="lab.test.critearea">
+            <field name="name">C-Reactive Protein (CRP)</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_13"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Rheumatology"/>
+        </record>
+
+<!--     Thyroid Function tests .        -->
+         <record id="yan_hms_lab_service_61" model="product.product">
+            <field name="name">lab-Immunology-Thyroid</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">260.0</field>
+            <field name="standard_price">260.0</field>
+        </record>
+
+        <record id="yan_lab_test_Immunology_Thyroid" model="yan.lab.test">
+            <field name="name">Thyroid Function tests</field>
+            <field name="code">lab-Immunology-Thyroid</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_immunology"/>
+            <field name="product_id" ref="yan_hms_lab_service_61"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_tissue"/>
+        </record>
+<!--     (h-TSH, Total T3, Total T4, T-UP take, FT3 AND FT4)               -->
+        <record id="lab_test_criteria_Immunology_Thyroid_01" model="lab.test.critearea">
+            <field name="name">h-TSH</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_16"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Thyroid"/>
+        </record>
+
+        <record id="lab_test_criteria_Immunology_Thyroid_02" model="lab.test.critearea">
+            <field name="name">Total T3</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_28"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Thyroid"/>
+        </record>
+
+        <record id="lab_test_criteria_Immunology_Thyroid_03" model="lab.test.critearea">
+            <field name="name">Total T4</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_29"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Thyroid"/>
+        </record>
+
+        <record id="lab_test_criteria_Immunology_Thyroid_04" model="lab.test.critearea">
+            <field name="name">T-UP take</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_00"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Thyroid"/>
+        </record>
+
+        <record id="lab_test_criteria_Immunology_Thyroid_05" model="lab.test.critearea">
+            <field name="name">FT3</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_30"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Thyroid"/>
+        </record>
+
+        <record id="lab_test_criteria_Immunology_Thyroid_06" model="lab.test.critearea">
+            <field name="name">FT4</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_28"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Thyroid"/>
+        </record>
+
+<!--     Infertility        -->
+         <record id="yan_hms_lab_service_62" model="product.product">
+            <field name="name">lab-Immunology-Infertility</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">260.0</field>
+            <field name="standard_price">260.0</field>
+        </record>
+
+        <record id="yan_lab_test_Immunology_Infertility" model="yan.lab.test">
+            <field name="name">Infertility</field>
+            <field name="code">lab-Immunology-Infertility</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_immunology"/>
+            <field name="product_id" ref="yan_hms_lab_service_62"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_tissue"/>
+        </record>
+<!--     (FSH, LH, Testosterone, Progesterone, Estradiol and Prolactin)                -->
+        <record id="lab_test_criteria_Immunology_Infertility_01" model="lab.test.critearea">
+            <field name="name">FSH</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_16"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Infertility"/>
+        </record>
+
+        <record id="lab_test_criteria_Immunology_Infertility_02" model="lab.test.critearea">
+            <field name="name">LH</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_24"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Infertility"/>
+        </record>
+
+        <record id="lab_test_criteria_Immunology_Infertility_03" model="lab.test.critearea">
+            <field name="name">Testosterone</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_28"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Infertility"/>
+        </record>
+
+        <record id="lab_test_criteria_Immunology_Infertility_04" model="lab.test.critearea">
+            <field name="name">Progesterone</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_17"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Infertility"/>
+        </record>
+
+        <record id="lab_test_criteria_Immunology_Infertility_05" model="lab.test.critearea">
+            <field name="name">Estradiol</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_18"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Infertility"/>
+        </record>
+
+        <record id="lab_test_criteria_Immunology_Infertility_06" model="lab.test.critearea">
+            <field name="name">Prolactin</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_17"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Infertility"/>
+        </record>
+
+        <!--     Ferritin, Folate (folic acid) and B12        -->
+         <record id="yan_hms_lab_service_63" model="product.product">
+            <field name="name">lab-Immunology-folic-acid-B12</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">160.0</field>
+            <field name="standard_price">160.0</field>
+        </record>
+
+        <record id="yan_lab_test_Immunology_B12" model="yan.lab.test">
+            <field name="name">Folic acid and B12</field>
+            <field name="code">lab-Immunology-folic-acid-B12</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_immunology"/>
+            <field name="product_id" ref="yan_hms_lab_service_63"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_tissue"/>
+        </record>
+<!--              Folate (folic acid) and B12        -->
+        <record id="lab_test_criteria_Immunology_B12_01" model="lab.test.critearea">
+            <field name="name">Folic acid</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_17"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_B12"/>
+        </record>
+
+        <record id="lab_test_criteria_Immunology_B12_01" model="lab.test.critearea">
+            <field name="name">B12</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_17"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_B12"/>
+        </record>
+
+<!--     Quantitative Troponin and CK-MB        -->
+         <record id="yan_hms_lab_service_64" model="product.product">
+            <field name="name">lab-Immunology-Troponin-CK-MB</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">laboratory</field>
+            <field name="list_price">460.0</field>
+            <field name="standard_price">460.0</field>
+        </record>
+
+        <record id="yan_lab_test_Immunology_Troponin" model="yan.lab.test">
+            <field name="name">Troponin &amp; CK-MB</field>
+            <field name="code">lab-Immunology-Troponin-CK-MB</field>
+            <field name="category_list_id" ref="yan_laboratory_category_list_immunology"/>
+            <field name="product_id" ref="yan_hms_lab_service_64"/>
+            <field name="sample_type_id" ref="yan_laboratory_sample_type_tissue"/>
+        </record>
+<!--              Folate (folic acid) and B12        -->
+        <record id="lab_test_criteria_Immunology_Troponin_01" model="lab.test.critearea">
+            <field name="name">Troponin</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_17"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Troponin"/>
+        </record>
+
+        <record id="lab_test_criteria_Immunology_Troponin_02" model="lab.test.critearea">
+            <field name="name">CK-MB</field>
+            <field name="normal_range_male"></field>
+            <field name="normal_range_female"></field>
+            <field name="lab_uom_id" ref="yan_lab_uom_17"/>
+            <field name="test_id" ref="yan_lab_test_Immunology_Troponin"/>
+        </record>
+
+<!--        <record id="lab_test_criteria_09" model="lab.test.critearea">-->
+<!--            <field name="name">BLOOD INDICES</field>-->
+<!--            <field name="display_type">line_section</field>-->
+<!--            <field name="test_id" ref="yan_lab_test_hematology"/>-->
+<!--        </record>-->
+
+
+
+    </data>
+</odoo>

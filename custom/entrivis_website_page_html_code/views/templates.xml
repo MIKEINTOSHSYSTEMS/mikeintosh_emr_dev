@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="custom_code_layout_website_page" name="Custom Code Layout Website Page" inherit_id="website.layout" priority="55">
+        <xpath expr="//head" position="inside">
+            <t t-if="('website_published' in main_object.fields_get() and main_object._name == 'website.page')">
+                <t t-out="main_object.custom_code_head"/>
+            </t>
+        </xpath>
+        <xpath expr="//body" position="inside">
+            <t t-if="('website_published' in main_object.fields_get() and main_object._name == 'website.page')">
+                <t t-out="main_object.custom_code_footer"/>
+            </t>
+        </xpath>
+    </template>
+</odoo>

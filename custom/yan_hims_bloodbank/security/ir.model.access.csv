@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hms_yan_blood_requisition_user,Blood Donor,yan_hims_bloodbank.model_yan_blood_requisition,yan_hims_bloodbank.group_blood_bank_user,1,1,1,0
+access_hms_yan_blood_issuance_user,Blood Receiver,yan_hims_bloodbank.model_yan_blood_issuance,yan_hims_bloodbank.group_blood_bank_user,1,1,1,0
+,,,,,,,
+access_hms_yan_blood_requisition_manager,Blood Donor,yan_hims_bloodbank.model_yan_blood_requisition,yan_hims_start.group_hms_manager,1,1,1,1
+access_hms_yan_blood_issuance_manager,Blood Receiver,yan_hims_bloodbank.model_yan_blood_issuance,yan_hims_start.group_hms_manager,1,1,1,1

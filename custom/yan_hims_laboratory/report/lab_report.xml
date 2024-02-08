@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="report_yan_lab_test_document_details" inherit_id="yan_laboratory.report_yan_lab_test_document_details">
+        <xpath expr="//div[@id='informations2']" position="inside">
+            <div t-if="doc.appointment_id" class="col-auto col-3 mw-100 mb-2">
+                <strong>Appointment:</strong>
+                <p class="m-0" t-field="doc.appointment_id"/>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

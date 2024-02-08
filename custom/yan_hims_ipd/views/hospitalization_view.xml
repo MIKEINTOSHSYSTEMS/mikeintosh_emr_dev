@@ -1,0 +1,394 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_yan_hospitalization_form" model="ir.ui.view">
+        <field name="name">yan.hospitalization.form</field>
+        <field name="model">yan.hospitalization</field>
+        <field name="arch" type="xml">
+            <form string="Inpatient Registration Information">
+                <header>
+                    <button name="action_confirm" string="Confirm" class="oe_highlight" type="object" states="draft" groups="yan_hims_ipd.group_yan_hms_hospitalization_executive"/>
+                    <button name="action_hospitalize" string="Hospitalize" class="oe_highlight" type="object" attrs="{'invisible':['|',('state','!=','confirm'),('allow_bed_reservation','=',True)]}" groups="yan_hims_ipd.group_yan_hms_hospitalization_executive"/>
+                    <button name="action_hospitalize" string="Hospitalize" class="oe_highlight" type="object" groups="yan_hims_ipd.group_yan_hms_hospitalization_executive" attrs="{'invisible':['|',('state','!=','reserved'),('allow_bed_reservation','=',False)]}"/>
+                    <button name="action_reserve" type="object" string="Reserve" class="oe_highlight" groups="yan_hims_ipd.group_yan_hms_hospitalization_executive" attrs="{'invisible':['|',('state','!=','confirm'),('allow_bed_reservation','=',False)]}"/>
+                    <button name="action_discharge" type="object" string="Discharge" class="oe_highlight" states="hosp" groups="yan_hims_ipd.group_yan_hms_hospitalization_executive"/>
+                    <button name="action_cancel" string="Cancel" states="reserved,confirm" type="object" class="oe_highlight" groups="yan_hims_ipd.group_yan_hms_hospitalization_executive"/>
+                    <button name="action_create_invoice" string="Create Invoice" class="oe_highlight" type="object" attrs="{'invisible': ['|', ('state', '!=', 'discharged'),('invoice_exempt', '=', True)]}" groups="account.group_account_invoice"/>
+                    <button name="%(transfer_accommodation_action)d" string="Transfer" class="oe_highlight" type='action' states="reserved,hosp" groups="yan_hims_ipd.group_yan_hms_hospitalization_executive"/>
+                    <button name="button_indoor_medication" string="IP Medicine Request" type="object" states="hosp" class="oe_highlight" groups="yan_hims_tasks.group_hms_jr_doctor"/>
+                    <button name="action_done" string="Done" type="object" class="oe_highlight" groups="yan_hims_ipd.group_yan_hms_hospitalization_executive,yan_hims_tasks.group_hms_medical_officer" attrs="{'invisible':['|','|',('state','!=','discharged'),('invoice_count','=',0),('invoice_exempt','=',True)]}"/>
+                    <button name="action_done" string="Done" type="object" class="oe_highlight" groups="yan_hims_ipd.group_yan_hms_hospitalization_executive,yan_hims_tasks.group_hms_medical_officer" attrs="{'invisible':['|',('state','!=','discharged'),('invoice_exempt','=',False)]}"/>
+                    <button name="action_draft" string="Draft" states="cancel" type="object" class="oe_highlight" groups="yan_hims_ipd.group_yan_hms_hospitalization_executive"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm,hosp,discharged,done" statusbar_colors='{"cancel":"red"}'/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" class="oe_stat_button" icon="fa-money" name="yan_invoice_forecast" attrs="{'invisible': [('state', 'not in', ['hosp','discharged'])]}" groups="account.group_account_invoice" string="Invoice Forecast"/>
+                        <button type="object" class="oe_stat_button" icon="fa-pencil-square-o" name="view_invoice" attrs="{'invisible': [('state', 'not in', ['hosp','discharged','done'])]}" groups="account.group_account_invoice">
+                            <field string="Invoices" name="invoice_count" widget="statinfo"/>
+                        </button>
+                        <button type="object" class="oe_stat_button" icon="fa-bed" name="action_view_surgery">
+                            <field string="Surgery" name="surgery_count" widget="statinfo"/>
+                        </button>
+                        <button name="action_prescription" class="oe_stat_button" icon="fa-wpforms" type="object" states="confirm,hosp,discharged,done">
+                            <field string="IPM Requests" name="prescription_count" widget="statinfo"/>
+                        </button>
+                        <button type="object" class="oe_stat_button" icon="fa-bed" name="action_accommodation_history" groups="yan_hims_ipd.group_yan_hms_hospitalization_executive">
+                            <field string="Bed Allocation" name="accommodation_count" widget="statinfo"/>
+                        </button>
+                        <button type="object" class="oe_stat_button" icon="fa-stethoscope" name="action_view_evaluation">
+                            <field string="Vitals" name="evaluation_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <field name="image_128" widget='image' class="oe_avatar"/>
+                    <h1>
+                        <label for="name" string="Hospitalization #" attrs="{'invisible': [('state','not in',['draft'])]}"/>
+                        <field name="name" readonly="1" class="oe_inline" attrs="{'invisible': [('state','in',['draft'])]}"/>
+                    </h1>
+
+                    <group>
+                        <group>
+                            <field name="patient_id" required="1" />
+                            <field name="physician_id" required="1"/>
+                            <field name="attending_physician_ids" widget="many2many_tags"/>
+                            <field name="diseases_ids" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="hospitalization_date" required="1"/>
+                            <field name="discharge_date"/>
+                            <field name="department_id" groups="yan_hims_tasks.group_allow_multi_department"/>
+                            <!-- Invisible Fields -->
+                            <field name="invoice_count" invisible="1"/>
+                            <field name="department_id" invisible="1"/>
+                        </group>
+                    </group>
+
+                    <notebook name="main">
+                        <page name="general" string="General Information">
+                            <group>
+                                <group>
+                                    <field name="relative_id"/>
+                                    <field name="relative_number"/>
+                                    <field name="appointment_id" invisible="1"/>
+                                    <field name="ref_physician_id" domain="[('is_referring_doctor','=',True)]"/>
+                                    <label for="invoice_exempt"/>
+                                    <div name='invoice_exemption'>
+                                        <field name='invoice_exempt' class="oe_inline" nolabel="1"/>
+                                        <button name="yan_apply_invoice_exemption" string="Apply/Remove" type="object" class="oe_inline fa fa-arrow-right oe_link" attrs="{'invisible': [('state','!=', 'done')]}" groups="yan_hims_start.group_yan_invoice_exemption"/>
+                                    </div>
+                                </group>
+                                <group>
+                                    <field name="allow_bed_reservation" invisible="1"/>
+                                    <field name="ward_id" widget="selection" attrs="{'required': [('state','in',('confirm'))]}"/>
+                                    <field name="bed_id"  domain="[('ward_id', '=', ward_id), ('state', '=', 'free')]"  attrs="{'required': [('state','in',('confirm'))]}"  widget="selection"/>
+                                    <field name="admission_type" required="1"/>
+                                    <field name="company_id" required="1" groups="base.group_multi_company" options="{'no_create': True}"/>
+                                </group>
+                            </group>
+                            
+                        </page>
+                        <page name="hospitalization_checklist" string="Checklist" groups="yan_hims_tasks.group_hms_nurse,yan_hims_ipd.group_yan_hms_hospitalization_executive">
+                            <separator string="Admission Checklist"/>
+                            <div class="oe_right mt16" name="check_progress">
+                                <field name="checklist_done" widget="percentpie" string="Checked"/>
+                            </div>
+                            <field name="checklist_ids">
+                                <tree editable="top">
+                                    <field name="name"/>
+                                    <field name="is_done"/>
+                                    <field name="remark"/>
+                                </tree>
+                            </field>
+
+                            <separator string="Pre Ward Checklist"/>
+                            <div class="oe_right mt16" name="pre_operative_check_progress">
+                                <field name="pre_ward_checklist_done" widget="percentpie" string="Checked"/>
+                            </div>
+                            <field name="pre_ward_checklist_ids">
+                                <tree editable="top">
+                                    <field name="name"/>
+                                    <field name="is_done"/>
+                                    <field name="remark"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page name="clinical_ass" string="Clinical Assesment" groups="yan_hims_tasks.group_hms_nurse,yan_hims_ipd.group_yan_hms_hospitalization_user">
+                            <div>NOTE: Details are shown based on last Completed Patient Evaluation: <t attrs="{'invisible': [('last_evaluation_id','=',False)]}"><field name="last_evaluation_id" nolabel="1" class="oe_link"/></t><t attrs="{'invisible': [('state','=','done')]}"><button name="action_create_evaluation" type="object" string="Create Evaluation" class=" oe_link"/></t></div>
+
+                            <group>
+                                <group>
+                                    <label for="weight"/>
+                                    <div class="o_row">
+                                        <field name="weight"/>
+                                        <field name="yan_weight_name"/>
+                                    </div>
+                                    <label for="height"/>
+                                    <div class="o_row">
+                                        <field name="height"/>
+                                        <field name="yan_height_name"/>
+                                    </div>
+                                    <label for="temp"/>
+                                    <div class="o_row">
+                                        <field name="temp"/>
+                                        <field name="yan_temp_name"/>
+                                    </div>
+                                </group>
+                                <group>
+                                    <field name="rr"/>
+                                    <label string="Systolic/Diastolic BP" for="systolic_bp"/>
+                                    <div name="systolic_bp">
+                                        <div class="oe_inline" style="display: inline;" >
+                                            <field name="systolic_bp" class="oe_inline"/>/<field name="diastolic_bp" class="oe_inline"/>
+                                        </div>
+                                    </div>
+                                    <label for="spo2"/>
+                                    <div class="o_row">
+                                        <field name="spo2"/>
+                                        <field name="yan_spo2_name"/>
+                                    </div>
+                                    <label for="rbs"/>
+                                    <div class="o_row">
+                                        <field name="rbs"/>
+                                        <field name="yan_rbs_name"/>
+                                    </div>
+                                </group>
+                                <group>
+                                    <field name="bmi"/>
+                                </group>
+                                <group>
+                                    <field name="bmi_state"/>
+                                </group>
+                            </group>
+                            <separator string="Pain Level"/>
+                            <group>
+                                <group>
+                                    <label for="pain_level"/>
+                                    <div class="o_row">
+                                        <field name="pain_level"/>
+                                        <span><button name="%(yan_hims_tasks.action_yan_pain_level)d" type="action" icon="fa-question-circle" title="Pain Level"/></span>
+                                    </div>
+                                    <field name="pain" colspan="2" nolabel="1"/>
+                                </group>
+                            </group>
+                        </page>
+
+                        <!-- Start Basic Care Plan -->
+                        <page name="basic_careplan" string="Care Plan" groups="yan_hims_tasks.group_hms_medical_officer,yan_hims_tasks.group_hms_nurse,yan_hims_ipd.group_yan_hms_hospitalization_user" attrs="{'invisible': [('state', 'not in', ['hosp','discharged','done'])]}">
+                            <group>
+                                <group>
+                                    <field name="nurse_id"/>
+                                </group>
+                                <group>
+                                    <field name="care_plan_template_id"/>
+                                </group>
+                            </group>
+                            <label for="nursing_plan"/>
+                            <field name="nursing_plan" colspan="4"/>
+                            <group string="Physician Ward Rounds" name="physician_ward_rounds">
+                                <field name="physician_ward_round_ids" nolabel="1" colspan="2">
+                                    <tree string="Line" editable="top">
+                                        <field name="date"/>
+                                        <field name="instruction" required="1"/>
+                                        <field name="physician_id" required="1"/>
+                                        <field name="remarks" required="1"/>
+                                    </tree>
+                                </field>
+                            </group>
+                        </page>
+                        <page name="consumable_lines" string="Consumed Products/Services" attrs="{'invisible': [('state', 'not in', ['hosp','discharged','done'])]}" groups="yan_hims_tasks.group_hms_medical_officer,yan_hims_tasks.group_hms_nurse,yan_hims_ipd.group_yan_hms_hospitalization_user">
+                            <field name="consumable_line_ids" nolabel="1" colspan="2" context="{'default_patient_id': patient_id, 'default_department_id': department_id, 'default_physician_id': physician_id}">
+                                <tree string="Line" editable="top">
+                                    <field name="product_id" expand="1" required="1"/>
+                                    <field name="product_uom_id" required="1" groups="uom.group_uom"/>
+                                    <field name="product_uom_category_id" invisible="1"/>
+                                    <field name="qty" required="1"/>
+                                    <field name="tracking" invisible="1"/>
+                                    <field name="lot_id" context="{'yan_product_id': product_id}" options="{'no_create': True}" attrs="{'readonly': [('tracking','=','none')], 'required': [('tracking','!=','none')]}"/>
+                                    <field name="price_unit" readonly="1"/>
+                                    <field name="subtotal" readonly="1" sum="Total" optional="show"/>
+                                    <field name="date" required="1"/>
+                                    <field name="move_id" invisible="1"/>
+                                    <field name="physician_id" optional="show"/>
+                                    <field name="department_id" invisible="1"/>
+                                    <field name="patient_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Discharge Summary" groups="yan_hims_tasks.group_hms_jr_doctor,yan_hims_tasks.group_hms_medical_officer,yan_hims_ipd.group_yan_hms_hospitalization_user" name="discharged" attrs="{'invisible': [('state', 'not in', ['hosp','discharged','done'])]}">
+                            <group>
+                                <group>
+                                    <field name="death_register_id"/>
+                                </group>
+                            </group>
+                            <separator string="Discharge Diagnosis"/>
+                            <field name="discharge_diagnosis"/>
+                            <separator string="Pre Operative Note"/>
+                            <field name="op_note"/>
+                            <separator string="Post Operative Course"/>
+                            <field name="post_operative"/>
+                            <separator string="Discharge Plan"/>
+                            <field name="discharge_plan"/>
+                            <separator string="Instructions"/>
+                            <field name="instructions"/>
+                        </page>
+                        <page name="legal_data" string="Legal Details" groups="yan_hims_tasks.group_hms_medical_officer">
+                            <group>
+                                <field name="legal_case"/>
+                            </group>
+                            <group>
+                                <field name="reported_to_police" widget="radio"/>
+                                <field name="fir_no" attrs="{'invisible': [('reported_to_police', '!=', 'yes')]}"/>
+                                <field name="fir_reason" attrs="{'invisible': [('reported_to_police', '!=', 'no')]}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"
+                        groups="base.group_user"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_yan_hospitalization_kanban_view">
+        <field name="name">yan.hospitalization.kanban</field>
+        <field name="model">yan.hospitalization</field>
+        <field name="type">kanban</field>
+        <field name="arch" type="xml">
+            <kanban> 
+                <field name="patient_id"/>
+                <field name="image_128"/>
+                <field name="bed_id"/>
+                <field name="ward_id"/>
+                <field name="display_name"/>
+                <field name="physician_id"/>
+                <field name="diseases_ids"/>
+                <field name="age"/>
+                <field name="pain_level"/>
+                <field name="state"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                            <t t-set="placeholder" t-value="'/base/static/img/avatar_grey.png'"/>
+                            <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#{kanban_image('hms.patient', 'image_128', record.patient_id.raw_value, placeholder)})" role="img"/>
+                            <div class="oe_kanban_details">
+                                <strong class="oe_partner_heading"><field name="display_name"/> [<field name="patient_id"/>]</strong>
+                                <ul>
+                                    <li t-if="record.age.raw_value"><b>Age:</b> <field name="age"/></li>
+                                    <li t-if="record.physician_id.raw_value"><b>Physician:</b> <field name="physician_id"/></li>
+                                    <li t-if="record.diseases_ids.raw_value"><b>Disease:</b> <field name="diseases_ids" widget="many2many_tags"/></li>
+                                </ul>
+                                <div class="o_row">
+                                    <span class="badge badge-pill" t-if="record.ward_id.raw_value or record.bed_id.raw_value">
+                                        <i class="fa fa-bed" aria-label="Ward/Bed" role="img" title="Ward/Bed"/>
+                                        <t t-esc="record.ward_id.value"/><t t-if="record.ward_id.raw_value and record.bed_id.raw_value">/</t><t t-esc="record.bed_id.value"/>
+                                    </span>
+                                    <span class="badge badge-pill" t-if="record.pain_level.raw_value">
+                                        😨 <t t-esc="record.pain_level.value"/>
+                                    </span>
+                                    <span class="float-right">
+                                        <field name="state" widget="label_selection" options="{'classes': {'draft': 'default', 'hosp': 'success'}}"/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="yan_hospitalization_tree">
+        <field name="name">yan.hospitalization.tree</field>
+        <field name="model">yan.hospitalization</field>
+        <field name="arch" type="xml">
+            <tree string="Inpatient Registration Info">
+                <field name="name"></field>
+                <field name="patient_id"></field>
+                <field name="hospitalization_date"></field>
+                <field name="discharge_date"></field>
+                <field name="ward_id"/>
+                <field name="bed_id"></field>
+                <field name="activity_ids" widget="list_activity" optional="show"/>
+                <field name="state"></field>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_yan_hospitalization_filter" model="ir.ui.view">
+        <field name="name">yan.hospitalization.select</field>
+        <field name="model">yan.hospitalization</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Search Hospitalizations">
+                <filter name="draft" string="Draft" domain="[('state','=','draft')]"/>
+                <filter name="reserved" string="Reserved" domain="[('state','=','reserved')]"/>
+                <filter name="hospitalize" string="Hospitalized" domain="[('state','=','hosp')]"/>
+                <filter name="discharged" string="Discharged" domain="[('state','=','discharged')]"/>
+                <filter name="done" string="Done" domain="[('state','=','done')]"/>
+                <filter name="routine" string="Routine" domain="[('admission_type','=','routine')]"/>
+                <filter name="elective" string="Elective" domain="[('admission_type','=','elective')]"/>
+                <filter name="urgent" string="Urgent" domain="[('admission_type','=','urgent')]"/>
+                <filter name="emergency" string="Emergency" domain="[('admission_type','=','emergency')]"/>
+                <field name="patient_id"/>
+                <field name="attending_physician_ids"/>
+                <field name="name"/>
+                <field name="ref_physician_id"/>
+                <field name="relative_id"/>
+                <field name="ward_id"/>
+                <field name="bed_id"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_patient" string="Patient" context="{'group_by':'patient_id'}"/>
+                    <filter name="group_by_date" string="Date" context="{'group_by':'hospitalization_date'}"/>
+                    <filter name="group_by_ward" string="Ward/Room" context="{'group_by':'ward_id'}"/>
+                    <filter name="group_by_state" string="Status" context="{'group_by':'state'}"/>
+                    <filter name="group_by_comp" string="Company" context="{'group_by':'company_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_yan_inpatient_calendar" model="ir.ui.view">
+        <field name="name">yan.inpatient.calendar</field>
+        <field name="model">yan.hospitalization</field>
+        <field name="type">calendar</field>
+        <field name="arch" type="xml">
+            <calendar string="Hospitalizations" color="patient_id" date_start="hospitalization_date" date_stop="discharge_date">
+                <field name="bed_id"/>
+                <field name="patient_id"/>
+                <field name="state"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_hospitalization_pivot" model="ir.ui.view">
+        <field name="name">yan.hospitalization.pivot</field>
+        <field name="model">yan.hospitalization</field>
+        <field name="arch" type="xml">
+            <pivot string="hospitalizations">
+                <field name="hospitalization_date" type="row"/>
+                <field name="department_id" type="row" groups="yan_hims_tasks.group_allow_multi_department"/>
+                <field name="patient_id" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="yan_action_form_inpatient">
+        <field name="name">Hospitalization</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">yan.hospitalization</field>
+        <field name="view_mode">kanban,tree,form,calendar,pivot</field>
+        <field name="context">{'search_default_hospitalize': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click to add a new Patient Hospitalization.
+            </p>
+        </field>
+    </record>
+
+</odoo>

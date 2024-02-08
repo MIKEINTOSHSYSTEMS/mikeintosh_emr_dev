@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="report_yan_radiology_test_document_details">
+        <h2 class="text-center">Investigation: <span t-field="doc.name"/></h2>
+        <div class="row mt8 mb8" id="informations">
+            <div t-if="doc.patient_id" class="col-auto col-3 mw-100 mb-2">
+                <strong>Patient:</strong>
+                <p class="m-0" t-field="doc.patient_id"/>
+            </div>
+            <div t-if="doc.radiology_request_id.patient_age" class="col-3 mb-2">
+                <strong>Patient Age</strong>
+                <p class="m-0" t-field="doc.radiology_request_id.patient_age"/>
+            </div>
+            <div t-if="doc.patient_id.gender" class="col-3 mb-2">
+                <strong>Gender</strong>
+                <p class="m-0" t-field="doc.patient_id.gender"/>
+            </div>
+            <div t-if="doc.date_analysis" class="col-auto col-3 mw-100 mb-2">
+                <strong>Date:</strong>
+                <p class="m-0" t-field="doc.date_analysis"/>
+            </div>
+        </div>
+        <div class="row mt8 mb8" id="informations2">
+            <div t-if="doc.test_id" class="col-auto col-3 mw-100 mb-2">
+                <strong>Test Name:</strong>
+                <p class="m-0" t-field="doc.test_id"/>
+            </div>
+            <div t-if="doc.user_id" class="col-auto col-3 mw-100 mb-2">
+                <strong>Responsible:</strong>
+                <p class="m-0" t-field="doc.user_id"/>
+            </div>
+        </div>
+
+        <p class="mt32">
+            <b>Diagnosis:</b><br/>
+            <span t-esc="doc.diagnosis"/>
+        </p>
+        
+        <p class="mt32" t-if="doc.note">
+            <b>Comment:</b><br/>
+            <span t-esc="doc.note"/>
+        </p>
+        <div class="mt16 row" name="sign_and_code">
+            <div class="col-6" name="signature">
+                <t t-if="doc.radiology_physician_id and doc.radiology_physician_id.signature">
+                    <b>Doctor’s Stamp/Signature</b>
+                    <br/>
+                    <span t-field="doc.radiology_physician_id.signature" t-options="{'widget': 'image', 'class': 'img-rounded', 'style':'max-height: 100px !important'}"/>
+                </t>
+            </div>
+            <div class="col-6" name="qrcode">
+                <div class="text-end" t-if="doc.sudo().company_id.yan_radiology_result_qrcode">
+                    <img t-if="doc.qr_image" t-att-src="image_data_uri(doc.qr_image)" alt="LAB Result QR" style="width: 100px;height: 100px" class="float-right"/>
+                </div>
+            </div>
+        </div>
+        <p t-if="doc.disclaimer" class="mt64">
+            <b>Disclaimer: </b>
+            <span t-field="doc.disclaimer"/>
+        </p>
+    </template>
+
+    <template id="report_yan_radiology_test_document">
+        <!-- Just for Portal Isuse -->
+        <t t-set="doc" t-value="doc.sudo()"/>
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context({'lang':doc.patient_id.lang})"/>
+            <div class="page">
+                <!-- Manage details in template so combined repotr can be printed in same page easily. -->
+                <t t-call="yan_radiology.report_yan_radiology_test_document_details"/>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_yan_radiology_test">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="yan_radiology.report_yan_radiology_test_document" t-lang="doc.sudo().patient_id.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_yan_radiology_test" model="ir.actions.report">
+        <field name="name">Radiology Report</field>
+        <field name="model">patient.radiology.test</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">yan_radiology.report_yan_radiology_test</field>
+        <field name="report_file">yan_radiology.report_yan_radiology_test</field>
+        <field name="print_report_name">(object.name or 'LabReport').replace('/','_') + '_LabReport'</field>
+        <field name="binding_model_id" ref="model_patient_radiology_test"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

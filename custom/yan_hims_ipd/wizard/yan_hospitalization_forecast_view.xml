@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="yan_hospitalization_forecast_form_view" model="ir.ui.view">
+        <field name="name">yan.hospitalization.forecast.form</field>
+        <field name="model">yan.hospitalization.forecast</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" name="view_invoices" class="oe_stat_button" icon="fa-money" context="{'default_patient_id': active_id}">
+                            <div class="o_field_widget o_stat_info mr4">
+                                <span class="o_stat_text">Inv:</span>
+                                <span class="o_stat_text">Due:</span>
+                            </div>
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_value"><field name="total_invoiced" widget="monetary" options="{'currency_field': 'currency_id'}"/></span>
+                                <span class="o_stat_value"><field name="yan_amount_due" widget="monetary" options="{'currency_field': 'currency_id'}"/></span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="hospitalization_id" nolable="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="date" readonly="1"/>
+                            <field name="patient_id" readonly="1"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company" string="Hospital" options="{'no_create': True}" readonly="1"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="lines" string="Lines">
+                            <field name="line_ids" widget="section_and_note_one2many" readonly="1">
+                                <tree string="Invoice Lines" editable="bottom">
+                                    <field name="display_type" invisible="1"/>
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="product_id" attrs="{'required': [('display_type', '=', False)]}"/>
+                                    <field name="name" widget="section_and_note_text"/>
+                                    <field name="product_uom_qty" string="Qty" attrs="{'required': [('display_type', '=', False)]}"/>
+                                    <field name="product_uom_id" options='{"no_open": True}' attrs="{'required': [('display_type', '=', False)]}" groups="uom.group_uom"/>
+                                    <field name="product_uom_category_id" invisible="1"/>
+                                    <field name="price_unit"/>
+                                    <field name="discount"/>
+                                    <field name="tax_ids" widget="many2many_tags"/>
+                                    <field name="price_subtotal"/>
+                                </tree>
+                            </field>
+                            <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total">
+                                <field name="amount_untaxed" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                <field name="amount_tax" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                    <label for="amount_total" />
+                                </div>
+                                <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                    <label for="yan_final_due" />
+                                </div>
+                                <field name="yan_final_due" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_yan_hospitalization_forecast" model="ir.actions.act_window">
+        <field name="name">Hospitalization Invoice Forecast</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">yan.hospitalization.forecast</field>
+        <field name="view_mode">form</field>
+     </record>
+
+</odoo>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+
+
+    <!-- Main Patient Registration Menu-->
+    <menuitem id="main_menu_patient" name="Register" groups="group_hms_user" sequence="20" web_icon="yan_hims_start,static/src/img/patient.png"/>
+    <menuitem id="action_main_menu_patient" name="Patient" action="action_patient" parent="main_menu_patient" sequence="10"/>
+
+     <!-- Administration Menu-->
+    <menuitem id="main_menu_administration" name="Administration" groups="group_hms_manager"  sequence="21" web_icon="yan_hims_start,static/src/img/hospital.png"/>
+
+    <!--Main Physician -->
+    <menuitem id="main_menu_physician" name="Physicians" parent="main_menu_administration" groups="group_hms_user"  sequence="20" />
+    <menuitem id="action_menu_physician" parent="main_menu_physician" action="action_physician"/>
+
+    <menuitem id="menu_yan_services" name="Services" parent="main_menu_administration" action="product_template_action_services"/>
+
+    <menuitem id="main_menu_medicine" name="Medicines" parent="main_menu_administration" groups="group_hms_user"/>
+    <menuitem id="action_menu_medicine" parent="main_menu_medicine" action="product_template_action_medicines"/>
+
+    <menuitem id="main_menu_documentation" name="Documentation" parent="main_menu_administration" groups="group_hms_user"/>
+
+
+     <!--OPD Configurations  & Administration Menu-->
+    <menuitem id="menu_hms_patient_cofig" name="Configurations" parent="main_menu_administration" groups="group_hms_manager" sequence="20"/>
+
+
+
+
+</odoo>

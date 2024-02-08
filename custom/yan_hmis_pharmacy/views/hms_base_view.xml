@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Prescription View -->
+    <record id="view_hms_prescription_order_form" model="ir.ui.view">
+        <field name="name">prescription.order.form</field>
+        <field name="model">prescription.order</field>
+        <field name="inherit_id" ref='yan_hims_tasks.view_hms_prescription_order_form'/>
+        <field name="arch" type="xml">
+            <button name="button_reset" position="after">
+                <button name="create_invoice" string="Create Invoice" type="object" attrs="{'invisible': ['|',('invoice_id','!=', False),('state','!=', 'prescription')]}" groups="account.group_account_invoice"/>
+                <button name="yan_create_delivery" string="Create Delivery" type="object" attrs="{'invisible': ['|','|',('deliverd','=',True),('invoice_id','!=', False),('state','!=', 'prescription')]}" groups="stock.group_stock_user"/>
+            </button>
+            <div name="button_box" position="inside">
+                <button name="view_invoice" string="View Invoice" groups="account.group_account_invoice" type="object" class="oe_stat_button" icon="fa-pencil-square-o" attrs="{'invisible': [('invoice_id','=', False)]}"/>
+                <button class="oe_stat_button" type="object" name="yan_view_delivery" icon="fa-truck" attrs="{'invisible': [('picking_count', '=', 0)]}" groups="stock.group_stock_user">
+                    <field string="Delivery" name="picking_count" widget="statinfo"/>
+                </button>
+            </div>
+            <field name="appointment_id" position="after">
+                <field name="invoice_id" invisible="1"/>
+                <field name="picking_ids" readonly="1" widget="many2many_tags" groups="stock.group_stock_user"/>
+                <field name="deliverd" readonly="1" groups="stock.group_stock_user"/>
+            </field>
+            <field name="prescription_line_ids" position="after">
+                <group class="oe_subtotal_footer oe_right" colspan="2" name="sale_total" groups="yan_hmis_pharmacy.group_show_amounts_on_prescription">
+                    <field name="currency_id" invisible="1"/>
+                    <field name="amount_untaxed" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                    <field name="amount_tax" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                        <label for="amount_total" />
+                    </div>
+                    <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                </group>
+            </field>
+
+            <xpath expr="//field[@name='prescription_line_ids']//field[@name='qty_available']" position="after">
+                <field name="price_unit" optional="hide" groups="yan_hmis_pharmacy.group_show_amounts_on_prescription"/>
+                <field name="discount" optional="hide" groups="yan_hmis_pharmacy.group_show_amounts_on_prescription"/>
+                <field name="price_subtotal" optional="hide" groups="yan_hmis_pharmacy.group_show_amounts_on_prescription"/>
+            </xpath> 
+        </field>
+    </record>
+
+    <record id="view_hms_prescription_order_search" model="ir.ui.view">
+        <field name="name">prescription.order.search</field>
+        <field name="model">prescription.order</field>
+        <field name="inherit_id" ref='yan_hims_tasks.view_hms_prescription_order_search'/>
+        <field name="arch" type="xml">
+            <field name="company_id" position="after">
+                <field name="invoice_id" invisible="1"/>
+            </field>
+            <filter name="today" position="after">
+                <separator/>
+                <filter string="Not Invoiced" name="not_invoiced" domain="[('invoice_id','=', False)]"/>
+            </filter>
+        </field>
+    </record>
+
+    <record id="act_open_hms_prescription_order_view" model="ir.actions.act_window" >
+        <field name="name">Prescription Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">prescription.order</field>
+        <field name="view_mode">tree,kanban,form,calendar,pivot</field>
+        <field name="context">{'search_default_not_invoiced': 1, 'search_default_today': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Record Found
+            </p>
+            <p>
+                Click to add Prescrition.
+            </p>
+        </field>
+    </record>
+    
+    <record id="yan_hms_view_move_form" model="ir.ui.view">
+        <field name="name">account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="yan_hims_tasks.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='physician_id']" position="after">
+                <field name="prescription_id" domain="[('patient_id','=',patient_id)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="yan_view_picking_form" model="ir.ui.view">
+        <field name="name">stock.picking.form</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="patient_id"/>
+            </field>
+            <xpath expr="//page[@name='extra']//field[@name='company_id']" position="after">
+                <field name="prescription_id"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

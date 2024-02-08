@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="group_ambulance_service_user" model="res.groups">
+        <field name="name">Ambulance Service</field>
+        <field name="category_id" ref="yan_hims_start.module_category_hms_department"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user')),(4, ref('yan_hims_start.group_hms_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+
+    <record id="yan_hims_start.group_hms_manager" model="res.groups">
+        <field name="implied_ids" eval="[(4, ref('yan_hims_ambulance.group_ambulance_service_user'))]"/>
+    </record>
+
+    <data noupdate="1">
+
+        <record model="ir.rule" id="yan_ambulance_service_rule">
+            <field name="name">Ambulance Service multi-company</field>
+            <field name="model_id" ref="model_yan_ambulance_service"/>
+            <field name="domain_force">['|',('company_id','=',False),('company_id', 'in', company_ids)]</field>
+        </record>
+
+        <!-- See Own Department Records -->
+        <record id="yan_ambulance_service_department_rule" model="ir.rule">
+            <field name="name">Ambulance Services: Departments</field>
+            <field name="model_id" ref="model_yan_ambulance_service"/>
+            <field name="domain_force">['|', ('department_id', '=', False), ('department_id', 'in', [dep.id for dep in user.department_ids])]</field>
+        </record>
+
+    </data>
+</odoo>
+

@@ -1,0 +1,107 @@
+///
+/// Online Meetings view changes.
+///
+
+.yan_appointment label {
+  cursor: pointer;
+  filter: grayscale(100%);
+  display: inline;
+}
+
+.yan_appointment label:hover {
+  filter: grayscale(0);
+}
+
+.yan_appointment input[type="radio"]:checked + label {
+  filter: grayscale(0);
+}
+
+.yan_radio_block label {
+  cursor: pointer;
+  filter: grayscale(100%);
+}
+
+.yan_radio_block label:hover {
+  filter: grayscale(0);
+}
+
+.yan_radio_block input[type="radio"]:checked + label {
+  filter: grayscale(0);
+  border: 1px solid purple;
+}
+
+.yan_image {
+  width: 155px;
+  @media (max-width: 768px) {
+    width: 30% !important;
+  }
+}
+
+.yan_user_image {
+    border-radius: 50%;
+    width: 100%;
+}
+
+.yan_basic_info {
+  max-height: 85px !important;
+  overflow: hidden;
+  text-overflow: ellipsis !important;
+}
+
+.yan_slot_date {
+  font-size: 1.2em;
+  padding: 10px 10px;
+  text-align: center;
+  margin-right: 20px;
+  display: inline-block;
+  border-radius: 5px;
+  color: white;
+}
+
+.yan_active_slot {
+  cursor: pointer;
+  background-color: #137a87;
+}
+
+.yan_inactive_slot {
+  cursor: default;
+  background-color: #a2a2a2;
+}
+
+.yan_active {
+  color: white;
+  background-color: #68465f !important;
+}
+
+.yan_small_font {
+  font-size: 0.8em;
+}
+
+.yan_hide {
+  display: none;
+}
+
+.yan_gray_border {
+  border: 1px solid lightgray;
+}
+
+.appoint_department_panel .appoint_person_panel {
+  min-height: 85px !important;
+}
+
+.yan_appointment_slot {
+  background-color: #137a87;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 10px;
+  margin: 10px;
+}
+
+.yan_slot_not_selected {
+  color: red;
+}
+
+.yan_no_slots {
+  color: red;
+  margin: 30px;
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Radiology -->
+    <record id="view_yan_radiology_tree" model="ir.ui.view">
+        <field name="name">yan.radiology.tree</field>
+        <field name="model">yan.radiology</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="description"/>
+                <field name="is_collection_center"/>
+                <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_yan_radiology_form" model="ir.ui.view">
+        <field name="name">yan.radiology.form</field>
+        <field name="model">yan.radiology</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="partner_id" readonly="1" required="0"/>
+                        <field name="is_collection_center"/>
+                        <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_yan_radiology" model="ir.actions.act_window">
+        <field name="name">Radiology</field>
+        <field name="res_model">yan.radiology</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('is_collection_center','=',False)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click to add a new Radiology.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_yan_collection_center" model="ir.actions.act_window">
+        <field name="name">Collection Center</field>
+        <field name="res_model">yan.radiology</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('is_collection_center','=',True)]</field>
+        <field name="context">{'default_is_collection_center':True}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click to add a new Collection Center.
+            </p>
+        </field>
+    </record>
+
+</odoo>

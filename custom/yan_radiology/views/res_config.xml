@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.radiology</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="10"/>
+        <field name="inherit_id" ref="yan_hims_start.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='radiology']" position="after">
+                <h2>Radiology</h2>
+                <div class="row mt16 o_settings_container">
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Stock Location</span>
+                            <div class="text-muted">
+                                Location to take consumed Material in Radiology Test.
+                            </div>
+                            <div class="text-muted">
+                                <field name="yan_radiology_stock_location_id"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Stock Usage Location</span>
+                            <div class="text-muted">
+                                Location to manage consumed Material in Radiology Test.
+                            </div>
+                            <div class="text-muted">
+                                <field name="yan_radiology_usage_location_id"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane">
+                            <field name="yan_radiology_result_qrcode"/>
+                        </div>
+                        <div class="o_setting_right_pane">
+                            <label string="Radiology Result Authentication" for="yan_radiology_result_qrcode"/>
+                            <div class="text-muted" id="yan_radiology_result_qrcode">
+                                Allow user to Autheticate Radiology Result by scanning QrCode from report.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Invoice Policy</span>
+                            <div class="text-muted">
+                                Based on Configured option Create Invoice option will be shown on Radiology request.
+                            </div>
+                            <div class="text-muted">
+                                <field name="yan_radiology_invoice_policy"/>
+                            </div>
+                        </div>
+                        <div attrs="{'invisible': [('yan_radiology_invoice_policy','!=','in_advance')]}" >
+                            <div class="o_setting_left_pane">
+                                <field name="yan_check_radiology_payment"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Check Payment Status</span>
+                                <div class="text-muted">
+                                    Do not allow to accept request before completion of payment.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-lg-6 o_setting_box">
+                        <div class="o_setting_left_pane"/>
+                        <div class="o_setting_right_pane">
+                            <span class="o_form_label">Default Disclaimer</span>
+                            <div class="text-muted">
+                                It will set this disclaimer by default on lab Result &amp; Request Records.
+                            </div>
+                            <div class="text-muted">
+                                <field name="yan_radiology_disclaimer" placeholder="Instert Your Default Disclaimer here.."/>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

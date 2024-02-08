@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_yan_cancel_reason_wiz" model="ir.ui.view">
+        <field name="name">yan.cancel.reason.wiz</field>
+        <field name="model">yan.cancel.reason.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Cancel Appointment">
+                <group>
+                    <field name="cancel_reason_id"/>
+                    <field name="cancel_reason"/>
+                </group>
+                <footer>
+                    <button name="cancel_appointment" string="Cancel Appointment" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_yan_cancel_reason_wiz" model="ir.actions.act_window">
+        <field name="name">Cancel Reason</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">yan.cancel.reason.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <record id="digest.digest_digest_default" model="digest.digest">
+        <field name="kpi_yan_appointment_total">True</field>
+        <field name="kpi_yan_treatment_total">True</field>
+        <field name="kpi_yan_procedure_total">True</field>
+        <field name="kpi_yan_evaluation_total">True</field>
+        <field name="kpi_yan_patients_total">True</field>
+    </record>
+
+</odoo>

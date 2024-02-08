@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_lab_result_table_line">
+        <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else ''">
+            <t t-if="not line.display_type">
+                <td t-attf-class="text-#{line.result_type} #{'text-danger' if line.result_type in ['high','low'] else ''}">
+                    <span t-field="line.name"/>
+                </td>
+                <td t-attf-class="text-#{line.result_type} #{'text-danger' if line.result_type in ['high','low'] else ''}">
+                    <span t-field="line.result"/>
+                </td>
+                <td t-attf-class="text-#{line.result_type} #{'text-danger' if line.result_type in ['high','low'] else ''}">
+                    <span t-field="line.normal_range"/>
+                    <span t-if="line.lab_uom_id" t-field="line.lab_uom_id"/>
+                </td>
+                <td t-attf-class="text-#{line.result_type} #{'text-danger' if line.result_type in ['high','low'] else ''}">
+                    <span t-field="line.remark"/>
+                </td>
+            </t>
+            <t t-if="line.display_type == 'line_section'">
+                <td colspan="99">
+                    <span t-field="line.name"/>
+                </td>
+            </t>
+        </tr>
+    </template>
+    
+    <template id="report_lab_result_table">
+        <table class="table table-sm o_main_table mt16">
+            <thead>
+                <tr>
+                    <th>Test Name</th>
+                    <th>Result</th>
+                    <th>Normal Range</th>
+                    <th>Remark</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-foreach="lab_test.critearea_ids" t-as="line">
+                    <t t-call="yan_laboratory.report_lab_result_table_line">
+                        <t t-set="line" t-value="line"/>
+                    </t>
+                </t>
+                <t t-if="lab_test.child_test_ids.critearea_ids" t-foreach="lab_test.child_test_ids.critearea_ids" t-as="line">
+                    <t t-call="yan_laboratory.report_lab_result_table_line">
+                        <t t-set="line" t-value="line"/>
+                    </t>
+                </t>
+            </tbody>
+        </table>
+    </template>
+
+    <template id="report_yan_lab_test_document_details">
+        <h2 class="text-center">Investigation: <span t-field="doc.name"/></h2>
+        <div class="row mt8 mb8" id="informations">
+            <div t-if="doc.patient_id" class="col-auto col-3 mw-100 mb-2">
+                <strong>Patient:</strong>
+                <p class="m-0" t-field="doc.patient_id"/>
+            </div>
+            <div t-if="doc.request_id.patient_age" class="col-3 mb-2">
+                <strong>Patient Age</strong>
+                <p class="m-0" t-field="doc.request_id.patient_age"/>
+            </div>
+            <div t-if="doc.patient_id.gender" class="col-3 mb-2">
+                <strong>Gender</strong>
+                <p class="m-0" t-field="doc.patient_id.gender"/>
+            </div>
+            <div t-if="doc.date_analysis" class="col-auto col-3 mw-100 mb-2">
+                <strong>Date:</strong>
+                <p class="m-0" t-field="doc.date_analysis"/>
+            </div>
+        </div>
+        <div class="row mt8 mb8" id="informations2">
+            <div t-if="doc.test_id" class="col-auto col-3 mw-100 mb-2">
+                <strong>Test Name:</strong>
+                <p class="m-0" t-field="doc.test_id"/>
+            </div>
+            <div t-if="doc.user_id" class="col-auto col-3 mw-100 mb-2">
+                <strong>Responsible:</strong>
+                <p class="m-0" t-field="doc.user_id"/>
+            </div>
+            <div t-if="doc.laboratory_id" class="col-auto col-3 mw-100 mb-2">
+                <strong>Laboratory:</strong>
+                <p class="m-0" t-field="doc.laboratory_id"/>
+            </div>
+            <div t-if="doc.collection_center_id" class="col-auto col-3 mw-100 mb-2">
+                <strong>Collection Center:</strong>
+                <p class="m-0" t-field="doc.collection_center_id.name"/>
+            </div>
+        </div>
+
+        <t t-if="doc.critearea_ids" t-call="yan_laboratory.report_lab_result_table">
+            <t t-set="lab_test" t-value="doc"/>
+        </t>
+        
+        <p class="mt32" t-if="doc.note">
+            <b>Comment:</b><br/>
+            <span t-esc="doc.note"/>
+        </p>
+        <div class="mt16 row" name="sign_and_code">
+            <div class="col-6" name="signature">
+                <t t-if="doc.lab_physician_id and doc.lab_physician_id.signature">
+                    <b>Doctor’s Stamp/Signature</b>
+                    <br/>
+                    <span t-field="doc.lab_physician_id.signature" t-options="{'widget': 'image', 'class': 'img-rounded', 'style':'max-height: 100px !important'}"/>
+                </t>
+            </div>
+            <div class="col-6" name="qrcode">
+                <div class="pull-right" t-if="doc.sudo().company_id.yan_labresult_qrcode">
+                    <img t-if="doc.qr_image" t-att-src="image_data_uri(doc.qr_image)" alt="LAB Result QR" style="width: 100px;height: 100px" class="float-right"/>
+                </div>
+            </div>
+        </div>
+        <p t-if="doc.disclaimer" class="mt64">
+            <b>Disclaimer: </b>
+            <span t-field="doc.disclaimer"/>
+        </p>
+    </template>
+
+    <template id="report_yan_lab_test_document">
+        <!-- Just for Portal Isuse -->
+        <t t-set="doc" t-value="doc.sudo()"/>
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context({'lang':doc.patient_id.lang})"/>
+            <div class="page">
+                <!-- Manage details in template so combined repotr can be printed in same page easily. -->
+                <t t-call="yan_laboratory.report_yan_lab_test_document_details"/>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_yan_lab_test">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="yan_laboratory.report_yan_lab_test_document" t-lang="doc.sudo().patient_id.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_yan_lab_test" model="ir.actions.report">
+        <field name="name">Lab Report</field>
+        <field name="model">patient.laboratory.test</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">yan_laboratory.report_yan_lab_test</field>
+        <field name="report_file">yan_laboratory.report_yan_lab_test</field>
+        <field name="print_report_name">(object.name or 'LabReport').replace('/','_') + '_LabReport'</field>
+        <field name="binding_model_id" ref="model_patient_laboratory_test"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

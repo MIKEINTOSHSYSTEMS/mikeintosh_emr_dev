@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="inherit_website_pages_form_view_inherit_entrivis" model="ir.ui.view">
+        <field name="name">website.pages.view.form.inherit.entrivis</field>
+        <field name="model">website.page</field>
+        <field name="inherit_id" ref="website.website_pages_form_view"/>
+        <field name="arch" type="xml">
+            <field name="menu_ids" position="after">
+                <notebook>
+                    <page string="Custom Code">
+                        <label for="custom_code_head"/>
+                        <field name="custom_code_head" widget="ace" options="{'mode': 'xml'}"/>
+
+                        <label for="custom_code_footer"/>
+                        <field name="custom_code_footer" widget="ace" options="{'mode': 'xml'}"/>
+                    </page>
+                </notebook>
+            </field>
+        </field>
+    </record>
+
+</odoo>

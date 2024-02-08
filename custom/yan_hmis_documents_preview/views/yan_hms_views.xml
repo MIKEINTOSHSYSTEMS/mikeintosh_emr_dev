@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Patient -->
+<!--    <record id="view_patient_form" model="ir.ui.view">-->
+<!--        <field name="name">hms.patient.form</field>-->
+<!--        <field name="model">hms.patient</field>-->
+<!--        <field name="inherit_id" ref="yan_hims_tasks.view_patient_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <button name="action_view_attachments" position="after">-->
+<!--                <button class="oe_inline oe_stat_button" type="object" name="yan_action_attachments_preview" title="Preview Documents" icon="fa-files-o" string="Preview Documents" widget="statinfo"/>-->
+<!--            </button>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="view_patient_tree" model="ir.ui.view">-->
+<!--        <field name="name">hms.patient.tree</field>-->
+<!--        <field name="model">hms.patient</field>-->
+<!--        <field name="inherit_id" ref="yan_hims_start.view_patient_tree"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <field name="mobile" position="after">-->
+<!--                <button class="oe_inline oe_stat_button" type="object" name="yan_action_attachments_preview" title="Preview Documents" icon="fa-files-o" string="Preview Documents" />-->
+<!--            </field>-->
+<!--        </field>-->
+<!--    </record>-->
+
+     <record id="view_patient_tree" model="ir.ui.view">
+        <field name="name">hms.documents.tree</field>
+        <field name="model">ir.attachment</field>
+        <field name="inherit_id" ref="yan_document_base.view_document_image_tree"/>
+        <field name="arch" type="xml">
+            <field name="write_date" position="after">
+                <button class="oe_inline oe_stat_button" type="object" name="yan_action_attachments_preview" title="Preview Document" icon="fa-files-o" string="Preview Documents" />
+            </field>
+        </field>
+    </record>
+    <!-- Treatment -->
+<!--    <record id="view_hospital_hms_treatment_form" model="ir.ui.view">-->
+<!--        <field name="name">hms.treatment.form</field>-->
+<!--        <field name="model">hms.treatment</field>-->
+<!--        <field name="inherit_id" ref="yan_hims_tasks.view_hospital_hms_treatment_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <div name="button_box" position="inside">-->
+<!--                <button class="oe_inline oe_stat_button" type="object" name="yan_action_attachments_preview" title="Preview Documents" icon="fa-files-o" string="Preview Documents" widget="statinfo"/>-->
+<!--            </div>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <!-- procedure -->
+<!--    <record id="view_yan_patient_procedure_form" model="ir.ui.view">-->
+<!--        <field name="name">yan.patient.procedure.form</field>-->
+<!--        <field name="model">yan.patient.procedure</field>-->
+<!--        <field name="inherit_id" ref="yan_hims_tasks.view_yan_patient_procedure_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <button name="action_view_attachments" position="after">-->
+<!--                <button class="oe_inline oe_stat_button" type="object" name="yan_action_attachments_preview" title="Preview Documents" icon="fa-files-o" string="Preview Documents" widget="statinfo"/>-->
+<!--            </button>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <!-- Appointment -->
+<!--    <record id="view_hms_appointment_form" model="ir.ui.view">-->
+<!--        <field name="name">hms.appointment.form</field>-->
+<!--        <field name="model">hms.appointment</field>-->
+<!--        <field name="inherit_id" ref="yan_hims_tasks.view_hms_appointment_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <button name="action_view_attachments" position="after">-->
+<!--                <button class="oe_inline oe_stat_button" type="object" name="yan_action_attachments_preview" title="Preview Documents" icon="fa-files-o" string="Preview Documents" widget="statinfo"/>-->
+<!--            </button>-->
+<!--        </field>-->
+<!--    </record>-->
+
+</odoo>

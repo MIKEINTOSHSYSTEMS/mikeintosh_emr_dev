@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="report_yan_lab_result">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="req_doc">
+                <t t-foreach="req_doc.patient_test_ids" t-as="doc">
+                    <t t-call="yan_laboratory.report_yan_lab_test_document" t-lang="doc.sudo().patient_id.partner_id.lang"/>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_yan_lab_results" model="ir.actions.report">
+        <field name="name">Lab Results</field>
+        <field name="model">yan.laboratory.request</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">yan_laboratory.report_yan_lab_result</field>
+        <field name="report_file">yan_laboratory.report_yan_lab_result</field>
+        <field name="print_report_name">(object._yan_get_report_base_filename())</field>
+        <field name="binding_model_id" ref="model_yan_laboratory_request"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Combined results Reoprt -->
+    <template id="report_yan_lab_result_combined_document">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <t t-foreach="doc.patient_test_ids" t-as="doc">
+                    <t t-call="yan_laboratory.report_yan_lab_test_document_details"/>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_yan_lab_result_combined">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="yan_laboratory.report_yan_lab_result_combined_document" t-lang="doc.sudo().patient_id.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_yan_lab_results_combined" model="ir.actions.report">
+        <field name="name">Lab Results (Combined)</field>
+        <field name="model">yan.laboratory.request</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">yan_laboratory.report_yan_lab_result_combined</field>
+        <field name="report_file">yan_laboratory.report_yan_lab_result_combined</field>
+        <field name="print_report_name">(object._yan_get_report_base_filename())</field>
+        <field name="binding_model_id" ref="model_yan_laboratory_request"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Combined results - Single table Reoprt -->
+    <template id="report_yan_lab_result_combined_single_table_document">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2 class="text-center">Investigation: <span t-field="doc.name"/></h2>
+                <div class="row mt8 mb8" id="informations">
+                    <div t-if="doc.patient_id" class="col-auto col-3 mw-100 mb-2">
+                        <strong>Patient:</strong>
+                        <p class="m-0" t-field="doc.patient_id"/>
+                    </div>
+                    <div t-if="doc.patient_age" class="col-3 mb-2">
+                        <strong>Patient Age</strong>
+                        <p class="m-0" t-field="doc.patient_age"/>
+                    </div>
+                    <div t-if="doc.patient_id.gender" class="col-3 mb-2">
+                        <strong>Gender</strong>
+                        <p class="m-0" t-field="doc.patient_id.gender"/>
+                    </div>
+                    <div t-if="doc.date" class="col-auto col-3 mw-100 mb-2">
+                        <strong>Date:</strong>
+                        <p class="m-0" t-field="doc.date"/>
+                    </div>
+                    <div t-if="doc.physician_id" class="col-auto col-3 mw-100 mb-2">
+                        <strong>Prescribing Doctor:</strong>
+                        <p class="m-0" t-field="doc.physician_id"/>
+                    </div>
+                    <div t-if="doc.collection_center_id" class="col-auto col-3 mw-100 mb-2">
+                        <strong>Collection Center:</strong>
+                        <p class="m-0" t-field="doc.collection_center_id.name"/>
+                    </div>
+                </div>
+
+                <table class="table table-sm o_main_table mt16">
+                    <thead>
+                        <tr>
+                            <th>Test Name</th>
+                            <th>Result</th>
+                            <th>Normal Range</th>
+                            <th>Remark</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="doc.patient_test_ids" t-as="lab_test">
+                            <tr class="font-italic o_line_note">
+                            <!-- <tr class="bg-200 font-weight-bold o_line_section"> -->
+                                <td colspan="99">
+                                    <span t-field="lab_test.test_id"/> By <span t-field="lab_test.user_id"/> on <span t-field="lab_test.date_analysis"/>
+                                </td>
+                            </tr>
+
+                            <t t-foreach="lab_test.critearea_ids" t-as="line">
+                                <t t-call="yan_laboratory.report_lab_result_table_line">
+                                    <t t-set="line" t-value="line"/>
+                                </t>
+                            </t>
+                        </t>
+                    </tbody>
+                </table>
+
+            </div>
+        </t>
+    </template>
+
+    <template id="report_yan_lab_result_combined_single_table">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="yan_laboratory.report_yan_lab_result_combined_single_table_document" t-lang="doc.sudo().patient_id.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_yan_lab_results_combined_single_table" model="ir.actions.report">
+        <field name="name">Lab Results (Combined- Single Table)</field>
+        <field name="model">yan.laboratory.request</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">yan_laboratory.report_yan_lab_result_combined_single_table</field>
+        <field name="report_file">yan_laboratory.report_yan_lab_result_combined_single_table</field>
+        <field name="print_report_name">(object._yan_get_report_base_filename())</field>
+        <field name="binding_model_id" ref="model_yan_laboratory_request"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

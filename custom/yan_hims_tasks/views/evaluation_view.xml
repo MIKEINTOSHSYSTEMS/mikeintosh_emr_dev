@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_yan_patient_evaluation_form" model="ir.ui.view">
+        <field name="name">Patient Evaluation</field>
+        <field name="model">yan.patient.evaluation</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_done" states="draft" groups="yan_hims_tasks.group_hms_jr_doctor,yan_hims_tasks.group_hms_nurse" type="object" string="Done" class="oe_highlight"/>
+                    <button name="action_cancel" string="Cancel" states="draft" type="object"/>
+                    <button name="action_draft" string="Draft" states="cancel" type="object"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <field name="image_128" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="age" readonly="1"/>
+                            <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                        </group>
+                        <group>
+                            <field name="physician_id"/>
+                            <field name="date"/>
+                            <field name="appointment_id" domain="[('patient_id','=', patient_id)]" context="{'default_patient_id': patient_id, 'default_physician_id': physician_id}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="Vitals" string="Details" groups="yan_hims_tasks.group_hms_nurse">
+                            <group>
+                                <group>
+                                    <label for="weight"/>
+                                    <div class="o_row">
+                                        <field name="weight"/>
+                                        <field name="yan_weight_name"/>
+                                    </div>
+                                    <label for="height"/>
+                                    <div class="o_row">
+                                        <field name="height"/>
+                                        <field name="yan_height_name"/>
+                                    </div>
+                                    <label for="temp"/>
+                                    <div class="o_row">
+                                        <field name="temp"/>
+                                        <field name="yan_temp_name"/>
+                                    </div>
+                                    <label for="hr"/>
+                                    <div class="o_row">
+                                        <field name="hr"/>
+                                        bpm
+                                    </div>
+                                    <field name="rr"/>
+                                </group>
+                                <group>
+                                    <label string="Systolic/Diastolic BP" for="systolic_bp"/>
+                                    <div name="systolic_bp">
+                                        <div class="oe_inline" style="display: inline;" >
+                                            <field name="systolic_bp" class="oe_inline"/>/<field name="diastolic_bp" class="oe_inline"/>
+                                        </div>
+                                    </div>
+                                    <label for="spo2"/>
+                                    <div class="o_row">
+                                        <field name="spo2"/>
+                                        <field name="yan_spo2_name"/>
+                                    </div>
+                                    <label for="rbs"/>
+                                    <div class="o_row">
+                                        <field name="rbs"/>
+                                        <field name="yan_rbs_name"/>
+                                    </div>
+                                    <label for="head_circum"/>
+                                    <div class="o_row">
+                                        <field name="head_circum"/>
+                                        <field name="yan_head_circum_name"/>
+                                    </div>
+                                </group>
+                                <group>
+                                    <field name="bmi"/>
+                                </group>
+                                <group>
+                                    <field name="bmi_state"/>
+                                </group>
+                            </group>
+
+                            <separator string="Pain Level"/>
+                            <group>
+                                <group>
+                                    <label for="pain_level"/>
+                                    <div class="o_row">
+                                        <field name="pain_level"/>
+                                        <span><button name="%(action_yan_pain_level)d" type="action" icon="fa-question-circle"  title="Pain Level"/></span>
+                                    </div>
+                                    <field name="pain" colspan="2" nolabel="1"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_yan_patient_evaluation_search">
+        <field name="name">evaluation.list</field>
+        <field name="model">yan.patient.evaluation</field>
+        <field name="arch" type="xml">
+            <search string="Patient Evaluation">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="date"/>
+                <group expand="0" string="Group By...">
+                     <filter string="Patient" name="patient_groupby" domain="[]" context="{'group_by':'patient_id'}"/>
+                    <filter string="Date" name="date_groupby" domain="[]" context="{'group_by':'date'}" />
+                    <filter string="State" name="state_groupby" domain="[]" context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_yan_patient_evaluation_tree">
+        <field name="name">treatment.list</field>
+        <field name="model">yan.patient.evaluation</field>
+        <field name="arch" type="xml">
+            <tree string="Patient Evaluation">
+                <field name="name"/>
+                <field name="patient_id"/>
+                <field name="date"/>
+                <field name="state"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_yan_patient_evaluation_calendar" model="ir.ui.view">
+        <field name="name">yan.patient.evaluation.calendar</field>
+        <field name="model">yan.patient.evaluation</field>
+        <field name="type">calendar</field>
+        <field name="arch" type="xml">
+            <calendar string="Patient Evaluations" color="patient_id" date_start="date">
+                <field name="physician_id"/>
+                <field name="patient_id"/>
+                <field name="state"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_yan_patient_evaluation_pivot" model="ir.ui.view">
+        <field name="name">yan.patient.evaluation.pivot</field>
+        <field name="model">yan.patient.evaluation</field>
+        <field name="arch" type="xml">
+            <pivot string="Patient Evaluations">
+                <field name="date" type="row"/>
+                <field name="physician_id" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_yan_patient_evaluation" model="ir.actions.act_window">
+        <field name="name">Patient Evaluation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">yan.patient.evaluation</field>
+        <field name="view_mode">tree,form,calendar,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Record Found
+            </p>
+            <p>
+                Click to add a Patient Evaluation.
+            </p>
+        </field>
+    </record>
+
+    <!-- POPUP -->
+    <record id="view_yan_patient_evaluation_popup_form" model="ir.ui.view">
+        <field name="name">yan.patient.evaluation.form</field>
+        <field name="model">yan.patient.evaluation</field>
+        <field name="inherit_id" ref="yan_hims_tasks.view_yan_patient_evaluation_form"/>
+        <field name="mode">primary</field>
+        <field name="priority">1</field>
+        <field name="arch" type="xml">
+            <sheet position="after">
+                <footer>
+                    <button name="create_evaluation" type="object" string="Create" class="oe_highlight"/>
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </sheet>
+        </field>
+    </record>
+
+    <record id="action_yan_patient_evaluation_popup" model="ir.actions.act_window">
+        <field name="name">Evaluation</field>
+        <field name="res_model">yan.patient.evaluation</field>
+        <field name="view_id" ref="view_yan_patient_evaluation_popup_form"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_consumed_product_table">
+        <table class="table table-sm o_main_table mt16">
+            <thead> 
+                <tr>
+                    <th>Sr.No</th>
+                    <th>Medicine</th>
+                    <th>Quantity</th>
+                    <th>Lot/Serial No.</th>
+                    <th>Unit Price</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-foreach="lines" t-as="line">
+                    <tr>
+                        <td>
+                            <span t-esc="line_index + 1"/>
+                        </td>
+                        <td>
+                            <span t-field="line.sudo().product_id.name"/>
+                        </td>
+                        <td>
+                            <span t-field="line.qty"/>
+                        </td>
+                        <td>
+                            <span t-field="line.lot_id.name"/>
+                        </td>
+                        <td>
+                            <span t-field="line.price_unit"/>
+                        </td>
+                        <td>
+                            <span t-field="line.subtotal"/>
+                        </td>
+                    </tr>
+                </t>
+            </tbody>
+        </table>
+    </template>
+
+    <template id="report_yan_appointment_document">
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context({'lang':doc.patient_id.lang})"/>
+            <div class="page">
+                <div class="oe_structure"/>
+
+                <div class="row mb32 mt32">
+                    <div class="col-12 text-center">
+                        <h3>
+                            <strong>
+                                <span>Appointment: </span>
+                                <span t-field="doc.name"/>
+                            </strong>
+                        </h3>
+                    </div>
+                </div>
+
+                <table class="table" style="border-bottom: 1px solid black;">
+                    <tr>
+                        <td style="width:50%;border: none;">
+                            <strong>Patient: <span t-field="doc.patient_id.name"/></strong>
+                        </td>
+                        <td style="width:50%;border: none;">
+                            <strong>Date. : <span t-field="doc.date" /></strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width:50%;border: none;">
+                            <strong>Physician: <span t-field="doc.sudo().physician_id.name" /></strong>
+                        </td>
+                        <td style="width:50%;border: none;">
+                            <strong>Department: <span t-field="doc.sudo().yan_department_id.name" /></strong>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="table table-bordered">
+                    <tr>
+                        <td>
+                            <strong>Subject:</strong>
+                        </td>
+                        <td>Appointment <span t-field="doc.purpose_id"/></td>
+                    </tr>
+                </table>
+
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><span t-out="doc.notes"/></td>
+                    </tr>
+                </table>
+
+                <div t-if="doc.consumable_line_ids" class="mt16 mb16 text-center">
+                    <h5>
+                        <strong>Consumed Products/Services</strong>
+                    </h5>
+                </div>
+                <div t-if="doc.consumable_line_ids" class="col-12 mb16">
+                    <t t-call="yan_hims_tasks.report_consumed_product_table">
+                        <t t-set="lines" t-value="doc.consumable_line_ids"/>
+                    </t>
+                </div>
+
+                Should you have any questions please contact us at your convenience.<br/>
+                <br/>
+                Best regards,<br/>
+                <div class="oe_structure"/>
+                <p style="page-break-before:always;"> </p>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_yan_appointment">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="yan_hims_tasks.report_yan_appointment_document" t-lang="doc.patient_id.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_appointment_report" model="ir.actions.report">
+        <field name="name">Appointment</field>
+        <field name="model">hms.appointment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">yan_hims_tasks.report_yan_appointment</field>
+        <field name="report_file">yan_hims_tasks.report_yan_appointment</field>
+        <field name="print_report_name">(object.name or 'Appointment').replace('/','_')</field>
+        <field name="binding_model_id" ref="model_hms_appointment"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

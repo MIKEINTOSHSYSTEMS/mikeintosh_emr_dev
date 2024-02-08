@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_yan_treatment_document">
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context({'lang':doc.patient_id.lang})"/>
+            <div class="page">
+                <div class="oe_structure"/>
+                <div class="row mb32 mt32">
+                    <div class="col-12 text-center">
+                        <h3>
+                            <strong>
+                                <span>Treatments: </span>
+                                <span t-field="doc.name"/>
+                            </strong>
+                        </h3>
+                    </div>
+                </div>
+
+                <div style="border: 1px solid black;"/>
+
+                <div class="row mt8">
+                    <div class="col-6">
+                        <t t-if="doc.patient_id">
+                            <strong>Patint :-</strong><span t-field="doc.patient_id"/><br/>
+                        </t>
+                        <t t-if="doc.diagnosis_id">
+                            <strong>Diagnosis :-</strong><span t-field="doc.diagnosis_id"/><br/>
+                        </t>
+                        <t t-if="doc.date">
+                            <strong>Date of Diagnosis :-</strong><span t-field="doc.date"/><br/>
+                        </t>
+                    </div>
+                    <div class="col-6">
+                        <t t-if="doc.physician_id">
+                            <strong>Physician :-</strong><span t-field="doc.physician_id"/><br/>
+                        </t>
+                        <t t-if="doc.department_id">
+                            <strong>Department :-</strong><span t-field="doc.department_id"/><br/>
+                        </t>
+                        <t t-if="doc.end_date">
+                            <strong>End Date :-</strong><span t-field="doc.end_date"/><br/>
+                        </t>
+                    </div>
+                </div>
+
+                <div style="border: 1px solid black;" class="mt8 mb16"/>
+
+                <br/>
+                <t t-if="doc.prescription_line_ids">
+                    <div class="text-center">
+                        <h4>
+                            <strong>Prescribed Medicine</strong>
+                        </h4>
+                    </div>
+
+                    <t t-call="yan_hims_tasks.report_prescription_table">
+                        <t t-set="prescription" t-value="doc"/>
+                    </t>
+                </t>
+
+                <br/>
+                <t t-if="doc.patient_procedure_ids">
+                    <div class="text-center">
+                        <h4>
+                            <strong>Patient Procedures</strong>
+                        </h4>
+                    </div>
+
+                    <table class="table table-sm o_main_table mt16">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Patient</th>
+                                <th>Procedures</th>
+                                <th>Price</th>
+                                <th>Physician</th>
+                                <th>Duration</th>
+                                <th>State</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="doc.patient_procedure_ids" t-as="line">
+                                <tr>
+                                    <td>
+                                        <span t-field="line.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.patient_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.product_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.price_unit"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line. physician_id.name"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.duration"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line.state"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_yan_treatment">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="yan_hims_tasks.report_yan_treatment_document" t-lang="doc.patient_id.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_treatment_report" model="ir.actions.report">
+        <field name="name">Treatment</field>
+        <field name="model">hms.treatment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">yan_hims_tasks.report_yan_treatment</field>
+        <field name="report_file">yan_hims_tasks.report_yan_treatment</field>
+        <field name="print_report_name">(object.name or 'Treatment').replace('/','_')</field>
+        <field name="binding_model_id" ref="model_hms_treatment"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

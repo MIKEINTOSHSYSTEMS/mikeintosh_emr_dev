@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hms_laboratory_request_line_receptionist,YAN Patient Laboratory Request line,yan_laboratory.model_laboratory_request_line,yan_hims_tasks.group_hms_receptionist,1,1,1,1
+access_hms_yan_laboratory_request_receptionist,Patient Lab Request Recep,yan_laboratory.model_yan_laboratory_request,yan_hims_tasks.group_hms_receptionist,1,1,1,0
+,,,,,,,
+access_patient_laboratory_test_jr_doctor,Patient Lab Test phy,yan_laboratory.model_patient_laboratory_test,yan_hims_tasks.group_hms_jr_doctor,1,1,1,0
+access_hms_patient_laboratory_test_jr_doctor,YAN Laboratory phy,yan_laboratory.model_yan_lab_test,yan_hims_tasks.group_hms_jr_doctor,1,1,1,0
+access_hms_lab_test_critearea_jr_doctor,YAN Test Criteria phy,yan_laboratory.model_lab_test_critearea,yan_hims_tasks.group_hms_jr_doctor,1,1,1,0
