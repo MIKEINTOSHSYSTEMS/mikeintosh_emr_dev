@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="yan_radiology_req_email" model="mail.template">
+            <field name="name">Radiology Request</field>
+            <field name="email_from">{{  user.email }}</field>
+            <field name="email_to">{{ object.radiology_id.email }}</field>
+            <field name="subject">Radiology Test Request: {{ object.name }}</field>
+            <field name="model_id" ref="yan_radiology.model_yan_radiology_request"/>
+            <field name="report_template" ref="yan_radiology.action_report_yan_radiology_prescription"/>
+            <field name="report_name">{{ (object.name or '').replace('/','_') }}</field>
+            <field name="lang">{{ object.radiology_id.lang }}</field>
+            <field name="body_html" type="html">
+<div style="padding:0px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777">
+    <p>Hello <t t-out="object.radiology_id.name"/>,</p>
+    <p>We will like to perform lab tests requested in the attached document in your radiology and revert-us back on this mail with findings.</p>
+    <ul>
+        <li>
+            <p>Reference Number: <t t-out="object.name"/></p>
+        </li>
+        <li t-if="object.patient_id">
+            <p>Patient: <t t-out="object.patient_id.name"/></p>
+        </li>
+        <li t-if="object.physician_id">
+            <p>Prescribed By: <t t-out="object.physician_id.name"/></p>
+        </li>
+        <li>
+            <p>Prescription Date: <t t-out="object.date.date()"/></p>
+        </li>
+    </ul>
+
+    <p>Please feel free to call anytime for further information or any query.</p>
+
+    <p>Best regards.</p>
+</div>
+                </field>
+        </record>
+
+
+        <record id="yan_radiology_test_email" model="mail.template">
+            <field name="name">Radiology Test Result</field>
+            <field name="email_from">{{  user.email }}</field>
+            <field name="email_to">{{ object.patient_id.email }}</field>
+            <field name="subject">Radiology Test Request: {{ object.name }}</field>
+            <field name="model_id" ref="yan_radiology.model_patient_radiology_test"/>
+            <field name="report_template" ref="yan_radiology.action_report_yan_radiology_test"/>
+            <field name="report_name">{{ (object.name or '').replace('/','_') }}</field>
+            <field name="lang">{{ object.patient_id.lang }}</field>
+            <field name="body_html" type="html">
+<div style="padding:0px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777">
+    <p>Hello <t t-out="object.patient_id.name"/>,</p><br/>
+    <p>We have attached the results of the lab tests requested from our radiology. Please find the attached lab result report.</p><br/>
+    <ul>
+        <li>
+            <p>Reference Number: <t t-out="object.name"/></p>
+        </li>
+        <li t-if="object.patient_id">
+            <p>Patient: <t t-out="object.patient_id.name"/></p>
+        </li>
+        <li t-if="object.radiology_request_id">
+            <p>Radiology Request Reference: <t t-out="object.radiology_request_id.name"/></p>
+        </li>
+        <li t-if="object.test_id">
+            <p>Radiology Test: <t t-out="object.test_id.name"/></p>
+        </li>
+        <li t-if="object.physician_id">
+            <p>Prescribed By: <t t-out="object.physician_id.name"/></p>
+        </li>
+        <li>
+            <p>Test Date: <t t-out="object.date_analysis"/></p>
+        </li>
+        <li>
+            <p>Responsible: <t t-out="object.user_id.name"/></p>
+        </li>
+    </ul>
+
+    <p>Please feel free to call anytime for further information or any query.</p>
+
+    <p>Best regards.</p><br/>
+</div>
+                </field>
+        </record>
+        
+    </data>
+</odoo>

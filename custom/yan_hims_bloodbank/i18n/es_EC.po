@@ -1,0 +1,868 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* yan_hims_bloodbank
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0-20211110\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-11-19 20:51+0000\n"
+"PO-Revision-Date: 2021-11-19 16:15-0500\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0\n"
+"Last-Translator: \n"
+"Language: es_PA\n"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_hms_patient__yan_blood_requisition_count
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_hms_physician__yan_blood_requisition_count
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_partner__yan_blood_requisition_count
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_users__yan_blood_requisition_count
+msgid "#Blood Donations"
+msgstr "#Donaciones de Sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_hms_patient__yan_blood_issuance_count
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_hms_physician__yan_blood_issuance_count
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_partner__yan_blood_issuance_count
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_users__yan_blood_issuance_count
+msgid "#Blood Requisitions"
+msgstr "#Requisición de Sangre"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Stock Location</span>"
+msgstr "<span class=\"o_form_label\">Ubicación del stock</span>"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Stock Usage Location</span>"
+msgstr "<span class=\"o_form_label\">Ubicación de existencias</span>"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields.selection,name:yan_hims_bloodbank.selection__yan_blood_issuance__blood_group__ab+
+#: model:ir.model.fields.selection,name:yan_hims_bloodbank.selection__yan_blood_requisition__blood_group__ab+
+msgid "AB+"
+msgstr "AB+"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields.selection,name:yan_hims_bloodbank.selection__yan_blood_issuance__blood_group__ab-
+#: model:ir.model.fields.selection,name:yan_hims_bloodbank.selection__yan_blood_requisition__blood_group__ab-
+msgid "AB-"
+msgstr "AB-"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__message_needaction
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__message_needaction
+msgid "Action Needed"
+msgstr "Acción Requerida"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__activity_ids
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__activity_ids
+msgid "Activities"
+msgstr "Actividades"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__activity_exception_decoration
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr "Excepción de Actividad"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__activity_state
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__activity_state
+msgid "Activity State"
+msgstr "Estado de la Actividad"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__activity_type_icon
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__activity_type_icon
+msgid "Activity Type Icon"
+msgstr "Ícono de tipo de actvidad"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_company__yan_blood_issuance_invoicing
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_config_settings__yan_blood_issuance_invoicing
+msgid "Allow Blood Issuance Invoicing"
+msgstr "Permitir la facturación de entrega de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_company__yan_blood_requisition_invoicing
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_config_settings__yan_blood_requisition_invoicing
+msgid "Allow Blood Requisition Invoicing"
+msgstr "Permitir la facturación de la requisición de sangre"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.res_config_settings_view_form
+msgid "Allow user to Invoice for Blood Issuance"
+msgstr "Permitir que el usuario facture por la entrega de sangre"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.res_config_settings_view_form
+msgid "Allow user to Invoice for Blood Requisition"
+msgstr "Permitir que el usuario facture la requisición de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__message_attachment_count
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__message_attachment_count
+msgid "Attachment Count"
+msgstr "Recuento de Adjuntos"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_hms_lot_search
+msgid "Available for Issueance"
+msgstr "Disponible para entrega"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_hms_lot_search
+msgid "Available for Requisition"
+msgstr "Disponible para requisición"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__product_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__product_id
+msgid "Blood Bag"
+msgstr "Bolsa de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_issuance__product_id
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_requisition__product_id
+msgid ""
+"Blood Bag Name. Make sure that the Blood Bag (product) has all the proper "
+"information at product level."
+msgstr ""
+"Nombre de la bolsa de sangre. Asegúrese de que la bolsa de sangre "
+"(producto) tenga toda la información adecuada a nivel de producto."
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__lot_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__lot_id
+msgid "Blood Bag Serial"
+msgstr "Serial de la Bolsa de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.actions.act_window,name:yan_hims_bloodbank.product_template_action_blood
+#: model:ir.ui.menu,name:yan_hims_bloodbank.menu_blood_products
+msgid "Blood Bags"
+msgstr "Bolsas de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields.selection,name:yan_hims_bloodbank.selection__product_template__hospital_product_type__blood
+#: model:ir.ui.menu,name:yan_hims_bloodbank.menu_blood_bank_root
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_hms_partner_form
+msgid "Blood Bank"
+msgstr "Banco de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:res.groups,name:yan_hims_bloodbank.group_blood_bank_user
+msgid "Blood Bank User"
+msgstr "Usuario del Banco de Sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_hms_patient__yan_blood_issuance_ids
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_hms_physician__yan_blood_issuance_ids
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_partner__yan_blood_issuance_ids
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_users__yan_blood_issuance_ids
+msgid "Blood Donations"
+msgstr "Donaciones de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.actions.act_window,name:yan_hims_bloodbank.action_blood_donor
+#: model:ir.actions.act_window,name:yan_hims_bloodbank.action_partner_blood_donor
+msgid "Blood Donor"
+msgstr "Donante de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__blood_group
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__blood_group
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_stock_production_lot__blood_group
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_hms_lot_search
+msgid "Blood Group"
+msgstr "Grupo sanguíneo"
+
+#. module: yan_hims_bloodbank
+#: model:ir.actions.act_window,name:yan_hims_bloodbank.action_yan_blood_issuance
+#: model:ir.model,name:yan_hims_bloodbank.model_yan_blood_issuance
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_stock_move__issuance_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_stock_production_lot__issuance_id
+#: model:ir.ui.menu,name:yan_hims_bloodbank.menu_blood_receiver
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_blood_bank_registered_form
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_hms_partner_form
+msgid "Blood Issuance"
+msgstr "Entrega de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_company__yan_blood_issuance_product_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_config_settings__yan_blood_issuance_product_id
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_res_company__yan_blood_issuance_product_id
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_res_config_settings__yan_blood_issuance_product_id
+msgid "Blood Issuance Invoice Product"
+msgstr "Factura de entrega de sangre"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.res_config_settings_view_form
+msgid "Blood Issuance Invoicing"
+msgstr "Facturación de entrega de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__service_product_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__service_product_id
+#: model:product.product,name:yan_hims_bloodbank.hms_yan_blood_issuance_service
+#: model:product.template,name:yan_hims_bloodbank.hms_yan_blood_issuance_service_product_template
+msgid "Blood Issuance Service"
+msgstr "Servicio de entrega de sangre"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_form
+msgid "Blood Management"
+msgstr "Manejo de la sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_issuance__service_product_id
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_requisition__service_product_id
+msgid "Blood Process Charge Service"
+msgstr "Procesar cargo por servicio de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.actions.act_window,name:yan_hims_bloodbank.action_blood_receiver
+#: model:ir.actions.act_window,name:yan_hims_bloodbank.action_partner_blood_receiver
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_yan_blood_issuance_form
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_yan_blood_issuance_tree
+msgid "Blood Receiver"
+msgstr "Receptor de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.actions.act_window,name:yan_hims_bloodbank.action_yan_blood_requisition
+#: model:ir.model,name:yan_hims_bloodbank.model_yan_blood_requisition
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_stock_production_lot__requisition_id
+#: model:ir.ui.menu,name:yan_hims_bloodbank.menu_user_requisition
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_issuance_calendar
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_issuance_pivot
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_calendar
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_pivot
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_tree
+msgid "Blood Requisition"
+msgstr "Requisición de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_company__yan_blood_requisition_product_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_config_settings__yan_blood_requisition_product_id
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_res_company__yan_blood_requisition_product_id
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_res_config_settings__yan_blood_requisition_product_id
+msgid "Blood Requisition Invoice Product"
+msgstr "Factura de requisición de sangre"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.res_config_settings_view_form
+msgid "Blood Requisition Invoicing"
+msgstr "Facturación de requisición de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:product.product,name:yan_hims_bloodbank.hms_yan_blood_requisition_service
+#: model:product.template,name:yan_hims_bloodbank.hms_yan_blood_requisition_service_product_template
+msgid "Blood Requisition Service"
+msgstr "Servicio de Requisición de Sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_hms_patient__yan_blood_requisition_ids
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_hms_physician__yan_blood_requisition_ids
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_partner__yan_blood_requisition_ids
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_users__yan_blood_requisition_ids
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_blood_bank_registered_form
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_hms_partner_form
+msgid "Blood Requisitions"
+msgstr "Requisiciones de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.ui.menu,name:yan_hims_bloodbank.menu_blood_stock
+msgid "Blood Stock"
+msgstr "Stock de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields.selection,name:yan_hims_bloodbank.selection__yan_blood_issuance__state__cancel
+#: model:ir.model.fields.selection,name:yan_hims_bloodbank.selection__yan_blood_requisition__state__cancel
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_form
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_yan_blood_issuance_form
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.actions.act_window,help:yan_hims_bloodbank.action_blood_donor
+#: model_terms:ir.actions.act_window,help:yan_hims_bloodbank.action_partner_blood_donor
+msgid "Click to add a Blood Donor."
+msgstr "Haga clic para agregar un donante de sangre."
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.actions.act_window,help:yan_hims_bloodbank.action_yan_blood_issuance
+msgid "Click to add a Blood Issuance."
+msgstr "Haga clic para agregar una entrega de sangre."
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.actions.act_window,help:yan_hims_bloodbank.action_blood_product_lots
+#: model_terms:ir.actions.act_window,help:yan_hims_bloodbank.action_blood_receiver
+#: model_terms:ir.actions.act_window,help:yan_hims_bloodbank.action_partner_blood_receiver
+msgid "Click to add a Blood Receiver."
+msgstr "Haga clic para agregar un receptor de sangre."
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.actions.act_window,help:yan_hims_bloodbank.action_yan_blood_requisition
+msgid "Click to add a Blood Requisition."
+msgstr "Haga clic para agregar una requisición de sangre."
+
+#. module: yan_hims_bloodbank
+#: model:ir.model,name:yan_hims_bloodbank.model_res_config_settings
+msgid "Config Settings"
+msgstr "Ajustes"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model,name:yan_hims_bloodbank.model_res_partner
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__partner_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__partner_id
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_issuance_search
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_search
+msgid "Contact"
+msgstr "Contacto"
+
+#. module: yan_hims_bloodbank
+#: model:ir.ui.menu,name:yan_hims_bloodbank.menu_blood_donor_contact
+#: model:ir.ui.menu,name:yan_hims_bloodbank.menu_blood_receiver_contact
+msgid "Contacts"
+msgstr "Contactos"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_form
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_yan_blood_issuance_form
+msgid "Create Invoice"
+msgstr "Crear Factura"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__create_uid
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__create_date
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__date
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__display_name
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__display_name
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields.selection,name:yan_hims_bloodbank.selection__yan_blood_requisition__state__done
+msgid "Donated"
+msgstr "Donado"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_form
+msgid "Done"
+msgstr "Listo"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_stock_production_lot__donor_partner_id
+msgid "Donor"
+msgstr "Donante"
+
+#. module: yan_hims_bloodbank
+#: model:ir.ui.menu,name:yan_hims_bloodbank.menu_blood_donor_root
+msgid "Donors"
+msgstr "Donantes"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields.selection,name:yan_hims_bloodbank.selection__yan_blood_issuance__state__draft
+#: model:ir.model.fields.selection,name:yan_hims_bloodbank.selection__yan_blood_requisition__state__draft
+msgid "Draft"
+msgstr "Borrador"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__message_follower_ids
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__message_partner_ids
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Clientes)"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_issuance__activity_type_icon
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_requisition__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Icono de Font Awesome e.g. fa-tasks"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_hms_lot_search
+msgid "Group By"
+msgstr "Agrupar por..."
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_issuance_search
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_search
+msgid "Group By..."
+msgstr "Agrupar por..."
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__has_message
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__has_message
+msgid "Has Message"
+msgstr "Tiene mensaje"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model,name:yan_hims_bloodbank.model_res_company
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__company_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__company_id
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_search
+msgid "Hospital"
+msgstr "Hospital"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_product_product__hospital_product_type
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_product_template__hospital_product_type
+msgid "Hospital Product Type"
+msgstr "Tipo de producto hospitalario"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__id
+msgid "ID"
+msgstr "Cédula o Pasaporte"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__activity_exception_icon
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__activity_exception_icon
+msgid "Icon"
+msgstr "Icono"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_issuance__activity_exception_icon
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_requisition__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr "Icono para indicar una actividad de excepción."
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_issuance__message_needaction
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_issuance__message_unread
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_requisition__message_needaction
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_requisition__message_unread
+msgid "If checked, new messages require your attention."
+msgstr "Si está marcado hay nuevos mensajes que requieren su atención."
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_issuance__message_has_error
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_issuance__message_has_sms_error
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_requisition__message_has_error
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_requisition__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si se encuentra marcado, algunos mensajes tienen error de envío."
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__invoice_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__invoice_id
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.res_config_settings_view_form
+msgid "Invoice Service for Blood Issuance"
+msgstr "Servicio de Facturas por Entrega de Sangre"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.res_config_settings_view_form
+msgid "Invoice Service for Blood Requisition"
+msgstr "Servicio de Facturas por Requisición de Sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_hms_patient__is_donor
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_hms_physician__is_donor
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_partner__is_donor
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_users__is_donor
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_patient_filter
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_res_partner_filter
+msgid "Is Blood Donor"
+msgstr "Es donante de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_stock_production_lot__is_blood_product
+msgid "Is Blood Product"
+msgstr "Es producto sanguíneo"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_hms_patient__is_receiver
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_hms_physician__is_receiver
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_partner__is_receiver
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_users__is_receiver
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_patient_filter
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_res_partner_filter
+msgid "Is Blood Receiver"
+msgstr "Es receptor de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__message_is_follower
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__message_is_follower
+msgid "Is Follower"
+msgstr "Es un seguidor"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__is_outside
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__is_outside
+msgid "Is Outside"
+msgstr "Está afuera"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_yan_blood_issuance_form
+msgid "Issue"
+msgstr "Emitir"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields.selection,name:yan_hims_bloodbank.selection__yan_blood_issuance__state__done
+msgid "Issued"
+msgstr "Emitido"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_hms_lot_search
+msgid "Issued Product"
+msgstr "Producto emitido"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance____last_update
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__write_uid
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__write_date
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__location
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__location
+msgid "Location"
+msgstr "Ubicación"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.res_config_settings_view_form
+msgid "Location to manage consumed Blood."
+msgstr "Ubicación para gestionar la sangre consumida."
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.res_config_settings_view_form
+msgid "Location to take consumed Blood."
+msgstr "Lugar para tomar sangre consumida."
+
+#. module: yan_hims_bloodbank
+#: model:ir.model,name:yan_hims_bloodbank.model_stock_production_lot
+msgid "Lot/Serial"
+msgstr "Lote/Serie"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_hms_lot_search
+msgid "Lot/Serial Number"
+msgstr "Lote/Número de serie "
+
+#. module: yan_hims_bloodbank
+#: model:ir.actions.act_window,name:yan_hims_bloodbank.action_blood_product_lots
+msgid "Lots/Serial Numbers"
+msgstr "Lotes/Números de serie"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__message_main_attachment_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__message_main_attachment_id
+msgid "Main Attachment"
+msgstr "Adjuntos principales"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__message_has_error
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__message_has_error
+msgid "Message Delivery error"
+msgstr "Error de Envío de Mensaje"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__message_ids
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__my_activity_date_deadline
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr "Fecha límite de mi actividad"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__name
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__activity_calendar_event_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "Siguiente actividad en el calendario"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__activity_date_deadline
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr "Fecha límite de la siguiente actividad"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__activity_summary
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__activity_summary
+msgid "Next Activity Summary"
+msgstr "Resumen de la siguiente actividad"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__activity_type_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__activity_type_id
+msgid "Next Activity Type"
+msgstr "Siguiente tipo de actividad"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.actions.act_window,help:yan_hims_bloodbank.action_partner_blood_donor
+#: model_terms:ir.actions.act_window,help:yan_hims_bloodbank.action_partner_blood_receiver
+msgid "No Record Found"
+msgstr "Registro no encontrado"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_form
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_yan_blood_issuance_form
+msgid "Notes..."
+msgstr "Notas..."
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__message_needaction_counter
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de Acciones"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__message_has_error_counter
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de Errores"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_issuance__message_needaction_counter
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_requisition__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr "Número de mensajes que requieren una acción"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_issuance__message_has_error_counter
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_requisition__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de envío"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_issuance__message_unread_counter
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_requisition__message_unread_counter
+msgid "Number of unread messages"
+msgstr "Número de mensajes no leidos"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_issuance_search
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_search
+msgid "Outside Requisition"
+msgstr "Requisición externa"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model,name:yan_hims_bloodbank.model_hms_patient
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__patient_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__patient_id
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_issuance_search
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_search
+msgid "Patient"
+msgstr "Paciente"
+
+#. module: yan_hims_bloodbank
+#: model:ir.ui.menu,name:yan_hims_bloodbank.menu_blood_donor_patient
+#: model:ir.ui.menu,name:yan_hims_bloodbank.menu_blood_receiver_patients
+msgid "Patients"
+msgstr "Pacientes"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__physician_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__physician_id
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_issuance_search
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_search
+msgid "Physician"
+msgstr "Profesional"
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_hms_lot_search
+msgid "Product"
+msgstr "Producto"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model,name:yan_hims_bloodbank.model_product_template
+msgid "Product Template"
+msgstr "Plantilla de producto"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_stock_production_lot__receiver_partner_id
+msgid "Receiver"
+msgstr "Receptor"
+
+#. module: yan_hims_bloodbank
+#: model:ir.ui.menu,name:yan_hims_bloodbank.menu_blood_receiver_root
+msgid "Receivers"
+msgstr "Receptores"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__remark
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__remark
+msgid "Remark"
+msgstr "Comentario"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__user_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__user_id
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_issuance_search
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_search
+msgid "Responsible"
+msgstr "Responsable "
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_issuance__user_id
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_requisition__user_id
+msgid "Responsible Person"
+msgstr "Persona Responsable"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__activity_user_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__activity_user_id
+msgid "Responsible User"
+msgstr "Usuario Responsable"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields.selection,name:yan_hims_bloodbank.selection__yan_blood_requisition__state__running
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_form
+msgid "Running"
+msgstr "Corriendo"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__message_has_sms_error
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Error de entrega del SMS"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__state
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__state
+msgid "State"
+msgstr "Estado"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_issuance__activity_state
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_requisition__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+"Estado basado en actividades\n"
+"Vencida: la fecha tope ya ha pasado\n"
+"Hoy: La fecha tope es hoy\n"
+"Planificada: futuras actividades."
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_company__yan_blood_stock_location_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_config_settings__yan_blood_stock_location_id
+msgid "Stock Location for Blood"
+msgstr "Ubicación del stock de sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model,name:yan_hims_bloodbank.model_stock_move
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__move_id
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__move_id
+msgid "Stock Move"
+msgstr "Movimiento de Stock"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields.selection,name:yan_hims_bloodbank.selection__yan_blood_issuance__state__to_invoice
+#: model:ir.model.fields.selection,name:yan_hims_bloodbank.selection__yan_blood_requisition__state__to_invoice
+msgid "To Invoice"
+msgstr "Facturar"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_issuance__activity_exception_decoration
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_requisition__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr "Tipo de actividad de excepción registrada."
+
+#. module: yan_hims_bloodbank
+#: model:product.product,uom_name:yan_hims_bloodbank.hms_yan_blood_issuance_service
+#: model:product.product,uom_name:yan_hims_bloodbank.hms_yan_blood_requisition_service
+#: model:product.template,uom_name:yan_hims_bloodbank.hms_yan_blood_issuance_service_product_template
+#: model:product.template,uom_name:yan_hims_bloodbank.hms_yan_blood_requisition_service_product_template
+msgid "Units"
+msgstr "Unidades"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__message_unread
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__message_unread
+msgid "Unread Messages"
+msgstr "Mensajes no leídos"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__message_unread_counter
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr "Nº de Mensajes no leídos"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_config_settings__yan_blood_usage_location_id
+msgid "Usage Location for Blood"
+msgstr "Lugar de uso de la sangre"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_res_company__yan_blood_usage_location_id
+msgid "Usage Location for Blood."
+msgstr "Ubicación de uso de la sangre."
+
+#. module: yan_hims_bloodbank
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.yan_yan_blood_requisition_form
+#: model_terms:ir.ui.view,arch_db:yan_hims_bloodbank.view_yan_blood_issuance_form
+msgid "View Invoice"
+msgstr "Ver factura"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_issuance__website_message_ids
+#: model:ir.model.fields,field_description:yan_hims_bloodbank.field_yan_blood_requisition__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes del Sitio Web"
+
+#. module: yan_hims_bloodbank
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_issuance__website_message_ids
+#: model:ir.model.fields,help:yan_hims_bloodbank.field_yan_blood_requisition__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de comunicaciones del sitio web"

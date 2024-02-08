@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="10"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="HIMS" string="HIMS" data-key="yan_hims_start" groups="yan_hims_start.group_hms_manager">
+                    
+                    <div id="patient_data"/>
+                    <div id="appointment_data"/>
+                    <div id="prescription_data"/>
+                    <div id="hospitalization"/>
+                    <div id="laboratory"/>
+                    <div id="radiology"/>
+
+                    <h2>Other Configurations</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Birthday-wish template</span>
+                                <div class="text-muted">
+                                    Birthday wish template.
+                                </div>
+                                <div class="text-muted">
+                                    <field name="birthday_mail_template_id"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Unique Government Code in Patient</span>
+                                <div class="text-muted">
+                                    Set this True if the Government Identity in patients should be unique
+                                </div>
+                                <div class="text-muted">
+                                    <field name="unique_gov_code"/>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_hms_config_settings" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_id" ref="res_config_settings_view_form"/>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'yan_hims_tasks'}</field>
+    </record>
+
+</odoo>

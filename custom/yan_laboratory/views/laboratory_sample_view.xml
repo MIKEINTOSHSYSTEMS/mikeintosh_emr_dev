@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Laboratory Sample Type -->
+    <record id="view_yan_laboratory_sample_type_tree" model="ir.ui.view">
+        <field name="name">Laboratory Sample Type</field>
+        <field name="model">yan.laboratory.sample.type</field>
+        <field name="arch" type="xml">
+            <tree string="Laboratory Sample Type" editable="top">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Laboratory Category Lists -->
+    <record id="view_yan_laboratory_category_list_tree" model="ir.ui.view">
+        <field name="name">Laboratory Category Lists</field>
+        <field name="model">yan.laboratory.category.list</field>
+        <field name="arch" type="xml">
+            <tree string="Laboratory Category Lists" editable="top">
+                <field name="sequence" widget="handle"/>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_yan_laboratory_sample_type" model="ir.actions.act_window">
+        <field name="name">Laboratory Sample Type</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">yan.laboratory.sample.type</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Record Found
+            </p>
+            <p>
+                Click to add new Laboratory Sample Type.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_yan_laboratory_category_list" model="ir.actions.act_window">
+        <field name="name">Laboratory Category List</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">yan.laboratory.category.list</field>
+        <field name="view_mode">tree</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Record Found
+            </p>
+            <p>
+                Click to add new Laboratory Category List.
+            </p>
+        </field>
+    </record>
+
+    <!-- Lab Sample -->
+    <record id="yan_patient_laboratory_sample_form" model="ir.ui.view">
+        <field name="name">Lab Sample</field>
+        <field name="model">yan.patient.laboratory.sample</field>
+        <field name="arch" type="xml">
+            <form string="Lab Samples">
+                <header>
+                    <button name="action_collect" states="draft" string="Collected" class="oe_highlight" type="object" groups="yan_laboratory.group_hms_lab_sample_user"/>
+                    <button name="action_examine" states="collect" string="Examined" type="object" class="oe_highlight" groups="yan_laboratory.group_hms_lab_user"/>
+                    <button name="action_cancel" states="collect" string="Cancel" type="object" groups="yan_laboratory.group_hms_lab_sample_user"/>
+                    <button name="%(yan_laboratory.yan_lab_sample_report)d" states="collect" string="Print" type="action"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,collect,examine"/>
+                </header>
+                <sheet>
+                    <h1>
+                        <field name="name" class="oe_inline"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="request_id"/>
+                            <field name="patient_id"/>
+                            <field name="sample_type_id"/>
+                            <field name="container_name"/>
+                        </group>
+                        <group>
+                            <field name="date"/>
+                            <field name="user_id"/> 
+                            <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                            <field name="test_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                    <field name="notes" placeholder="Notes" nolabel="1" colspan="2"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="yan_patient_laboratory_sample_tree" model="ir.ui.view">
+        <field name="name">Lab Sample</field>
+        <field name="model">yan.patient.laboratory.sample</field>
+        <field name="arch" type="xml">
+            <tree string="Lab Sample" decoration-info="state=='draft'" decoration-muted="state=='cancel'" decoration-danger="state=='collect'" name="sample_tree">
+                <field name="name"/>
+                <field name="request_id"/>
+                <field name="patient_id"/>
+                <field name="date"/>
+                <field name="user_id"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="state" string="Status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="yan_patient_laboratory_sample_search" model="ir.ui.view">
+        <field name="name">yan.patient.laboratory.sample.search</field>
+        <field name="model">yan.patient.laboratory.sample</field>
+        <field name="arch" type="xml">
+            <search string="Lab Sample">
+                <field name="patient_id"/>
+                <field name="user_id"/>
+                <field name="container_name"/>
+                <filter name="collect" string="To Examine" domain="[('state','=','collect')]"/>
+                <filter name="examined" string="Examined" domain="[('state','=','examine')]"/>
+                <filter name="today" string="Today's Sample" domain="[('date','&gt;=', datetime.datetime.combine(context_today(), datetime.time(0,0,0))), ('date','&lt;=', datetime.datetime.combine(context_today(), datetime.time(23,59,59)))]"/>
+                <separator/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_patient_id" string="Patient" context="{'group_by':'patient_id'}"/>
+                    <filter name="group_by_date" string="Date" context="{'group_by':'date'}"/>
+                    <filter name="group_by_user" string="User" context="{'group_by':'user_id'}"/>
+                    <filter name="group_by_company" string="Hospital" context="{'group_by':'company_id'}"/>
+                    <filter name="group_by_state" string="Status" context="{'group_by':'state'}"/>
+                    <filter name="group_by_sample_type" string="Sample Type" context="{'group_by':'sample_type_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="yan_patient_laboratory_sample_calendar" model="ir.ui.view">
+        <field name="name">yan.patient.laboratory.sample.calendar</field>
+        <field name="model">yan.patient.laboratory.sample</field>
+        <field name="type">calendar</field>
+        <field name="arch" type="xml">
+            <calendar string="Lab Sample" color="user_id" date_start="date">
+                <field name="user_id"/>
+                <field name="patient_id"/>
+                <field name="state"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="yan_patient_laboratory_sample_pivot" model="ir.ui.view">
+        <field name="name">yan.patient.laboratory.sample.pivot</field>
+        <field name="model">yan.patient.laboratory.sample</field>
+        <field name="arch" type="xml">
+            <pivot string="Lab Sample">
+                <field name="date" type="row"/>
+                <field name="user_id" type="row"/>
+                <field name="patient_id" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_yan_patient_laboratory_sample" model="ir.actions.act_window">
+        <field name="name">Lab Samples</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">yan.patient.laboratory.sample</field>
+        <field name="view_mode">tree,form,calendar,pivot</field>
+        <field name="context">{'search_default_today': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Record Found
+            </p>
+            <p>
+                Click to add new Lab Sample.
+            </p>
+        </field>
+    </record>
+
+</odoo>

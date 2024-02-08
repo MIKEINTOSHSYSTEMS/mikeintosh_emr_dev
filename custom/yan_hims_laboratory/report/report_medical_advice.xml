@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="report_yan_medical_advice_document" inherit_id="yan_hims_tasks.report_yan_medical_advice_document">
+        <xpath expr="//div[@id='yan_prescription_ids']" position="after">
+            <div t-if="doc.lab_request_ids" class="mt16 mb16 text-center" id="yan_lab_request_ids">
+                <h5>
+                    <strong>Lab Prescription</strong>
+                </h5>
+            </div>
+            <div t-if="doc.lab_request_ids" class="col-12 mb16">
+                <t t-foreach="doc.lab_request_ids" t-as="lab_request_ids">
+                    <t t-call="yan_laboratory.report_lab_prescription_table">
+                        <t t-set="lines" t-value="lab_request_ids.line_ids"/>
+                    </t>
+                </t>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

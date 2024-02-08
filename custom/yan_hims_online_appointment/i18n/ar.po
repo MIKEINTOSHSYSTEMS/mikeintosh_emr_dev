@@ -1,0 +1,684 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* yan_hims_online_appointment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-11-02 10:25+0000\n"
+"PO-Revision-Date: 2019-11-02 10:25+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.appointment_schedule_form
+msgid ""
+"<b>NOTE:</b> Make sure server timezone is UTC. Time in below table is also "
+"UTC Hours."
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.portal_my_home
+msgid "<span class=\"fa fa-plus\"> Create New Appointment</span>"
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.my_appointments
+msgid "<span class=\"fa fa-plus\"> Create New</span>"
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Allowed Advance Booking Days</span>"
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Allowed Booking per Slot</span>"
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.res_config_settings_view_form
+msgid "<span class=\"o_form_label\">Minutes in each slot</span>"
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.appointment_details
+msgid ""
+"<span>There are no slots available to book appointment please check later or"
+" contact with Management.</span>"
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields.selection,name:yan_hims_online_appointment.selection__appointment_schedule_lines__day_period__afternoon
+msgid "Afternoon"
+msgstr "بعد الظهر"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,help:yan_hims_online_appointment.field_res_company__allowed_booking_payment
+#: model:ir.model.fields,help:yan_hims_online_appointment.field_res_config_settings__allowed_booking_payment
+msgid "Allow user to do online Payment"
+msgstr "السماح للمستخدم بالقيام بالدفع عبر الإنترنت"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.res_config_settings_view_form
+msgid "Allow users to pay online for their appointments."
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_res_company__allowed_booking_online_days
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_res_config_settings__allowed_booking_online_days
+msgid "Allowed Advance Booking Days"
+msgstr "السماح بالحجز لعدة أيام مقدماً"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_res_company__allowed_booking_payment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_res_config_settings__allowed_booking_payment
+msgid "Allowed Advance Booking Payment"
+msgstr "السماح بالدفع المسبق للحجز"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_res_company__allowed_booking_per_slot
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_res_config_settings__allowed_booking_per_slot
+msgid "Allowed Booking per Slot"
+msgstr "السماح للحجز بالخانه"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_hr_department__allowed_online_booking
+msgid "Allowed Online Booking"
+msgstr "السماح بالحجز اونلاين"
+
+#. module: yan_hims_online_appointment
+#: model:ir.actions.act_window,name:yan_hims_online_appointment.action_online_appointments
+#: model:ir.model,name:yan_hims_online_appointment.model_hms_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot_lines__appointment_ids
+msgid "Appointment"
+msgstr "الموعد"
+
+#. module: yan_hims_online_appointment
+#: model:ir.ui.menu,name:yan_hims_online_appointment.app_portal_appointment_conf_menu
+#: model:ir.ui.menu,name:yan_hims_online_appointment.portal_appointment_conf_menu
+msgid "Appointment Booking Conf."
+msgstr "اعدادات حجز المواعيد"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.appointment_details
+msgid "Appointment Date"
+msgstr "تاريخ الموعد"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.appointment_details
+msgid "Appointment Details"
+msgstr "تفاصيل المواعيد"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.appointment_schedule_form
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.view_appointment_schedule_tree
+msgid "Appointment Schedule"
+msgstr "جدول المواعيد"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.view_appointment_schedule_lines_form
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.view_appointment_schedule_lines_tree
+msgid "Appointment Schedule Lines"
+msgstr "خطوط جدول المواعيد"
+
+#. module: yan_hims_online_appointment
+#: model:ir.actions.act_window,name:yan_hims_online_appointment.action_appointment_schedule_slot_form
+#: model:ir.model,name:yan_hims_online_appointment.model_appointment_schedule_slot
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.view_appointment_schedule_slot_form
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.view_appointment_schedule_slot_tree
+msgid "Appointment Schedule Slot"
+msgstr "خانة جدول المواعيد"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.view_appointment_schedule_slot_lines_form
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.view_appointment_schedule_slot_lines_tree
+msgid "Appointment Schedule Slot Lines"
+msgstr "خطوط خانة جدول المواعيد"
+
+#. module: yan_hims_online_appointment
+#: model:ir.actions.act_window,name:yan_hims_online_appointment.appointment_scheduler_wizard_action
+msgid "Appointment Scheduler"
+msgstr "جدولة المواعيد"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model,name:yan_hims_online_appointment.model_appointment_scheduler_wizard
+msgid "Appointment Scheduler Wiz"
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.view_appointment_scheduler_wizard
+msgid "Appointment Scheduler Wizard"
+msgstr "معالج مجدول المواعيد"
+
+#. module: yan_hims_online_appointment
+#: model:ir.actions.act_window,name:yan_hims_online_appointment.action_appointment_schedule_form
+#: model:ir.ui.menu,name:yan_hims_online_appointment.menu_appointment_schedule
+msgid "Appointment Schedules"
+msgstr "جداول المواعيد"
+
+#. module: yan_hims_online_appointment
+#: code:addons/yan_hims_online_appointment/models/schedule.py:0
+#: code:addons/yan_hims_online_appointment/wizard/appointment_scheduler.py:0
+#, python-format
+msgid "Appointment Slot exist for date %s."
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model:ir.ui.menu,name:yan_hims_online_appointment.menu_appointment_schedule_slot
+msgid "Appointment Slots"
+msgstr "خانات المواعيد"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model,name:yan_hims_online_appointment.model_appointment_schedule
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_lines__schedule_id
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_scheduler_wizard__schedule_id
+msgid "Appointment schedule"
+msgstr "جدول المواعيد"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model,name:yan_hims_online_appointment.model_appointment_schedule_lines
+msgid "Appointment schedule Lines"
+msgstr "خطوط جدول المواعيد"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.view_appointment_schedule_slot_form
+msgid "Appointment schedule Slot"
+msgstr "خانة جدول المواعيد"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model,name:yan_hims_online_appointment.model_appointment_schedule_slot_lines
+msgid "Appointment schedule Slot Lines"
+msgstr "خطوط خانة جدول المواعيد"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.my_appointments
+msgid "Appointments"
+msgstr "المواعيد"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.appointment_details
+msgid "Available Slots"
+msgstr "خانات متوفرة"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_hms_appointment__booked_online
+msgid "Booked Online"
+msgstr "محجوز اونلاين"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.view_appointment_scheduler_wizard
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: yan_hims_online_appointment
+#: model:ir.actions.server,name:yan_hims_online_appointment.ir_cron_clear_appointment_ir_actions_server
+#: model:ir.cron,cron_name:yan_hims_online_appointment.ir_cron_clear_appointment
+#: model:ir.cron,name:yan_hims_online_appointment.ir_cron_clear_appointment
+msgid "Clear Appointment"
+msgstr "إزالة الموعد"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model,name:yan_hims_online_appointment.model_res_config_settings
+msgid "Config Settings"
+msgstr "ضبط الإعدادات"
+
+#. module: yan_hims_online_appointment
+#: model:ir.ui.menu,name:yan_hims_online_appointment.menu_appointment_cofig
+msgid "Configuration"
+msgstr "إعداد"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.res_config_settings_view_form
+msgid "Configure your slot length, 15 or 30 min"
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,help:yan_hims_online_appointment.field_res_company__booking_slot_time
+#: model:ir.model.fields,help:yan_hims_online_appointment.field_res_config_settings__booking_slot_time
+msgid "Configure your slot length, 15-30min."
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.appointment_details
+msgid ""
+"Confirm\n"
+"                                        <span class=\"fa fa-long-arrow-right\"/>"
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.view_appointment_scheduler_wizard
+msgid "Create"
+msgstr "إنشاء"
+
+#. module: yan_hims_online_appointment
+#: model:ir.ui.menu,name:yan_hims_online_appointment.app_menu_appointment_scheduler_wizard_slot
+#: model:ir.ui.menu,name:yan_hims_online_appointment.menu_appointment_scheduler_wizard_slot
+msgid "Create Appointment Slots"
+msgstr "انشاء خانات المواعيد"
+
+#. module: yan_hims_online_appointment
+#: model:ir.actions.server,name:yan_hims_online_appointment.ir_cron_create_slot_ir_actions_server
+#: model:ir.cron,cron_name:yan_hims_online_appointment.ir_cron_create_slot
+#: model:ir.cron,name:yan_hims_online_appointment.ir_cron_create_slot
+msgid "Create Appointment Slots."
+msgstr "انشاء خانات المواعيد."
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule__create_uid
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_lines__create_uid
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot__create_uid
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot_lines__create_uid
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_scheduler_wizard__create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule__create_date
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_lines__create_date
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot__create_date
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot_lines__create_date
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_scheduler_wizard__create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_lines__day_period
+msgid "Day Period"
+msgstr "فترة اليوم"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_lines__dayofweek
+msgid "Day of Week"
+msgstr "يوم من الأسبوع"
+
+#. module: yan_hims_online_appointment
+#: code:addons/yan_hims_online_appointment/models/schedule.py:0
+#, python-format
+msgid "Default Appointment Schedule does not exist."
+msgstr "جدول الموعد الافتراضي غير موجود."
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.appointment_details
+msgid "Department"
+msgstr "القسم"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule__display_name
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_lines__display_name
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot__display_name
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot_lines__display_name
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_scheduler_wizard__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_scheduler_wizard__end_date
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot_lines__to_slot
+msgid "End Slot"
+msgstr "نهاية الخانة"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.constraint,message:yan_hims_online_appointment.constraint_appointment_schedule_slot_slot_date_unique
+msgid "Error: Appointment slot must be unique!"
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields.selection,name:yan_hims_online_appointment.selection__appointment_schedule_lines__dayofweek__4
+msgid "Friday"
+msgstr "الجمعة"
+
+#. module: yan_hims_online_appointment
+#: code:addons/yan_hims_online_appointment/models/schedule.py:0
+#, python-format
+msgid "Friday Evening"
+msgstr "مساء الجمعه"
+
+#. module: yan_hims_online_appointment
+#: code:addons/yan_hims_online_appointment/models/schedule.py:0
+#, python-format
+msgid "Friday Morning"
+msgstr "صباح الجمعه"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model,name:yan_hims_online_appointment.model_hr_department
+msgid "HR Department"
+msgstr "قسم الموارد البشرية"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model,name:yan_hims_online_appointment.model_res_company
+msgid "Hospital"
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.view_appointment_schedule_lines_form
+msgid "Hours"
+msgstr "الساعات"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule__id
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_lines__id
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot__id
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot_lines__id
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_scheduler_wizard__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule____last_update
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_lines____last_update
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot____last_update
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot_lines____last_update
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_scheduler_wizard____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule__write_uid
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_lines__write_uid
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot__write_uid
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot_lines__write_uid
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_scheduler_wizard__write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule__write_date
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_lines__write_date
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot__write_date
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot_lines__write_date
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_scheduler_wizard__write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot_lines__limit
+msgid "Limit"
+msgstr "حد"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_res_company__booking_slot_time
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_res_config_settings__booking_slot_time
+msgid "Minutes in each slot"
+msgstr "دقائق في كل خانة"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.appointment_details
+msgid "Mobile"
+msgstr "الهاتف المحمول"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields.selection,name:yan_hims_online_appointment.selection__appointment_schedule_lines__dayofweek__0
+msgid "Monday"
+msgstr "الاثنين"
+
+#. module: yan_hims_online_appointment
+#: code:addons/yan_hims_online_appointment/models/schedule.py:0
+#, python-format
+msgid "Monday Evening"
+msgstr "مساء الاثنين"
+
+#. module: yan_hims_online_appointment
+#: code:addons/yan_hims_online_appointment/models/schedule.py:0
+#, python-format
+msgid "Monday Morning"
+msgstr "صباح الاثنين"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields.selection,name:yan_hims_online_appointment.selection__appointment_schedule_lines__day_period__morning
+msgid "Morning"
+msgstr "صباحًا"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule__name
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_lines__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.actions.act_window,help:yan_hims_online_appointment.action_appointment_schedule_form
+#: model_terms:ir.actions.act_window,help:yan_hims_online_appointment.action_appointment_schedule_slot_form
+msgid "No Records Found."
+msgstr "لا يوجد سجل"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.res_config_settings_view_form
+msgid ""
+"No of allowed booking per slot, Once slot is fully booked will not be shown "
+"to users."
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,help:yan_hims_online_appointment.field_res_company__allowed_booking_per_slot
+#: model:ir.model.fields,help:yan_hims_online_appointment.field_res_config_settings__allowed_booking_per_slot
+msgid "No of allowed booking per slot."
+msgstr "عدد خانات الحجز المسموحة"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,help:yan_hims_online_appointment.field_res_company__allowed_booking_online_days
+#: model:ir.model.fields,help:yan_hims_online_appointment.field_res_config_settings__allowed_booking_online_days
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.res_config_settings_view_form
+msgid "No of days for which advance booking is allowed"
+msgstr "عدد الأيام المسموح الحجز بها مقدماً"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.actions.act_window,help:yan_hims_online_appointment.action_online_appointments
+msgid "No online Appointments."
+msgstr "لا توجد مواعيد محجوزه اونلاين"
+
+#. module: yan_hims_online_appointment
+#: code:addons/yan_hims_online_appointment/controllers/main.py:0
+#, python-format
+msgid "No patient is linked with user."
+msgstr "لا يوجد مريض مرتبط بالمستخدم."
+
+#. module: yan_hims_online_appointment
+#: model:ir.ui.menu,name:yan_hims_online_appointment.menu_action_online_appointments
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.view_hms_appointment_search
+msgid "Online Appointments"
+msgstr "مواعيد اونلاين"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.res_config_settings_view_form
+msgid "Online Booking"
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.res_config_settings_view_form
+msgid "Online Payment"
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot_lines__rem_limit
+msgid "Remaining Limit"
+msgstr "الحد المتبقي"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields.selection,name:yan_hims_online_appointment.selection__appointment_schedule_lines__dayofweek__5
+msgid "Saturday"
+msgstr "السبت"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_hms_appointment__schedule_date
+msgid "Schedule Date"
+msgstr "تاريخ الجدول"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_hms_appointment__schedule_slot_id
+msgid "Schedule Slot"
+msgstr "خانة الجدول"
+
+#. module: yan_hims_online_appointment
+#: code:addons/yan_hims_online_appointment/wizard/appointment_scheduler.py:0
+#, python-format
+msgid "Scheduler 'Start Date' must be before 'End Date'."
+msgstr ""
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot_lines__slot_id
+msgid "Slot"
+msgstr "خانه"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot__slot_date
+msgid "Slot Date"
+msgstr "تاريخ الخانه"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot__slot_ids
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.view_appointment_schedule_slot_form
+msgid "Slot Lines"
+msgstr "خطوط الخانه"
+
+#. module: yan_hims_online_appointment
+#: code:addons/yan_hims_online_appointment/controllers/main.py:0
+#, python-format
+msgid "Some required fields are empty."
+msgstr "بعض الحقول المطلوبة فارغة."
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_scheduler_wizard__start_date
+msgid "Start Date"
+msgstr "تاريخ البداية"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,help:yan_hims_online_appointment.field_appointment_schedule_lines__hour_from
+msgid "Start and End time of working."
+msgstr "بداية ونهاية وقت العمل."
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot_lines__from_slot
+msgid "Starting Slot"
+msgstr "بدايه خانه"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields.selection,name:yan_hims_online_appointment.selection__appointment_schedule_lines__dayofweek__6
+msgid "Sunday"
+msgstr "الأحد"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.appointment_thank_you
+msgid "Thank You!"
+msgstr "شكراً!"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields.selection,name:yan_hims_online_appointment.selection__appointment_schedule_lines__dayofweek__3
+msgid "Thursday"
+msgstr "الخميس"
+
+#. module: yan_hims_online_appointment
+#: code:addons/yan_hims_online_appointment/models/schedule.py:0
+#, python-format
+msgid "Thursday Evening"
+msgstr "مساء الخميس"
+
+#. module: yan_hims_online_appointment
+#: code:addons/yan_hims_online_appointment/models/schedule.py:0
+#, python-format
+msgid "Thursday Morning"
+msgstr "صباح الخميس"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule__appointment_tz
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot__appointment_tz
+msgid "Timezone"
+msgstr "المنطقة الزمنية"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,help:yan_hims_online_appointment.field_appointment_schedule__appointment_tz
+#: model:ir.model.fields,help:yan_hims_online_appointment.field_appointment_schedule_slot__appointment_tz
+msgid "Timezone where appointment take place"
+msgstr "المنطقة الزمنية حيث يتم الموعد"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.appointment_details
+msgid "Timezone:"
+msgstr "المنطقة الزمنية:"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields.selection,name:yan_hims_online_appointment.selection__appointment_schedule_lines__dayofweek__1
+msgid "Tuesday"
+msgstr "الثلاثاء"
+
+#. module: yan_hims_online_appointment
+#: code:addons/yan_hims_online_appointment/models/schedule.py:0
+#, python-format
+msgid "Tuesday Evening"
+msgstr "مساء الثلاثاء"
+
+#. module: yan_hims_online_appointment
+#: code:addons/yan_hims_online_appointment/models/schedule.py:0
+#, python-format
+msgid "Tuesday Morning"
+msgstr "صباح الثلاثاء"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields.selection,name:yan_hims_online_appointment.selection__appointment_schedule_lines__dayofweek__2
+msgid "Wednesday"
+msgstr "الأربعاء"
+
+#. module: yan_hims_online_appointment
+#: code:addons/yan_hims_online_appointment/models/schedule.py:0
+#, python-format
+msgid "Wednesday Evening"
+msgstr "مساء الأربعاء"
+
+#. module: yan_hims_online_appointment
+#: code:addons/yan_hims_online_appointment/models/schedule.py:0
+#, python-format
+msgid "Wednesday Morning"
+msgstr "صباح الأربعاء"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_lines__hour_from
+msgid "Work from"
+msgstr "العمل من"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_lines__hour_to
+msgid "Work to"
+msgstr "العمل إلى"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.appointment_thank_you
+msgid ""
+"Your Appointment request has been successfully submitted, we will get back "
+"to you soon. Your reference number for this request is:"
+msgstr ""
+"تم إرسال طلب موعدك بنجاح ، وسنقوم بالرد عليك قريبًا. الرقم المرجعي لهذا "
+"الطلب هو:"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.appointment_details
+msgid "Your Name"
+msgstr "اسمك"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule_slot_lines__name
+msgid "name"
+msgstr "الاسم"
+
+#. module: yan_hims_online_appointment
+#: model_terms:ir.ui.view,arch_db:yan_hims_online_appointment.view_appointment_scheduler_wizard
+msgid "or"
+msgstr "أو"
+
+#. module: yan_hims_online_appointment
+#: model:ir.model.fields,field_description:yan_hims_online_appointment.field_appointment_schedule__schedule_lines
+msgid "schedule Lines"
+msgstr "خطوط الجدول"

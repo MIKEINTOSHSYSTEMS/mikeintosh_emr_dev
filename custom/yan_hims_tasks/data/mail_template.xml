@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="yan_appointment_email" model="mail.template">
+            <field name="name">Appointment Creation</field>
+            <field name="email_from">{{  user.email }}</field>
+            <field name="email_to">{{ object.patient_id.email }}</field>
+            <field name="subject">{{ object.patient_id.name }} Your Appointment Have been Scheduled</field>
+            <field name="model_id" ref="yan_hims_tasks.model_hms_appointment"/>
+            <field name="report_template" ref="yan_hims_tasks.action_appointment_report"/>
+            <field name="report_name">{{ (object.name or '').replace('/','_') }}</field>
+            <field name="lang">{{ object.patient_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+<div style="margin:auto;background: #FFFFFF;color:#777777">
+    <t t-set="appointment_date" t-value="format_datetime(dt=object.date, tz=object.physician_id.tz or 'UTC', lang_code=object.physician_id.lang)"/>
+    <p>Hello <t t-out="object.patient_id.name"/>,</p>
+    <p>Your Appointment Have been Scheduled with following details.</p>
+    <ul> 
+        <li>
+            <p>Subject: <t t-out="object.purpose_id.name"/></p>
+        </li>
+        <li>
+            <p>Reference Number: <t t-out="object.name"/></p>
+        </li>
+        <li>
+            <p>Physician Name: <t t-out="object.physician_id.name"/></p>
+        </li>
+        <li>
+            <p>Date &amp; Time: <t t-out="appointment_date or ''"/> (Timezone: <t t-out="object.physician_id.tz or 'UTC'"/>)</p>
+        </li>
+    </ul>
+    <p>Please feel free to call anytime for further information or any query.</p>
+
+    <p>Best regards.</p><br/>
+</div>
+                
+            </field>
+        </record>
+
+        <record id="yan_prescription_email" model="mail.template">
+            <field name="name">Prescription Creation</field>
+            <field name="email_from">{{ user.email }}</field>
+            <field name="email_to">{{ object.patient_id.email }}</field>
+            <field name="subject">{{ object.patient_id.name }} Your Prescription</field>
+            <field name="model_id" ref="yan_hims_tasks.model_prescription_order"/>
+            <field name="report_template" ref="yan_hims_tasks.report_hms_prescription_id"/>
+            <field name="report_name">{{ (object.name or '').replace('/','_') }}</field>
+            <field name="lang">{{ object.patient_id.lang }}</field>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+<div style="padding:0px;width:600px;margin:auto;background: #FFFFFF repeat top /100%;color:#777777">
+    <p>Hello <t t-out="object.patient_id.name"/>,</p>
+    <p>Your Prescription details. For more details please refer attached PDF report.</p>
+    <ul>
+        <li>
+            <p>Reference Number: <t t-out="object.name"/></p>
+        </li>
+        <li t-if="object.appointment_id">
+            <p>Appointment ID: <t t-out="object.appointment_id.name"/></p>
+        </li>
+        <li t-if="object.physician_id">
+            <p>Physician Name: <t t-out="object.physician_id.name"/></p>
+        </li>
+        <li>
+            <p>Prescription Date: <t t-out="object.prescription_date"/></p>
+        </li>
+    </ul>
+    <p>Please feel free to call anytime for further information or any query.</p>
+
+    <p>Best regards.</p><br/>
+</div>
+  
+            </field>
+        </record>
+        
+    </data>
+</odoo>

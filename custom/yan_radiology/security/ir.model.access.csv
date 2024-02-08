@@ -1,0 +1,29 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hms_yan_radiology_test_user,Test Type user,model_yan_radiology_test,yan_hims_start.group_hms_user,1,0,0,0
+access_patient_radiology_test_user,Patient Radiology Test user,model_patient_radiology_test,yan_hims_start.group_hms_user,1,0,0,0
+access_hms_radiology_request_line_user,YAN Patient Radiology Request line user,model_radiology_request_line,yan_hims_start.group_hms_user,1,0,0,0
+access_hms_yan_radiology_request_user,Patient Radiology Request User,model_yan_radiology_request,yan_hims_start.group_hms_user,1,0,0,0
+access_yan_radiology_test_uom_user,Radiology UOM User,model_yan_radiology_test_uom,yan_hims_start.group_hms_user,1,0,0,0
+access_yan_radiology_user,Radiology User,model_yan_radiology,yan_hims_start.group_hms_user,1,0,0,0
+access_radiology_group_line,access_radiology_group_line,model_radiology_group_line,yan_hims_start.group_hms_user,1,0,0,0
+access_radiology_group,access_radiology_group,model_radiology_group,base.group_user,1,0,0,0
+,,,,,,,
+access_patient_radiology_test_radiology_user,Patient Radiology Test phy,model_patient_radiology_test,group_hms_radiology_user,1,1,1,0
+access_hms_patient_radiology_test_radiology_user,YAN Radiology phy,model_yan_radiology_test,group_hms_radiology_user,1,1,1,0
+access_hms_radiology_request_line_radiology_user,YAN Patient Radiology Request line  phy,model_radiology_request_line,group_hms_radiology_user,1,1,1,1
+access_yan_radiology_test_uom_radiology_user,Radiology UOM Radiology User,model_yan_radiology_test_uom,group_hms_radiology_user,1,1,1,0
+access_yan_radiology_radiology_user,Radiology Radiology User,model_yan_radiology,group_hms_radiology_user,1,1,1,1
+access_hms_yan_radiology_request_radiology_user,patient lab Request user,model_yan_radiology_request,yan_radiology.group_hms_radiology_user,1,1,1,0
+,,,,,,,
+access_hms_yan_radiology_test_radiology_manager,YAN Test Type manager,model_yan_radiology_test,yan_radiology.group_hms_radiology_manager,1,1,1,1
+access_patient_radiology_test_radiology_manager,Patient Radiology Test  manager,model_patient_radiology_test,yan_radiology.group_hms_radiology_manager,1,1,1,1
+access_hms_yan_radiology_request_radiology_manager,patient lab Request manager,model_yan_radiology_request,yan_radiology.group_hms_radiology_manager,1,1,1,1
+access_yan_radiology_test_uom_radiology_manager,Radiology UOM Manager,model_yan_radiology_test_uom,yan_radiology.group_hms_radiology_manager,1,1,1,1
+access_radiology_group_manager,access_radiology_group,model_radiology_group,yan_radiology.group_hms_radiology_manager,1,1,1,1
+access_radiology_group_line_manager,access_radiology_group_line,model_radiology_group_line,group_hms_radiology_manager,1,1,1,1
+,,,,,,,
+accsess_patient_portal,accsess_patient,yan_hims_start.model_hms_patient,base.group_portal,1,0,0,0
+access_hms_radiology_request_line_portal,Patient Radiology Request Line Portal,model_radiology_request_line,base.group_portal,1,1,1,0
+accsess_patient_radiology_test_portal,accsess_patient_radiology_test_portal,model_patient_radiology_test,base.group_portal,1,0,0,0
+accsess_radiology_test_portal,accsess_radiology_test_portal,model_yan_radiology_test,base.group_portal,1,0,0,0
+accsess_radiology_request_portal,accsess_radiology_request_portal,model_yan_radiology_request,base.group_portal,1,1,1,0

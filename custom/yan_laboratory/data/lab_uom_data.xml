@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="yan_lab_uom_00" model="yan.lab.test.uom">
+            <field name="name">%</field>
+            <field name="code">%</field>
+        </record>
+
+        <record id="yan_lab_uom_01" model="yan.lab.test.uom">
+            <field name="name">g/dL</field>
+            <field name="code">g/dL</field>
+        </record>
+
+        <record id="yan_lab_uom_02" model="yan.lab.test.uom">
+            <field name="name">g/L</field>
+            <field name="code">g/L</field>
+        </record>
+
+        <record id="yan_lab_uom_03" model="yan.lab.test.uom">
+            <field name="name">Millions/cc</field>
+            <field name="code">mcc</field>
+        </record>
+
+        <record id="yan_lab_uom_04" model="yan.lab.test.uom">
+            <field name="name">fl</field>
+            <field name="code">fl</field>
+        </record>
+
+        <record id="yan_lab_uom_05" model="yan.lab.test.uom">
+            <field name="name">pg</field>
+            <field name="code">pg</field>
+        </record>
+
+        <record id="yan_lab_uom_06" model="yan.lab.test.uom">
+            <field name="name">mmol/L</field>
+            <field name="code">mmol/L</field>
+        </record>
+
+        <record id="yan_lab_uom_07" model="yan.lab.test.uom">
+            <field name="name">mmol/24h</field>
+            <field name="code">mmol/24h</field>
+        </record>
+
+        <record id="yan_lab_uom_08" model="yan.lab.test.uom">
+            <field name="name">10^3/uL</field>
+            <field name="code">10^3/uL</field>
+        </record>
+
+        <record id="yan_lab_uom_09" model="yan.lab.test.uom">
+            <field name="name">10^9/L</field>
+            <field name="code">10^9/L</field>
+        </record>
+
+        <record id="yan_lab_uom_10" model="yan.lab.test.uom">
+            <field name="name">10^6/uL</field>
+            <field name="code">10^6/uL</field>
+        </record>
+
+        <record id="yan_lab_uom_11" model="yan.lab.test.uom">
+            <field name="name">10^12/L</field>
+            <field name="code">10^12/L</field>
+        </record>
+
+        <record id="yan_lab_uom_12" model="yan.lab.test.uom">
+            <field name="name">mm/hr</field>
+            <field name="code">mm/hr</field>
+        </record>
+
+        <record id="yan_lab_uom_13" model="yan.lab.test.uom">
+            <field name="name">mg/dl</field>
+            <field name="code">mg/dl</field>
+        </record>
+
+        <record id="yan_lab_uom_14" model="yan.lab.test.uom">
+            <field name="name">/hpf</field>
+            <field name="code">/hpf</field>
+        </record>
+
+        <record id="yan_lab_uom_15" model="yan.lab.test.uom">
+            <field name="name">IU/l</field>
+            <field name="code">IU/l</field>
+        </record>
+
+        <record id="yan_lab_uom_16" model="yan.lab.test.uom">
+            <field name="name">mIU/l</field>
+            <field name="code">mIU/l</field>
+        </record>
+
+        <record id="yan_lab_uom_17" model="yan.lab.test.uom">
+            <field name="name">ng/ml</field>
+            <field name="code">ng/ml</field>
+        </record>
+
+        <record id="yan_lab_uom_18" model="yan.lab.test.uom">
+            <field name="name">pg/ml</field>
+            <field name="code">pg/ml</field>
+        </record>
+
+        <record id="yan_lab_uom_19" model="yan.lab.test.uom">
+            <field name="name">aTU/ml</field>
+            <field name="code">aTU/ml</field>
+        </record>
+
+        <record id="yan_lab_uom_20" model="yan.lab.test.uom">
+            <field name="name">M/ul</field>
+            <field name="code">M/ul</field>
+        </record>
+
+        <record id="yan_lab_uom_21" model="yan.lab.test.uom">
+            <field name="name">sec</field>
+            <field name="code">sec</field>
+        </record>
+
+        <record id="yan_lab_uom_22" model="yan.lab.test.uom">
+            <field name="name">u/l</field>
+            <field name="code">u/l</field>
+        </record>
+
+        <record id="yan_lab_uom_23" model="yan.lab.test.uom">
+            <field name="name">mcg/dl</field>
+            <field name="code">mcg/dl</field>
+        </record>
+
+        <record id="yan_lab_uom_24" model="yan.lab.test.uom">
+            <field name="name">u/ml</field>
+            <field name="code">u/ml</field>
+        </record>
+
+        <record id="yan_lab_uom_25" model="yan.lab.test.uom">
+            <field name="name">---</field>
+            <field name="code">---</field>
+        </record>
+
+        <record id="yan_lab_uom_26" model="yan.lab.test.uom">
+            <field name="name">+ve/-ve</field>
+            <field name="code">+ve/-ve</field>
+        </record>
+
+        <record id="yan_lab_uom_27" model="yan.lab.test.uom">
+            <field name="name">mg/g</field>
+            <field name="code">mg/g</field>
+        </record>
+
+        <record id="yan_lab_uom_28" model="yan.lab.test.uom">
+            <field name="name">ng/dl</field>
+            <field name="code">ng/dl</field>
+        </record>
+
+        <record id="yan_lab_uom_29" model="yan.lab.test.uom">
+            <field name="name">ug/dl</field>
+            <field name="code">ug/dl</field>
+        </record>
+
+        <record id="yan_lab_uom_30" model="yan.lab.test.uom">
+            <field name="name">pg/dl</field>
+            <field name="code">pg/dl</field>
+        </record>
+
+    </data>
+</odoo>

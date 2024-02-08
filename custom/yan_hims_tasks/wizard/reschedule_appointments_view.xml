@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_yan_reschedule_appointments_form" model="ir.ui.view">
+        <field name="name">yan.reschedule.appointments.form</field>
+        <field name="model">yan.reschedule.appointments</field>
+        <field name="arch" type="xml">
+            <form string="Reschedule Appointments">
+                <group>
+                    <field name="yan_reschedule_time" widget="float_time"/>
+                </group>
+                <footer>
+                    <button name="yan_reschedule_appointments" string="Reschedule All Selected Appointments" type="object" class="btn-primary" confirm="Are you sure that you want to reschedule all selected appointments? it will add given hours to current scheduled time, means if current time is 1 PM and you add 2 hours it will be 3 PM after Rescheduling."/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_yan_reschedule_appointments" model="ir.actions.act_window">
+        <field name="name">Reschedule Appointments</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">yan.reschedule.appointments</field>
+        <field name="binding_model_id" ref="yan_hims_tasks.model_hms_appointment"/>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- HIMS Main Menu for Outpatient-->
+    <!-- Main Appointment Menu -->
+    <menuitem id="action_main_menu_appointmnet_opd" name="Outpatient" action="action_appointment" sequence="22" groups="yan_hims_tasks.group_hms_receptionist,yan_hims_tasks.group_hms_jr_doctor,yan_hims_tasks.group_yan_hms_appointment_user" web_icon="yan_hims_tasks,static/src/img/appointment.png"/>
+
+
+    <!-- HIMS Main Menu for Inpatient-->
+<!--    <menuitem id="menu_hms" name="Inpatient" sequence="260" groups="yan_hims_start.group_hms_manager" web_icon="yan_hms_base,static/description/icon.png"/>-->
+<!--    <menuitem id="action_menu_patient" name="Patients" sequence="0" parent="menu_hms" action="yan_hims_start.action_patient"/>-->
+<!--    <menuitem id="action_menu_doctors" name="Physicians" parent="menu_hms" action="yan_hims_start.action_physician" sequence="2"/>-->
+<!--    <menuitem id="action_menu_treatment" name="Treatments" parent="menu_hms" sequence="3" action="yan_action_form_hospital_treatment"/>-->
+<!--    <menuitem id="menu_yan_patient_procedure" name="Patient Procedures" parent="menu_hms" action="action_yan_patient_procedure" sequence="4"/>-->
+<!--    <menuitem id="menu_appointment" name="Appointment" sequence="5" parent="menu_hms" action="action_appointment"/>-->
+ 
+    <!-- Prescription Menu-->
+<!--    <menuitem id="hos_prescription" name="Prescription" parent="yan_hims_tasks.menu_hms" sequence="5" groups="yan_hims_tasks.group_hms_jr_doctor" action="act_open_hms_prescription_order_view"/>-->
+
+    <!-- Referring Doc -->
+<!--    <menuitem id="menu_referring_doctors" sequence="15" parent="yan_hims_tasks.menu_hms" action='action_referring_doctors'/>-->
+
+    <!-- Schedule Main menu -->
+    <menuitem id="action_menu_working_schedule" name="Schedule"  groups="yan_hims_tasks.group_hms_receptionist,yan_hims_tasks.group_hms_jr_doctor" action="action_resource_calendar" sequence="75" parent="yan_hims_start.menu_hms_patient_cofig"/>
+
+    <!-- Pricelist -->
+    <menuitem id="menu_product_pricelist_main" name="Pricelists" parent="yan_hims_start.menu_hms_patient_cofig" action="product.product_pricelist_action2" groups="product.group_product_pricelist" sequence="20"/>
+
+    <!-- Configuration Menu Sub-->
+<!--    <menuitem id="menu_hms_cofig" name="Configuration" parent="menu_hms" groups="yan_hims_start.group_hms_manager" sequence="100"/>-->
+
+<!--    <menuitem id="menu_hms_cofig_settings" name="Settings" parent="yan_hims_start.menu_hms_cofig" sequence="0" action="yan_hims_start.action_hms_config_settings" groups="base.group_system"/>-->
+
+    <!--Configuration Schedule -->
+<!--    <menuitem id="menu_working_schedule" sequence="20" parent="yan_hims_start.menu_hms_cofig" action='resource.action_resource_calendar_form'/>-->
+
+
+
+    <!-- Patient Administration Configuration Menu-->
+    <menuitem id="patient_config_menu" name="Patient" parent="yan_hims_start.menu_hms_patient_cofig" sequence="40"/>
+    <menuitem id="menu_patient_tag" name="Patient Tags"  parent="patient_config_menu" action="yan_hims_start.act_open_patient_tag" sequence="10"/>
+    <menuitem id="menu_medical_alerts" name="Medical Alerts"  parent="patient_config_menu" action="yan_hims_tasks.act_open_medical_alerts" sequence="11"/>
+    <menuitem id="menu_family_relation" name="Family Relation" parent="patient_config_menu"  action="yan_hims_tasks.action_yan_family_relation" sequence="12"/>
+
+    <!--Diseases Configuration Menu-->
+    <menuitem id="diseases_menu" name="Diseases" parent="yan_hims_start.menu_hms_patient_cofig" sequence="40"/>
+    <menuitem id="hms_diseases" name="Diseases" action="yan_hims_tasks.act_open_diseases_view" parent="yan_hims_tasks.diseases_menu" sequence="0"/>
+    <menuitem id="menu_disease_category" name="Disease Categories" sequence="10" parent="yan_hims_tasks.diseases_menu" action="yan_hims_tasks.act_open_yan_disease_category_view"/>
+    <menuitem id="menu_hms_genetic_disease" name="Genetic Disease" sequence="20" parent="yan_hims_tasks.diseases_menu" action="yan_hims_tasks.action_hms_genetic_disease"/>
+ 
+    <!--Physician Configuration Menu-->
+    <menuitem id="physician_config_menu" name="Configurations" parent="yan_hims_start.main_menu_physician" sequence="22"/>
+
+    <menuitem id="menu_physician_referring_physicians" sequence="1" parent="physician_config_menu" action='action_referring_doctors'/>
+    <menuitem id="menu_physician_specialty" sequence="5" parent="physician_config_menu" action='yan_hims_start.action_physician_specialty'/>
+    <menuitem id="menu_physician_degree" sequence="10" parent="physician_config_menu" action='yan_hims_start.action_physician_degree'/>
+
+    <!-- Main Medicine Menu -->
+    <menuitem id="medicine_config_menu" name="Medicine" parent="yan_hims_start.main_menu_medicine" />
+
+    <menuitem id="menu_medicine_medicament_dosage" name="Medication Dosage" parent="medicine_config_menu" action="yan_hims_tasks.action_medicament_dosage" sequence="7"/>
+    <menuitem id="menu_medicine_hms_medicament_group" name="Medicament Group" parent="medicine_config_menu" action="yan_hims_tasks.act_open_medicament_group_view" sequence="11"/>
+    <menuitem id="menu_yan_product_kit" name="Product Kit" parent="medicine_config_menu" action="yan_hims_tasks.action_yan_product_kit" sequence="15"/>
+
+    <menuitem id="menu_medicine_drug" name="Drug Dose Form" parent="medicine_config_menu" action="yan_hims_start.act_open_drug_form_view" sequence="2"/>
+    <menuitem id="menu_medicine_product_active_component" name="Active Component" parent="medicine_config_menu" action="yan_hims_start.act_open_active_comp" sequence="5"/>
+    <menuitem id="menu_medicine_drug_company" name="Drug Company" parent="medicine_config_menu" action="yan_hims_start.act_open_drug_company_form_view" sequence="6"/>
+    <menuitem id="menu_therapeutic_effect" name="Therapeutic Effect" parent="medicine_config_menu" action="yan_hims_start.act_open_therapeutic_effect" sequence="7"/>
+    <menuitem id="menu_medicine_medicament_flavour" name="Medicament Flavour" parent="medicine_config_menu" action="yan_hims_start.action_medicament_flavour" sequence="9"/>
+    <menuitem id="menu_medicine_medicament_route" name="Medicament Route" parent="medicine_config_menu" action="yan_hims_start.action_medicament_route" sequence="10"/>
+
+    <!-- Appointment Configuration -->
+    <menuitem id="menu_appointment_cofig" name="Appointment" parent="yan_hims_start.menu_hms_patient_cofig" sequence="100"/>
+
+    <menuitem id="menu_patient_appointment" name="Appointment Purpose" sequence="0" parent="yan_hims_tasks.menu_appointment_cofig" action="act_open_appointment_purpose"/>
+    <menuitem id="menu_open_appointment_cabin" name="Appointment Cabin" sequence="1" parent="yan_hims_tasks.menu_appointment_cofig" action="act_open_appointment_cabin"/>
+    <menuitem id="menu_yan_cancel_reason" name="Cancel Reason" sequence="50" parent="menu_appointment_cofig" action="action_yan_cancel_reason"/>
+
+     <!-- Main Treatment Menu -->
+<!--    <menuitem id="main_menu_treatment" name="Treatments" sequence="25" groups="yan_hims_tasks.group_hms_receptionist,yan_hims_tasks.group_hms_jr_doctor" action="yan_action_form_hospital_treatment"  web_icon="yan_hms,static/src/img/treatment.png"/>-->
+    <menuitem id="menu_treatment_config" name="Treatments" parent="yan_hims_start.menu_hms_patient_cofig" sequence="10"/>
+<!--    <menuitem id="main_menu_treatment" name="Treatments" parent="menu_treatment_config" sequence="15" groups="yan_hims_tasks.group_hms_receptionist,yan_hims_tasks.group_hms_jr_doctor" action="yan_action_form_hospital_treatment" />-->
+<!--    <menuitem id="menu_yan_patient_procedure_treatment" name="Patient Procedures" parent="menu_treatment_config" action="action_yan_patient_procedure" sequence="20"/>-->
+<!--    <menuitem id="menu_treatment_cofig" name="Configuration" parent="menu_treatment_config" groups="yan_hims_start.group_hms_manager" sequence="100"/>-->
+    <menuitem id="menu_procedure_group" name="Procedure Groups" parent="menu_treatment_config" action="action_procedure_group" sequence="10"/>
+
+
+    <!-- Main Prescriptions Menu -->
+<!--    <menuitem id="hos_pres_root" name="Prescription" sequence="25" groups="yan_hims_tasks.group_hms_jr_doctor" action="act_open_hms_prescription_order_view" web_icon="yan_hms,static/src/img/prescription.png"/>-->
+    <menuitem id="hos_prescption_inner_root" name="Prescription" parent="yan_hims_start.menu_hms_patient_cofig" groups="yan_hims_tasks.group_hms_jr_doctor" />
+<!--    <menuitem id="menu_pres_cofig" name="Configuration" parent="hos_prescption_inner_root" groups="yan_hims_tasks.group_hms_doctor" sequence="100"/>-->
+    <menuitem id="menuitem_action_presc_medicament_group" name="Medicament Group" parent="hos_prescption_inner_root" action="act_open_medicament_group_view" sequence="11"/>
+
+
+
+</odoo>

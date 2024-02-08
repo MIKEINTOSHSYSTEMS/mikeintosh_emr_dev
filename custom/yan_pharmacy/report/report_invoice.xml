@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document">
+        <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[2]" position="after">
+            <t t-set="display_yan_lot" t-value="any(l.yan_lot_id for l in o.invoice_line_ids)"/>
+            <th t-if="display_yan_lot">
+                Lot/Serial
+            </th>
+            <th t-if="display_yan_lot">
+                Expiry Date
+            </th>
+        </xpath>
+        <xpath expr="//tbody[hasclass('invoice_tbody')]//td[2]" position="after">
+            <td t-if="display_yan_lot">
+                <span t-field="line.yan_lot_id"/>
+            </td>
+            <td t-if="display_yan_lot">
+                <span t-field="line.exp_date"/>
+            </td>
+        </xpath>
+    </template>
+
+</odoo>

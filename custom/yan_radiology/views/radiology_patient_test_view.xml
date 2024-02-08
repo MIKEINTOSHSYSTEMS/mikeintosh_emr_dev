@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<odoo>
+    
+    <!--Patient Test Results-->
+    <record id="patient_radiology_test_view" model="ir.ui.view">
+        <field name="name">Radiology Test</field>
+        <field name="model">patient.radiology.test</field>
+        <field name="arch" type="xml">
+            <form string="Radiology Test">
+                <header>
+                    <button name="action_done" states="draft" string="Done" type="object" class="oe_highlight"/>
+                    <button name="action_cancel" states="draft" string="Cancel" type="object"/>
+                    <button name="action_draft" states="done,cancel" string="Draft" type="object" class="oe_highlight"/>
+                    <button name="action_radiology_test_send" string="Send by Email" type="object" states="draft,done"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object"
+                        name="action_view_attachments" icon="fa-files-o">
+                            <field string="Documents" name="attach_count" widget="statinfo"/>
+                        </button>
+                        <button class="oe_stat_button" type="object"
+                            name="yan_action_attachments_preview" icon="fa-files-o" string="Imaging">
+                        </button>
+                    </div>
+                    <h1>
+                        <field name="name" class="oe_inline"/>
+                    </h1>
+                    <group>
+                        <group>
+                            <field name="patient_id"/>
+                            <field name="test_id" required="1"/>
+                            <field name="physician_id"/>
+                        </group>
+                        <group>
+                            <field name="user_id" required="1"/>
+                            <!-- YAN: Can be validated before marking as done? -->
+                            <field name="radiology_physician_id" />
+                            <field name="date_requested"/>
+                            <field name="date_analysis"/>
+                        </group>
+                    </group>
+                    <notebook >
+                        <page name="diagnosis" string="Diagnosis">
+                            <field name="diagnosis" placeholder="Diagnosis"/>
+                        </page>
+                        <page name="consumed_material" string="Consumed Material">
+                            <field name="consumable_line_ids" nolabel="1" colspan="2"  context="{'default_patient_id': patient_id, 'default_physician_id': radiology_physician_id}">
+                                <tree string="Line" editable="top">
+                                    <field name="product_id" required="1"/>
+                                    <field name="product_uom_id" required="1" groups="uom.group_uom"/>
+                                    <field name="product_uom_category_id" invisible="1"/>
+                                    <field name="qty" required="1"/>
+                                    <field name="tracking" invisible="1"/>
+                                    <field name="lot_id" context="{'yan_product_id': product_id}" options="{'no_create': True}" attrs="{'readonly': [('tracking','=','none')], 'required': [('tracking','!=','none')]}"/>
+                                    <field name="date" required="1"/>
+                                    <field name="price_unit" readonly="1"/>
+                                    <field name="subtotal" readonly="1" sum="Total" optional="show"/>
+                                    <field name="move_id" invisible="1"/>
+                                    <field name="physician_id" invisible="1"/>
+                                    <field name="patient_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="other_info" string="Other Information">
+                            <group>
+                                <group>
+                                    <field name="radiology_request_id" domain="[('patient_id','=',patient_id)]"/>
+                                    <!-- <field name="parent_test_id"/> -->
+                                    <!-- <field name="radiology_id" attrs="{'invisible': [('radiology_id', '=', False)]}" domain=" [('is_collection_center', '=', False)]"/> -->
+                                </group>
+                                <group>
+                                    <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                    
+                    <field name="note" placeholder="Extra Note"/>
+                    <field name="disclaimer" placeholder="Disclaimer" nolabel="1" colspan="2"/>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="patient_radiology_test_tree" model="ir.ui.view">
+        <field name="name">Radiology Test</field>
+        <field name="model">patient.radiology.test</field>
+        <field name="arch" type="xml">
+            <tree string="Radiology Test">
+                <field name="name"/>
+                <field name="test_id"/>
+                <field name="patient_id"/>
+                <field name="date_analysis"/>
+                <field name="company_id" groups="base.group_multi_company"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hms_patient_radiology_test_search" model="ir.ui.view">
+        <field name="name">patient.radiology.test.search</field>
+        <field name="model">patient.radiology.test</field>
+        <field name="arch" type="xml">
+            <search string="Patient Laboratry Test Results">
+                <field name="name"/>
+                <field name="test_id"/>
+                <field name="patient_id"/>
+                <field name="date_analysis"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_patient_id" string="Patient" context="{'group_by':'patient_id'}"/>
+                    <filter name="group_by_radiology_test" string="Radiology Request" context="{'group_by':'radiology_request_id'}"/>
+                    <filter name="group_by_test" string="Test" context="{'group_by':'test_id'}"/>
+                    <filter name="group_by_user" string="Tested By" context="{'group_by':'user_id'}"/>
+                    <filter name="group_by_req" string=" Prescribing Doctor" context="{'group_by':'physician_id'}"/>
+                    <filter name="group_by_state" string="State" context="{'group_by':'state'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_patient_radiology_test_calendar" model="ir.ui.view">
+        <field name="name">patient.radiology.test.calendar</field>
+        <field name="model">patient.radiology.test</field>
+        <field name="type">calendar</field>
+        <field name="arch" type="xml">
+            <calendar string="Patient Radiology Test" color="physician_id" date_start="date_requested">
+                <field name="physician_id"/>
+                <field name="patient_id"/>
+                <field name="state"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="patient_radiology_test_pivot" model="ir.ui.view">
+        <field name="name">patient.radiology.test.pivot</field>
+        <field name="model">patient.radiology.test</field>
+        <field name="arch" type="xml">
+            <pivot string="Patient Radiology Test">
+                <field name="date_analysis" type="row"/>
+                <field name="physician_id" type="row"/>
+                <field name="patient_id" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_radiology_result" model="ir.actions.act_window">
+        <field name="name">Radiology Test Results</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">patient.radiology.test</field>
+        <field name="view_mode">tree,form,calendar,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Record Found
+            </p>
+            <p>
+                Click to add new Radiology Test Result.
+            </p>
+        </field>
+    </record>
+
+</odoo>

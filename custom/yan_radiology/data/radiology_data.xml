@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="yan_hms_radiology_service_0" model="product.product">
+            <field name="name">Radiology X-Ray</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">radiology</field>
+            <field name="list_price">500.0</field>
+            <field name="standard_price">500.0</field>       
+        </record>
+
+        <record id="yan_radiology_test_x_ray" model="yan.radiology.test">
+            <field name="name">X-Ray</field>
+            <field name="code">RAD-XRay</field>
+            <field name="product_id" ref="yan_hms_radiology_service_0"/>
+        </record>
+
+        <record id="yan_hms_radiology_service_1" model="product.product">
+            <field name="name">Radiology Ultrasound</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">radiology</field>
+            <field name="list_price">300.0</field>
+            <field name="standard_price">300.0</field>
+        </record>
+
+        <record id="yan_radiology_test_x_ultrasound" model="yan.radiology.test">
+            <field name="name">Ultrasound</field>
+            <field name="code">RAD-Ultrasound</field>
+            <field name="product_id" ref="yan_hms_radiology_service_1"/>
+        </record>
+
+        <record id="yan_hms_radiology_service_2" model="product.product">
+            <field name="name">Radiology CT Scan </field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">radiology</field>
+            <field name="list_price">900.0</field>
+            <field name="standard_price">900.0</field>
+        </record>
+
+        <record id="yan_radiology_test_CT_Scan" model="yan.radiology.test">
+            <field name="name">CT Scan</field>
+            <field name="code">RAD-CT Scan</field>
+            <field name="product_id" ref="yan_hms_radiology_service_2"/>
+        </record>
+
+         <record id="yan_hms_radiology_service_3" model="product.product">
+            <field name="name">Radiology MRI</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">radiology</field>
+            <field name="list_price">1500.0</field>
+            <field name="standard_price">1500.0</field>
+        </record>
+
+        <record id="yan_radiology_test_MRI" model="yan.radiology.test">
+            <field name="name">MRI</field>
+            <field name="code">RAD-MRI</field>
+            <field name="product_id" ref="yan_hms_radiology_service_3"/>
+        </record>
+
+         <record id="yan_hms_radiology_service_4" model="product.product">
+            <field name="name">Radiology Mammography</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">radiology</field>
+            <field name="list_price">800.0</field>
+            <field name="standard_price">800.0</field>
+        </record>
+
+        <record id="yan_radiology_test_mammography" model="yan.radiology.test">
+            <field name="name">Mammography</field>
+            <field name="code">RAD-Mammography</field>
+            <field name="product_id" ref="yan_hms_radiology_service_4"/>
+        </record>
+
+         <record id="yan_hms_radiology_service_5" model="product.product">
+            <field name="name">Radiology ECG</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">radiology</field>
+            <field name="list_price">1100.0</field>
+            <field name="standard_price">1100.0</field>
+        </record>
+
+        <record id="yan_radiology_test_ecg" model="yan.radiology.test">
+            <field name="name">ECG</field>
+            <field name="code">RAD-ECG</field>
+            <field name="product_id" ref="yan_hms_radiology_service_5"/>
+        </record>
+
+         <record id="yan_hms_radiology_service_6" model="product.product">
+            <field name="name">Radiology Echocardiography </field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">radiology</field>
+            <field name="list_price">300.0</field>
+            <field name="standard_price">300.0</field>
+        </record>
+
+        <record id="yan_radiology_test_echocardiography" model="yan.radiology.test">
+            <field name="name">Echocardiography</field>
+            <field name="code">RAD-Echocardiography</field>
+            <field name="product_id" ref="yan_hms_radiology_service_6"/>
+        </record>
+
+         <record id="yan_hms_radiology_service_7" model="product.product">
+            <field name="name">Radiology EEG</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">radiology</field>
+            <field name="list_price">1800.0</field>
+            <field name="standard_price">1800.0</field>
+        </record>
+
+        <record id="yan_radiology_test_eeg" model="yan.radiology.test">
+            <field name="name">EEG</field>
+            <field name="code">RAD-EEG</field>
+            <field name="product_id" ref="yan_hms_radiology_service_7"/>
+        </record>
+
+         <record id="yan_hms_radiology_service_8" model="product.product">
+            <field name="name">Radiology Endoscopy</field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">radiology</field>
+            <field name="list_price">1300.0</field>
+            <field name="standard_price">1300.0</field>
+        </record>
+
+        <record id="yan_radiology_test_endoscopy" model="yan.radiology.test">
+            <field name="name">Endoscopy</field>
+            <field name="code">RAD-Endoscopy</field>
+            <field name="product_id" ref="yan_hms_radiology_service_8"/>
+        </record>
+
+        <record id="yan_hms_radiology_service_9" model="product.product">
+            <field name="name">Radiology Colonoscopy </field>
+            <field name="type">service</field>
+            <field name="hospital_product_type">radiology</field>
+            <field name="list_price">1300.0</field>
+            <field name="standard_price">1300.0</field>
+        </record>
+
+        <record id="yan_radiology_test_colonoscopy" model="yan.radiology.test">
+            <field name="name">Colonoscopy </field>
+            <field name="code">RAD-Colonoscopy </field>
+            <field name="product_id" ref="yan_hms_radiology_service_9"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="yan_hims_tasks.HIMSGraphField" owl="1">
+        <div class="yan_graph_linechart" t-att-class="props.className">
+            <canvas t-ref="canvas"/>
+        </div>
+    </t>
+
+</templates>

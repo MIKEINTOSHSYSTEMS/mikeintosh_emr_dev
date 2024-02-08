@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <template id="report_yan_radiology_prescription_document" inherit_id="yan_radiology.report_yan_radiology_prescription_document">
+        <xpath expr="//div[@name='physician_div']" position="after">
+            <div t-if="doc.appointment_id" class="col-3 mb-2">
+                <strong>Origin</strong>
+                <p class="m-0" t-field="doc.appointment_id"/>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

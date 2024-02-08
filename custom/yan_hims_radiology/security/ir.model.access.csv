@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hms_radiology_request_line_receptionist,YAN Patient Radiology Request line,yan_radiology.model_radiology_request_line,yan_hims_tasks.group_hms_receptionist,1,1,1,1
+access_hms_yan_radiology_request_receptionist,Patient Radiology Request Recep,yan_radiology.model_yan_radiology_request,yan_hims_tasks.group_hms_receptionist,1,1,1,0
+,,,,,,,
+access_patient_radiology_test_jr_doctor,Patient Radiology Test phy,yan_radiology.model_patient_radiology_test,yan_hims_tasks.group_hms_jr_doctor,1,1,1,0
+access_hms_patient_radiology_test_jr_doctor,YAN Radiology phy,yan_radiology.model_yan_radiology_test,yan_hims_tasks.group_hms_jr_doctor,1,1,1,0

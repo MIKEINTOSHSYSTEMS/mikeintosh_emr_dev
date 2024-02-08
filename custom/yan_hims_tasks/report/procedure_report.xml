@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_yan_procedures_document">
+        <t t-call="web.external_layout">
+            <t t-set="doc" t-value="doc.with_context({'lang':doc.patient_id.lang})"/>
+            <div class="page">
+                <div class="oe_structure"/>
+                <div class="row mb32 mt32">
+                    <div class="col-12 text-center">
+                        <h3>
+                            <strong>
+                                <span>Patient Procedures: </span>
+                                <span t-field="doc.name"/>
+                            </strong>
+                        </h3>
+                    </div>
+                </div>
+
+                <div style="border: 1px solid black;"/>
+
+                <div class="row mt8">
+                    <div class="col-6">
+                        <t t-if="doc.patient_id">
+                            <strong>Patint :-</strong><span t-field="doc.patient_id"/><br/>
+                        </t>
+                        <t t-if="doc.diseas_id">
+                            <strong>Disease :-</strong><span t-field="doc.diseas_id"/><br/>
+                        </t>
+                        <t t-if="doc.date">
+                            <strong>Start Date :-</strong><span t-field="doc.date"/><br/>
+                        </t>
+                        <t t-if="doc.product_id">
+                            <strong>Procedure :-</strong><span t-field="doc.product_id"/><br/>
+                        </t>
+                        <t t-if="doc.treatment_id">
+                            <strong>Treatment :-</strong><span t-field="doc.treatment_id"/><br/>
+                        </t>
+                        <t t-if="doc.department_id">
+                            <strong>Department :-</strong><span t-field="doc.department_id"/><br/>
+                        </t>
+                    </div>
+                    <div class="col-6">
+                        <t t-if="doc.physician_id">
+                            <strong>Physician :-</strong><span t-field="doc.physician_id"/><br/>
+                        </t>
+                        <t t-if="doc.duration">
+                            <strong>Duration :-</strong><span t-field="doc.duration"/><br/>
+                        </t>
+                        <t t-if="doc.date_stop">
+                            <strong>End Date :-</strong><span t-field="doc.date_stop"/><br/>
+                        </t>
+                        <t t-if="doc.price_unit">
+                            <strong>Price :-</strong><span t-field="doc.price_unit"/><br/>
+                        </t>
+                        <t t-if="doc.appointment_ids">
+                            <strong>Appointments :-</strong><span t-field="doc.appointment_ids"/><br/>
+                        </t>
+                        <t t-if="doc.invoice_id">
+                            <strong>Invoice :-</strong><span t-field="doc.invoice_id"/><br/>
+                        </t>
+                    </div>
+                </div>
+
+                <div style="border: 1px solid black;" class="mt8 mb16"/>
+
+                <br/>
+                <div class="text-center">
+                    <h4>
+                        <strong>Consumed Products</strong>
+                    </h4>
+                </div>
+
+                <table class="table table-sm o_main_table mt16">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Product</th>
+                            <th>Qty</th>
+                            <th>Lot/Serial Number</th>
+                            <th>Unit Price</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="doc.consumable_line_ids" t-as="line">
+                            <tr>
+                                <td>
+                                    <span t-esc="line_index + 1"/>
+                                </td>
+                                <td>
+                                    <span t-field="line.product_id.name"/>
+                                </td>
+                                <td>
+                                    <span t-field="line.qty"/>
+                                </td>
+                                <td>
+                                    <span t-field="line.lot_id.name"/>
+                                </td>
+                                <td>
+                                    <span t-field="line.price_unit"/>
+                                </td>
+                                <td>
+                                    <span t-field="line.subtotal"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_yan_procedures">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="yan_hims_tasks.report_yan_procedures_document" t-lang="doc.patient_id.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
+
+    <record id="action_procedures_report" model="ir.actions.report">
+        <field name="name">Procedures</field>
+        <field name="model">yan.patient.procedure</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">yan_hims_tasks.report_yan_procedures</field>
+        <field name="report_file">yan_hims_tasks.report_yan_procedures</field>
+        <field name="print_report_name">(object.name or 'Procedures').replace('/','_')</field>
+        <field name="binding_model_id" ref="model_yan_patient_procedure"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

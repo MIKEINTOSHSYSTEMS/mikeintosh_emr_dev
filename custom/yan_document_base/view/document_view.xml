@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Directory tree view -->
+    <record id="view_document_directory_filter" model="ir.ui.view">
+        <field name="name">document.directory.search</field>
+        <field name="model">document.directory</field>
+        <field name="arch" type="xml">
+            <search string="Search Directory">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="res_model"/>
+                <field name="tag_ids" string="Tag" filter_domain="[('tag_ids', 'ilike', self)]"/>
+                <separator />
+                <group expand="0" string="Group By">
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="document_directory_tree_view" model="ir.ui.view">
+        <field name="name">document.directory.tree</field>
+        <field name="model">document.directory</field>
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <tree string="Document Page">
+                <field name="name"/>
+                <field name="user_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="document_directory_form_view" model="ir.ui.view">
+        <field name="name">document.directory.form</field>
+        <field name="model">document.directory</field>
+        <field name="arch" type="xml">
+            <form string="Document Directory">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button  class="oe_stat_button" name="action_view_attachments"  type="object" icon="fa-files-o">
+                            <field string="Attachments" name="attchement_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name" string="Directory Name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="parent_id"/>
+                        <field name="department_id"/>
+                        <field name="res_model"/>
+                        <field name="user_ids" widget="many2many_tags"/>
+                        <field name="tag_ids" widget="many2many_tags" colspan="2"/>
+                    </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description" placeholder="Description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_document_directory" model="ir.actions.act_window">
+        <field name="name">Document Directory</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">document.directory</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Record Found
+            </p>
+            <p>
+                Click to add a Directory.
+            </p>
+        </field>
+    </record>
+
+    <record id="view_document_structure_tree" model="ir.ui.view">
+        <field name="name">document.structure.tree</field>
+        <field name="model">document.directory</field>
+        <field name="field_parent">children_ids</field>
+        <field name="arch" type="xml">
+            <tree string="Directory Structure">
+                <field name="name"/>
+                <field name="res_model"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- yan.document.tag views -->
+    <record id="yan_document_tag_form" model="ir.ui.view">
+        <field name="name">yan.document.tag.form</field>
+        <field name="model">yan.document.tag</field>
+        <field name="arch" type="xml">
+            <form string="Document Tags">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="color" groups="base.group_no_one"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record> 
+
+    <record id="yan_document_tag_tree" model="ir.ui.view">
+        <field name="name">yan.document.tag.tree</field>
+        <field name="model">yan.document.tag</field>
+        <field name="arch" type="xml">
+            <tree string="Document Tags">
+                <field name="name"/>
+                <field name="color" groups="base.group_no_one"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_yan_document_tag" model="ir.actions.act_window">
+        <field name="name">Document Tags</field>
+        <field name="res_model">yan.document.tag</field>
+        <field name="view_id" ref="yan_document_tag_tree"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Click to define a new document tag.
+          </p><p>
+            Create specific tags that fit your company's activities
+            to better classify and analyse your documents.
+            Such categories could for instance reflect your document
+            structure or the different types of management you do.
+          </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    
+    <!-- Hospitalization -->
+    <menuitem id="main_menu_hospitalization" name="Inpatient care" sequence="26" groups="yan_hims_ipd.group_yan_hms_hospitalization_user" web_icon="yan_hims_ipd,static/src/img/icon.png"/>
+    <menuitem id="menu_hospitalization" name="Inpatient care" action="yan_action_form_inpatient" parent="main_menu_hospitalization"/>
+    <menuitem id="hims_health_surgery" name="Surgery" action="yan_hims_surgery.action_hms_surgery" parent="main_menu_hospitalization" groups="yan_hims_tasks.group_hms_nurse"/>
+    <menuitem id="menuitem_action_hos_bed" name="Beds" parent="main_menu_hospitalization" action="action_bed" groups="yan_hims_ipd.group_yan_hms_hospitalization_executive"/>
+    <menuitem id="menuitem_action_ward" name="Wards/Rooms" parent="main_menu_hospitalization" action="actions_ward" groups="yan_hims_ipd.group_yan_hms_hospitalization_executive"/>
+    <menuitem id="menuitem_action_death_register" name="Death Register" parent="main_menu_hospitalization" action="hms_action_death_register" groups="yan_hims_ipd.group_yan_hms_hospitalization_executive"/>
+
+    <!-- Configuration -->
+    <menuitem id="menu_hospitalization_cofig" name="Configuration" parent="main_menu_hospitalization" sequence="50" groups="yan_hims_ipd.group_yan_hms_hospitalization_manager"/>
+
+    <!-- Health Center -->
+    <menuitem id="health_center" name="Health Center" parent="menu_hospitalization_cofig" sequence="45"/>
+    <menuitem id="hos_building" name="Hospital Building" parent="health_center" action="act_open_hospital_building_view"/>
+    <menuitem id="hos_ot" name="Hospital Operation Theater" parent="health_center" action="act_open_yan_hospital_ot"/>
+
+    <!-- Checklists -->
+    <menuitem id="checklist_configuration" name="Checklists" parent="menu_hospitalization_cofig" sequence="50"/>
+    <menuitem id="conf_check_list12" name="Admission Checklist" parent="checklist_configuration" action="action_check_list_conf_view12" />
+    <menuitem id="conf_ward_check_list" name="Pre-Ward Checklist" parent="checklist_configuration" action="action_ward_check_list_conf_view" />
+
+    <!-- Surgery -->
+    <menuitem id="menu_surgery" name="Surgery" action="yan_hims_surgery.action_hms_surgery" parent="hims_health_surgery"/>
+    <menuitem id="menu_package" name="Package" action="yan_hims_surgery.yan_hms_package_action" parent="hims_health_surgery"/>
+    <menuitem id="surgery_configuration" name="Configuration" parent="hims_health_surgery" sequence="50"/>
+    <menuitem id="hims_health_surgery_template" name="Surgery Template" action="yan_hims_surgery.action_hms_surgery_template" parent="surgery_configuration" sequence="27" />
+    <menuitem id="conf_pre_operative_check_list" name="Pre-Operative Checklist" parent="surgery_configuration" action="yan_hims_surgery.action_check_list_conf_view"/>
+    <menuitem id="menu_yan_hms_anesthesia" name="Anesthesia" action="yan_hims_surgery.action_yan_hms_anesthesia" parent="surgery_configuration" sequence="35" />
+
+
+    <menuitem id="yan_care_plan_template" name="Care Plan Template" action="yan_hims_ipd.view_yan_care_plan_action" parent="menu_hospitalization_cofig" sequence="30" />
+
+</odoo>

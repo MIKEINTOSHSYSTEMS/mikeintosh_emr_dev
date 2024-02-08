@@ -1,0 +1,117 @@
+<?xml version="1.0" ?>
+<odoo>
+
+    <record id="hms_surgery_template_view" model="ir.ui.view">
+        <field name="name">Surgery Template</field>
+        <field name="model">hms.surgery.template</field>
+        <field name="arch" type="xml">
+            <form string="Surgery">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="surgery_name" required="1"/>
+                            <field name="diseases_id"/>
+                        </group>
+                        <group>
+                            <field name="surgery_product_id" domain="[('hospital_product_type','=','surgery')]" context="{'default_hospital_product_type':'surgery'}"/>
+                        </group>
+                    </group>
+                    <notebook groups="yan_hims_tasks.group_hms_nurse">
+                        <page name="surgery" string="Surgery">
+                            <group name="consumables" string="Consumables">
+                                <field name="consumable_line_ids" nolabel="1" colspan="2">
+                                    <tree string="Line" editable="top">
+                                        <field name="product_id" expand="1" required="1" context="{'default_hospital_product_type':'medicament'}"/>
+                                        <field name="product_uom_id" required="1" groups="uom.group_uom"/>
+                                        <field name="product_uom_category_id" invisible="1"/>
+                                        <field name="qty" required="1"/>
+                                        <field name="tracking" invisible="1"/>
+                                        <field name="price_unit" readonly="1"/>
+                                        <field name="subtotal" readonly="1" sum="Total" optional="show"/>
+                                        <field name="move_id" invisible="1"/>
+                                    </tree>
+                                </field>
+                            </group>
+                            <group name="medication_plan" string="Medication Plan">
+                                <field name="medicament_line_ids" nolabel="1" colspan="2" >
+                                <tree string="Line" editable="top">
+                                    <field name="product_id" expand="1" required="1"/>
+                                    <field name="active_component_ids" widget="many2many_tags"/>
+                                    <field name="form_id"/>
+                                    <field name="dose"/>
+                                    <field name="days"/>
+                                    <field name="medicine_uom_id" required="1" string="Dosage Unit"/>
+                                    <field name="common_dosage_id"/>
+                                    <field name="product_uom_category_id" invisible="1"/>
+                                    <field name="qty" required="1" string="Units"/>
+                                    <field name="instruction"/>
+                                </tree>
+                                </field>
+                            </group>
+                            <group string="Special Precautions"/>
+                                <field name="special_precautions" colspan='4'/>
+                            <group string="Extra Info"/>
+                            <field name="extra_info" colspan='4'/>
+                    
+                        </page>
+                        <page name="discharge_summary" string="Discharge Summary">
+                            <group string="Diagnosis"/>
+                                <field name="diagnosis" colspan="2"/>
+                            <group string="Clinincal History"/>
+                                <field name="clinincal_history" colspan="2"/>
+                            <group string="Examination"/>
+                                <field name="examination" colspan="2"/>
+                            <group string="Investigations"/>
+                                <field name="investigation" colspan="2"/>
+                            <group string="Advise on Discharge"/>
+                            <field name="adv_on_dis" colspan="2"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hms_surgery_template_tree" model="ir.ui.view">
+        <field name="name">Surgery Template</field>
+        <field name="model">hms.surgery.template</field>
+        <field name="arch" type="xml">
+            <tree string='Surgery'>
+                <field name="name"/>
+                <field name="surgery_name"/>
+                <field name="diseases_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hms_surgery_template_filter" model="ir.ui.view">
+        <field name="name">Surgery Filter</field>
+        <field name="model">hms.surgery.template</field>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <search string="Search Surgery Template">
+                <field name="name"/>
+                <field name="surgery_name"/>
+                <field name="surgery_product_id"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_disease" string="Disease" context="{'group_by':'diseases_id'}"/>
+                    <filter name="group_by_surgery_poduct" string="Surgery Product" context="{'group_by':'surgery_product_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_hms_surgery_template" model="ir.actions.act_window">
+        <field name="name">Surgery Template</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hms.surgery.template</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click to add a new Surgery Template.
+            </p>
+        </field>
+    </record>
+
+</odoo>

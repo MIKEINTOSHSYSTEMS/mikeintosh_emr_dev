@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Lab Test type -->
+    <record id="hms_test_view" model="ir.ui.view">
+        <field name="name">Laboratory Test</field>
+        <field name="model">yan.lab.test</field>
+        <field name="arch" type="xml">
+            <form string="Lab Tests">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    <group>
+                        <group>
+                            <field name="name" required="1"/>
+                            <field name="product_id" domain="[('type','=','service'), ('hospital_product_type', 'in', ['pathology'])]" context="{'default_detailed_type': 'service', 'default_hospital_product_type': 'pathology'}"/>
+                            <field name="list_price"/>
+                            <field name="sample_type_id"/>
+                        </group>
+                        <group>
+                            <field name="category_list_id"/>
+                            <field name="code"/>
+                            <field name="yan_tat"/>
+                            <field name="result_value_type"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page name="diagnosis" string="Diagnosis">
+                            <field name="critearea_ids" colspan="2" nolabel="1" widget="section_and_note_one2many" context="{'default_result_value_type': result_value_type}">
+                                <tree editable="bottom" string="Test Cases">
+                                    <control>
+                                        <create string="Add a line"/>
+                                        <create string="Add a section" context="{'default_display_type': 'line_section'}"/>
+                                    </control>
+                                    <field name="sequence" widget="handle"/> 
+                                    <field name="display_type" invisible="1"/>
+                                    <field name="name" required="1" widget="section_and_note"/>
+                                    <field name="normal_range_male" attrs="{ 'required': [('display_type', '=', False)]}"/>
+                                    <field name="normal_range_female" attrs="{ 'required': [('display_type', '=', False)]}"/>
+                                    <field name="lab_uom_id"/>
+                                    <field name="result_value_type"/>
+                                    <field name="remark"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="consumable_lines" string="Consumed Material">
+                            <field name="consumable_line_ids" nolabel="1" colspan="2">
+                                <tree string="Line" editable="top">
+                                    <field name="product_id" expand="1" required="1"/>
+                                    <field name="product_uom_id" required="1" groups="uom.group_uom"/>
+                                    <field name="product_uom_category_id" invisible="1"/>
+                                    <field name="qty" required="1"/>
+                                    <field name="tracking" invisible="1"/>
+                                    <field name="move_id" invisible="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page name="other_info" string="Other Information">
+                            <group>
+                                <group>
+                                    <field name="subsequent_test_ids" widget="many2many_tags"/>
+                                </group>
+                                <group>
+                                    <field name="yan_use_other_test_sample"/>
+                                    <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                                    <field name="active" invisible="1"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                    <field name="description" placeholder="Description"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="hms_test_tree" model="ir.ui.view">
+        <field name="name">Lab Tests</field>
+        <field name="model">yan.lab.test</field>
+        <field name="arch" type="xml">
+            <tree string="Lab Test">
+                <field name="category_list_id"/>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="list_price"/>
+                <field name="active" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hms_action_form_test" model="ir.actions.act_window">
+        <field name="name">Lab Tests</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">yan.lab.test</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No Record Found
+            </p>
+            <p>
+                Click to add new Lab Test.
+            </p>
+        </field>
+    </record>
+
+</odoo>

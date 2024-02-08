@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_document_directory_user,Directory User,yan_document_base.model_document_directory,yan_document_base.group_document_user,1,0,0,0
+access_document_directory_manager,Directory Manager,yan_document_base.model_document_directory,yan_document_base.group_document_manager,1,1,1,1
+access_yan_document_tag_user,access_yan_document_tag,model_yan_document_tag,yan_document_base.group_document_user,1,1,1,0
+access_yan_document_tag_manager,access_yan_document_tag,model_yan_document_tag,yan_document_base.group_document_manager,1,1,1,1

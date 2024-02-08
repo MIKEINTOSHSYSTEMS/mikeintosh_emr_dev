@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <!-- Patient -->
+    <record id="hms_patient_view_lab_test" model="ir.ui.view">
+        <field name="name">Patient Lab Test</field>
+        <field name="model">hms.patient</field>
+        <field name="inherit_id" ref="yan_hims_start.view_patient_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="action_lab_requests" class="oe_stat_button" icon="fa-th-list" type="object" title="Lab Requests" groups="yan_laboratory.group_hms_lab_user">
+                    <field string="Lab Requests" name="request_count" widget="statinfo"/>
+                </button>
+                <button name="action_view_lab_test_results" class="oe_stat_button" icon="fa-flask" type="object" title="Lab Test Results" groups="yan_laboratory.group_hms_lab_user">
+                    <field string="Lab Test Results" name="test_count" widget="statinfo"/>
+                </button>
+            </div>
+        </field>
+    </record>
+
+    <record id="view_physician_form" model="ir.ui.view">
+        <field name="name">physician.form</field>
+        <field name="model">hms.physician</field>
+        <field name="inherit_id" ref="yan_hims_start.view_physician_form"/>
+        <field name="arch" type="xml">
+            <div name="button_box" position="inside">
+                <button name="action_lab_request" type="object" groups="yan_laboratory.group_hms_lab_user" class="oe_stat_button" icon="fa-th-list">
+                    <field string="Lab Request" name="lab_request_count" widget="statinfo"/>
+                </button>
+
+                <button name="action_lab_result" type="object" groups="yan_laboratory.group_hms_lab_user" class="oe_stat_button" icon="fa-flask">
+                    <field string="Lab Result" name="lab_result_count" widget="statinfo"/>
+                </button>
+            </div>
+        </field>
+    </record>
+
+    <record id="view_move_form" model="ir.ui.view">
+        <field name="name">account.move.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="yan_hims_start.view_move_form"/>
+        <field name="arch" type="xml">
+            <field name="hospital_invoice_type" position="before">
+                <field name="request_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_user_collection_center" model="ir.ui.view">
+        <field name="name">User Form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <field name="tz_offset" position="after">
+                <field name="default_collection_center_id" string="Default Laboratory Collection Center" domain="[('is_collection_center','=',True)]" groups="yan_laboratory.group_hms_lab_user"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_users_form_simple_modif" model="ir.ui.view">
+        <field name="name">User Form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+        <field name="arch" type="xml">
+            <field name="tz_offset" position="after">
+                <field name="default_collection_center_id" string="Default Laboratory Collection Center" domain="[('is_collection_center','=',True)]" groups="yan_laboratory.group_hms_lab_user"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

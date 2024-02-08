@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Bed -->
+        <record id="hms_hospital_bed_0" model="hospital.bed">
+            <field name="name">ICU Bed-1</field>
+            <field name="ward_id" ref="yan_hims_ipd.hms_hospital_ward_icu"/>
+            <field name="product_id" ref="yan_hims_ipd.hms_hospital_bed_product_0"/>
+            <field name="bed_type">electric</field>
+        </record>
+
+        <record id="hms_hospital_bed_2" model="hospital.bed">
+            <field name="name">ICU Bed-2</field>
+            <field name="ward_id" ref="yan_hims_ipd.hms_hospital_ward_icu"/>
+            <field name="product_id" ref="yan_hims_ipd.hms_hospital_bed_product_0"/>
+            <field name="bed_type">electric</field>
+        </record>
+
+        <record id="hms_hospital_bed_3" model="hospital.bed">
+            <field name="name">General Bed-1</field>
+            <field name="ward_id" ref="yan_hims_ipd.hms_hospital_ward_general"/>
+            <field name="product_id" ref="yan_hims_ipd.hms_hospital_bed_product_1"/>
+            <field name="bed_type">gatch</field>
+        </record>
+
+        <record id="hms_hospital_bed_4" model="hospital.bed">
+            <field name="name">General Bed-2</field>
+            <field name="ward_id" ref="yan_hims_ipd.hms_hospital_ward_general"/>
+            <field name="product_id" ref="yan_hims_ipd.hms_hospital_bed_product_1"/>
+            <field name="bed_type">gatch</field>
+        </record>
+
+        <record id="hms_hospital_bed_5" model="hospital.bed">
+            <field name="name">General Bed-3</field>
+            <field name="ward_id" ref="yan_hims_ipd.hms_hospital_ward_general"/>
+            <field name="product_id" ref="yan_hims_ipd.hms_hospital_bed_product_1"/>
+            <field name="bed_type">gatch</field>
+        </record>
+
+        <record id="hms_hospital_bed_6" model="hospital.bed">
+            <field name="name">General Bed-4</field>
+            <field name="ward_id" ref="yan_hims_ipd.hms_hospital_ward_general"/>
+            <field name="product_id" ref="yan_hims_ipd.hms_hospital_bed_product_1"/>
+            <field name="bed_type">gatch</field>
+        </record>
+
+        <record id="hms_hospital_bed_7" model="hospital.bed">
+            <field name="name">Semi-Special Bed-1</field>
+            <field name="ward_id" ref="yan_hims_ipd.hms_hospital_ward_semi_special"/>
+            <field name="product_id" ref="yan_hims_ipd.hms_hospital_bed_product_2"/>
+            <field name="bed_type">low_air_loss</field>
+        </record>
+
+        <record id="hms_hospital_bed_8" model="hospital.bed">
+            <field name="name">Semi-Special Bed-2</field>
+            <field name="ward_id" ref="yan_hims_ipd.hms_hospital_ward_semi_special"/>
+            <field name="product_id" ref="yan_hims_ipd.hms_hospital_bed_product_2"/>
+            <field name="bed_type">low_air_loss</field>
+        </record>
+
+        <record id="hms_hospital_bed_9" model="hospital.bed">
+            <field name="name">Deluxe Bed-1</field>
+            <field name="ward_id" ref="yan_hims_ipd.hms_hospital_ward_dulexe"/>
+            <field name="product_id" ref="yan_hims_ipd.hms_hospital_bed_product_3"/>
+            <field name="bed_type">circo_electric</field>
+        </record>
+
+        <record id="hms_hospital_bed_10" model="hospital.bed">
+            <field name="name">Super Deluxe Bed-1</field>
+            <field name="ward_id" ref="yan_hims_ipd.hms_hospital_ward_super_deluxe"/>
+            <field name="product_id" ref="yan_hims_ipd.hms_hospital_bed_product_3"/>
+            <field name="bed_type">circo_electric</field>
+        </record>
+
+        <record id="hms_hospital_bed_11" model="hospital.bed">
+            <field name="name">Suite Bed-1</field>
+            <field name="ward_id" ref="yan_hims_ipd.hms_hospital_ward_suite"/>
+            <field name="product_id" ref="yan_hims_ipd.hms_hospital_bed_product_4"/>
+            <field name="bed_type">clinitron</field>
+        </record>
+        
+    </data>
+</odoo>

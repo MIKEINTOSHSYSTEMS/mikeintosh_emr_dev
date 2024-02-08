@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Main Menu -->
+    <menuitem id="menu_yan_ambulance_root" name="Ambulance" sequence="70" groups="yan_hims_ambulance.group_ambulance_service_user" web_icon="yan_hims_ambulance,static/src/img/icon.png"/>
+
+    <menuitem id="menu_yan_ambulance_service" groups="yan_hims_ambulance.group_ambulance_service_user" name="Ambulance Service" sequence="10" parent="menu_yan_ambulance_root" action="action_yan_ambulance_service"/>
+
+    <menuitem id="menu_yan_ambulance_configuration" name="Configuration" sequence="100" parent="menu_yan_ambulance_root" groups="yan_hims_start.group_hms_manager"/>
+
+    <menuitem id="menu_yan_ambulance_vehicles" name="Vehicles" sequence="10" parent="menu_yan_ambulance_configuration" action="fleet.fleet_vehicle_action"/>
+
+    <menuitem id="menu_yan_ambulance_driver" name="Drivers" sequence="20" parent="menu_yan_ambulance_configuration" action="action_partner_driver"/>
+
+</odoo>
