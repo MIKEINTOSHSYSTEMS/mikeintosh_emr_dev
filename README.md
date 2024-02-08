@@ -23,7 +23,7 @@ docker-compose up
 ### Hosted
 
 ```shell
-git clone -b 16.0 git@github.com:iterativo-git/mikeintosh_emr_dev.git && cd mikeintosh_emr_dev
+git clone -b 16.0 git@github.com:MIKEINTOSHSYSTEMS/mikeintosh_emr_dev.git && cd mikeintosh_emr_dev
 git clone --depth=1 -b 16.0 git@github.com:odoo/odoo.git src/odoo
 docker-compose -f docker-compose.yml -f hosted.yml
 ```
@@ -33,14 +33,14 @@ docker-compose -f docker-compose.yml -f hosted.yml
 #### Standalone development
 
 ```shell
-git clone -b 16.0 git@github.com:iterativo-git/mikeintosh_emr_dev.git && cd mikeintosh_emr_dev
+git clone -b 16.0 git@github.com:MIKEINTOSHSYSTEMS/mikeintosh_emr_dev.git && cd mikeintosh_emr_dev
 docker-compose -f docker-compose.yml -f dev-standalone.yml up
 ```
 
 #### Hosted development
 
 ```shell
-git clone -b 16.0 git@github.com:iterativo-git/mikeintosh_emr_dev.git && cd mikeintosh_emr_dev
+git clone -b 16.0 git@github.com:MIKEINTOSHSYSTEMS/mikeintosh_emr_dev.git && cd mikeintosh_emr_dev
 git clone --depth=1 -b 16.0 git@github.com:odoo/odoo.git src/odoo
 docker-compose -f docker-compose.yml -f dev-hosted.yml up
 ```
@@ -51,7 +51,7 @@ To use this docker compose file you should comply with this requirements:
 
 * Install [Docker Desktop](https://www.docker.com/products/docker-desktop) for Windows/Mac or [Docker Engine](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce) for Linux  
 * Install [docker-compose](https://docs.docker.com/compose/install/) (This is installed by default on Windows and Mac with Docker installation)
-* clone this repository `git@github.com:iterativo-git/mikeintosh_emr_dev.git`
+* clone this repository `git@github.com:MIKEINTOSHSYSTEMS/mikeintosh_emr_dev.git`
 
 ## Running options
 
